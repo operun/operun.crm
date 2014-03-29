@@ -1,0 +1,16 @@
+# python generated files
+*.py[co]
+
+# ingore egg directories
+*.egg
+
+# ignore egg info directory
+*.egg-info
+
+# eclipse and pydev project files
+.project
+.pydevproject
+*.prefs
+
+# translations
+*.mo

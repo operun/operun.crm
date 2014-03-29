@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="operun.crm">
+
+   <!-- Include configuration for dependencies listed in setup.py -->
+  <includeDependencies package="." />
+
+  <include package="plone.app.relationfield" />
+ 
+  <i18n:registerTranslations directory="locales" />
+  
+  <include package=".browser" />
+  
+  <genericsetup:registerProfile
+      name="default"
+      title="operun CRM"
+      directory="profiles/default"
+      description="Extension profile for operun CRM"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!--
+  <genericsetup:importStep
+      name="operun.crm.various"
+      title="operun CRM Package: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="operun.crm.setuphandlers.setupVarious">
+    <depends name="skins"/>
+  </genericsetup:importStep>
+  -->
+  
+</configure>

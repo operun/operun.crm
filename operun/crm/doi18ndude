@@ -1,0 +1,22 @@
+#! /bin/sh
+#
+case "$1" in
+  rebuild)
+	echo "Rebuilding po files" >&2
+  	../../../../bin/i18ndude rebuild-pot --exclude rss.pt --pot locales/operun.crm.pot --create operun.crm .
+	;;
+  sync)
+	echo "Syncing po files" >&2
+	../../../../bin/i18ndude sync --pot locales/operun.crm.pot locales/*/LC_MESSAGES/operun.crm.po
+	;;
+  all)
+	echo "Rebuilding po files" >&2
+  	../../../../bin/i18ndude rebuild-pot --exclude rss.pt --pot locales/operun.crm.pot --create operun.crm .
+	echo "Syncing po files" >&2
+	../../../../bin/i18ndude sync --pot locales/operun.crm.pot locales/*/LC_MESSAGES/operun.crm.po
+	;;
+  *)
+	echo "Usage: $0 rebuild|sync|all" >&2
+	exit 3
+	;;
+esac
