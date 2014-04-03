@@ -9,7 +9,7 @@
     i18n:translate="">An Account in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/account-16.png</property>
   <property name="factory">operun.crm.account</property>
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types" />
   <property name="allow_discussion">False</property>

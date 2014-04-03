@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-29 16:02+0000\n"
+"POT-Creation-Date: 2014-04-03 15:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,151 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: operun.crm\n"
 
-#: ./profiles/default/types/operun.crm.content.account.xml
+#: ./profiles/default/types/operun.crm.contact.xml
+msgid "A Contact in the operun CRM"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.todos.xml
+msgid "A Folder for todos in the operun CRM"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.contacts.xml
+msgid "A Folder to contain contacts in the operun CRM"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.todo.xml
+msgid "A Todo in the operun CRM"
+msgstr ""
+
+#: ./contact.py:40
+#: ./profiles/default/types/operun.crm.account.xml
 msgid "Account"
 msgstr ""
 
-#: ./profiles/default/types/operun.crm.content.account.xml
+#: ./account.py:29
+msgid "Account Type"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.accounts.xml
+msgid "Accounts"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.account.xml
 msgid "An Account in the operun CRM"
 msgstr ""
 
-#: ./content/account.py:28
-msgid "Log"
+#: ./profiles/default/types/operun.crm.accounts.xml
+msgid "An Folder for accounts in the operun CRM"
 msgstr ""
 
-#: ./content/account.py:33
+#: ./account.py:55
+msgid "Billing Address"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.contact.xml
+#: ./profiles/default/types/operun.crm.contacts.xml
+msgid "Contact"
+msgstr ""
+
+#: ./contact.py:32
+msgid "Contact Type"
+msgstr ""
+
+#: ./config.py:7
+msgid "Customer"
+msgstr ""
+
+#: ./contact.py:68
+msgid "E-Mail"
+msgstr ""
+
+#: ./account.py:45
+msgid "Fax"
+msgstr ""
+
+#: ./contact.py:53
+msgid "Mobile"
+msgstr ""
+
+#: ./account.py:35
+#: ./contact.py:75
+msgid "Notes"
+msgstr ""
+
+#: ./contact.py:63
+msgid "Office Fax"
+msgstr ""
+
+#: ./contact.py:58
+msgid "Office Phone"
+msgstr ""
+
+#: ./account.py:40
+#: ./contact.py:48
 msgid "Phone"
+msgstr ""
+
+#: ./account.py:60
+msgid "Postal Address"
+msgstr ""
+
+#: ./config.py:9
+msgid "Prospect"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.todo.xml
+msgid "Todo"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.todos.xml
+msgid "Todos"
+msgstr ""
+
+#: ./config.py:8
+msgid "Vendor"
+msgstr ""
+
+#: ./account.py:50
+msgid "Website"
+msgstr ""
+
+#. Default: "Contacts"
+#: ./browser/templates/account.pt:14
+msgid "contacts"
+msgstr ""
+
+#. Default: "Account Type"
+#: ./browser/templates/account.pt:19
+msgid "label_account_type"
+msgstr ""
+
+#. Default: "Billing Address"
+#: ./browser/templates/account.pt:39
+msgid "label_billing_address"
+msgstr ""
+
+#. Default: "Office Fax"
+#: ./browser/templates/account.pt:29
+msgid "label_fax"
+msgstr ""
+
+#. Default: "Notes"
+#: ./browser/templates/account.pt:49
+msgid "label_notes"
+msgstr ""
+
+#. Default: "Office Phone"
+#: ./browser/templates/account.pt:24
+msgid "label_phone"
+msgstr ""
+
+#. Default: "Postal Address"
+#: ./browser/templates/account.pt:44
+msgid "label_postal_address"
+msgstr ""
+
+#. Default: "Website"
+#: ./browser/templates/account.pt:34
+msgid "label_website"
 msgstr ""
 
