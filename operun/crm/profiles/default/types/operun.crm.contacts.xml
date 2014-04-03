@@ -4,7 +4,7 @@
    i18n:domain="operun.crm" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Contact</property>
+  <property name="title" i18n:translate="">Contacts</property>
   <property name="description"
     i18n:translate="">A Folder to contain contacts in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/contacts-16.png</property>
