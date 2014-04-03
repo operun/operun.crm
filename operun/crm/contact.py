@@ -30,6 +30,17 @@ class IContact(model.Schema):
 
     # description maybe faded out 
 
+    firstname = schema.TextLine(
+            title=_(u"Firstname"),
+            required=False,
+        )
+
+
+    lastname = schema.TextLine(
+            title=_(u"Lastname"),
+            required=False,
+        )
+
     type = schema.Choice(
             title=_(u"Contact Type"),
             vocabulary=ACCOUNT_TYPES,
@@ -56,15 +67,9 @@ class IContact(model.Schema):
             required=False,
         )
 
-    office_phone = schema.TextLine(
-            title=_(u"Office Phone"),
-            required=False,
-        )
-
-    office_fax = schema.TextLine(
-            title=_(u"Office Fax"),
-            required=False,
-        )
+    # office phone from account
+    
+    # office fax from account
 
     email = schema.TextLine(
             title=_(u"E-Mail"),
