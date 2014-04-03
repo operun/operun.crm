@@ -49,6 +49,12 @@ class IAccount(model.Schema):
             title=_(u"Please upload an image"),
             required=False,
         )
+
+    active = schema.Bool(
+            title=_(u"Active Account"),
+            required=False,
+            default=True,
+        )
         
     phone = schema.TextLine(
             title=_(u"Phone"),

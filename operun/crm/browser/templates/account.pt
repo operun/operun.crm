@@ -20,6 +20,11 @@
 			<span tal:replace="context/type" />
 		</div>
 
+		<div class="active" tal:condition="context/active">
+			<h3 i18n:translate="label_account_active">Account Activity</h3>
+			<span tal:replace="context/active" />
+		</div>
+
 		<div class="phone" tal:condition="context/phone">
 			<h3 i18n:translate="label_phone">Office Phone</h3>
 			<span tal:replace="context/phone" />
