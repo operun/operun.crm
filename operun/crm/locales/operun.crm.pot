@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-03 17:43+0000\n"
+"POT-Creation-Date: 2014-04-03 17:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,10 @@ msgstr ""
 msgid "Accounts"
 msgstr ""
 
+#: ./account.py:54
+msgid "Active Account"
+msgstr ""
+
 #: ./profiles/default/types/operun.crm.account.xml
 msgid "An Account in the operun CRM"
 msgstr ""
@@ -66,11 +70,11 @@ msgstr ""
 msgid "An Folder for files in the operun CRM"
 msgstr ""
 
-#: ./account.py:69
+#: ./account.py:75
 msgid "Billing Address"
 msgstr ""
 
-#: ./account.py:74
+#: ./account.py:80
 msgid "Billing E-Mail"
 msgstr ""
 
@@ -91,7 +95,7 @@ msgstr ""
 msgid "E-Mail"
 msgstr ""
 
-#: ./account.py:59
+#: ./account.py:65
 msgid "Fax"
 msgstr ""
 
@@ -105,7 +109,7 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
-#: ./account.py:97
+#: ./account.py:103
 msgid "Invoices"
 msgstr ""
 
@@ -123,7 +127,7 @@ msgstr ""
 msgid "Offer"
 msgstr ""
 
-#: ./account.py:91
+#: ./account.py:97
 msgid "Offers"
 msgstr ""
 
@@ -135,7 +139,7 @@ msgstr ""
 msgid "Office Phone"
 msgstr ""
 
-#: ./account.py:54
+#: ./account.py:60
 #: ./contact.py:48
 msgid "Phone"
 msgstr ""
@@ -152,7 +156,7 @@ msgstr ""
 msgid "Please upload an image"
 msgstr ""
 
-#: ./account.py:79
+#: ./account.py:85
 msgid "Postal Address"
 msgstr ""
 
@@ -172,7 +176,7 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: ./account.py:64
+#: ./account.py:70
 msgid "Website"
 msgstr ""
 
@@ -181,43 +185,48 @@ msgstr ""
 msgid "contacts"
 msgstr ""
 
+#. Default: "Account Activity"
+#: ./browser/templates/account.pt:24
+msgid "label_account_active"
+msgstr ""
+
 #. Default: "Account Type"
 #: ./browser/templates/account.pt:19
 msgid "label_account_type"
 msgstr ""
 
 #. Default: "Billing Address"
-#: ./browser/templates/account.pt:39
+#: ./browser/templates/account.pt:44
 msgid "label_billing_address"
 msgstr ""
 
 #. Default: "Billing E-Mail"
-#: ./browser/templates/account.pt:44
+#: ./browser/templates/account.pt:49
 msgid "label_billing_email"
 msgstr ""
 
 #. Default: "Office Fax"
-#: ./browser/templates/account.pt:29
+#: ./browser/templates/account.pt:34
 msgid "label_fax"
 msgstr ""
 
 #. Default: "Notes"
-#: ./browser/templates/account.pt:54
+#: ./browser/templates/account.pt:59
 msgid "label_notes"
 msgstr ""
 
 #. Default: "Office Phone"
-#: ./browser/templates/account.pt:24
+#: ./browser/templates/account.pt:29
 msgid "label_phone"
 msgstr ""
 
 #. Default: "Postal Address"
-#: ./browser/templates/account.pt:49
+#: ./browser/templates/account.pt:54
 msgid "label_postal_address"
 msgstr ""
 
 #. Default: "Website"
-#: ./browser/templates/account.pt:34
+#: ./browser/templates/account.pt:39
 msgid "label_website"
 msgstr ""
 

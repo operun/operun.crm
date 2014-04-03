@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-03 17:43+0000\n"
+"POT-Creation-Date: 2014-04-03 17:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,10 @@ msgstr "Art der Beziehung"
 msgid "Accounts"
 msgstr "Accounts"
 
+#: ./account.py:54
+msgid "Active Account"
+msgstr "Status der Kundenbeziehung"
+
 #: ./profiles/default/types/operun.crm.account.xml
 msgid "An Account in the operun CRM"
 msgstr "Ein Account im operun CRM"
@@ -63,11 +67,11 @@ msgstr "Ein Ordner für Accounts im operun CRM"
 msgid "An Folder for files in the operun CRM"
 msgstr "Ein Ordner für Dateien im operun CRM"
 
-#: ./account.py:69
+#: ./account.py:75
 msgid "Billing Address"
 msgstr "Rechnungsadresse"
 
-#: ./account.py:74
+#: ./account.py:80
 msgid "Billing E-Mail"
 msgstr "E-Mail-Rechnungsadresse"
 
@@ -88,7 +92,7 @@ msgstr "Kunde"
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: ./account.py:59
+#: ./account.py:65
 msgid "Fax"
 msgstr "Fax"
 
@@ -102,7 +106,7 @@ msgstr "Dateien"
 msgid "Invoice"
 msgstr "Rechnung"
 
-#: ./account.py:97
+#: ./account.py:103
 msgid "Invoices"
 msgstr "Rechnungen"
 
@@ -120,7 +124,7 @@ msgstr "Notizen"
 msgid "Offer"
 msgstr "Angebot"
 
-#: ./account.py:91
+#: ./account.py:97
 msgid "Offers"
 msgstr "Angebote"
 
@@ -132,7 +136,7 @@ msgstr "Büro Fax"
 msgid "Office Phone"
 msgstr "Büro Telefon"
 
-#: ./account.py:54
+#: ./account.py:60
 #: ./contact.py:48
 msgid "Phone"
 msgstr "Telefon"
@@ -149,7 +153,7 @@ msgstr "Bitte laden Sie ein Angebot hoch"
 msgid "Please upload an image"
 msgstr "Bitte laden Sie ein Bild hoch"
 
-#: ./account.py:79
+#: ./account.py:85
 msgid "Postal Address"
 msgstr "Postadresse"
 
@@ -169,7 +173,7 @@ msgstr "Todos"
 msgid "Vendor"
 msgstr "Anbieter"
 
-#: ./account.py:64
+#: ./account.py:70
 msgid "Website"
 msgstr "Website"
 
@@ -178,43 +182,48 @@ msgstr "Website"
 msgid "contacts"
 msgstr "Kontakte"
 
+#. Default: "Account Activity"
+#: ./browser/templates/account.pt:24
+msgid "label_account_active"
+msgstr "Status der Kundenbeziehung"
+
 #. Default: "Account Type"
 #: ./browser/templates/account.pt:19
 msgid "label_account_type"
 msgstr "Art der Beziehung"
 
 #. Default: "Billing Address"
-#: ./browser/templates/account.pt:39
+#: ./browser/templates/account.pt:44
 msgid "label_billing_address"
 msgstr "Rechnungsadresse"
 
 #. Default: "Billing E-Mail"
-#: ./browser/templates/account.pt:44
+#: ./browser/templates/account.pt:49
 msgid "label_billing_email"
 msgstr "E-Mail-Rechnungsadresse"
 
 #. Default: "Office Fax"
-#: ./browser/templates/account.pt:29
+#: ./browser/templates/account.pt:34
 msgid "label_fax"
 msgstr "Büro Fax"
 
 #. Default: "Notes"
-#: ./browser/templates/account.pt:54
+#: ./browser/templates/account.pt:59
 msgid "label_notes"
 msgstr "Notizen"
 
 #. Default: "Office Phone"
-#: ./browser/templates/account.pt:24
+#: ./browser/templates/account.pt:29
 msgid "label_phone"
 msgstr "Büro Telefon"
 
 #. Default: "Postal Address"
-#: ./browser/templates/account.pt:49
+#: ./browser/templates/account.pt:54
 msgid "label_postal_address"
 msgstr "Postadresse"
 
 #. Default: "Website"
-#: ./browser/templates/account.pt:34
+#: ./browser/templates/account.pt:39
 msgid "label_website"
 msgstr "Website"
 
