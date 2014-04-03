@@ -16,9 +16,7 @@
 
   <!-- schema and class used for content items -->
   <property name="schema">operun.crm.todo.ITodo</property>
-  <property name="klass">plone.dexterity.content.Item</property>
-  <!-- we dont use a custom class by default -->
-  <!-- <property name="klass">operun.crm.content.account.Account</property> -->
+  <property name="klass">operun.crm.todo.Todo</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />

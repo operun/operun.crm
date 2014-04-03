@@ -12,6 +12,7 @@
       directory="images"
       />
 
+  <!--
   <browser:page
       name="view"
       for="operun.crm.account.IAccount"
@@ -20,5 +21,6 @@
       menu="plone_displayviews"
       title="View Account"
       />
+      -->
  
 </configure>

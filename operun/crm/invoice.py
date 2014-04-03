@@ -2,6 +2,8 @@ from plone.directives import form
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.supermodel import model
 
+from plone.dexterity.content import Item, Container
+
 from operun.crm import MessageFactory as _
 
 
@@ -14,3 +16,8 @@ class IInvoice(model.Schema):
         description=_(u"Please upload a invoice"),
         required=False,
         )
+
+
+class Invoice(Item):
+    """ Invoice class
+    """

@@ -1,4 +1,5 @@
 from plone.directives import form
+from plone.dexterity.content import Item, Container
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedImage, NamedFile
@@ -29,16 +30,16 @@ class IAccount(model.Schema):
     """ Account Content Type
     """
 
+    form.fieldset('address',
+            label=_(u"Address"),
+            fields=['address', 'invoice', 'zip', 'city', ]
+        )
+
     form.fieldset('notes',
             label=_(u"Notes"),
             fields=['text',]
         )
 
-    form.fieldset('files',
-            label=_(u"Files"),
-            fields=['invoices', 'offers',]
-        )
-    
     type = schema.Choice(
             title=_(u"Account Type"),
             vocabulary=ACCOUNT_TYPES,
@@ -46,15 +47,16 @@ class IAccount(model.Schema):
         )
     
     logo = NamedBlobImage(
-            title=_(u"Please upload an image"),
+            title=_(u"Company Logo"),
+            description=_(u"Please upload an image"),
             required=False,
         )
 
-    active = schema.Bool(
-            title=_(u"Active Account"),
-            required=False,
-            default=True,
-        )
+    #active = schema.Bool(
+    #        title=_(u"Active Account"),
+    #        required=False,
+    #        default=True,
+    #    )
         
     phone = schema.TextLine(
             title=_(u"Phone"),
@@ -70,22 +72,28 @@ class IAccount(model.Schema):
             title=_(u"Website"),
             required=False,
         )
+    
 
-    billing_address = schema.Text(
-            title=_(u"Billing Address"),
+    address = schema.TextLine(
+            title=_(u"Address"),
             required=False,
         )
 
-    billing_email = schema.Text(
-            title=_(u"Billing E-Mail"),
+    invoice = schema.TextLine(
+            title=_(u"Invoice Contact"),
             required=False,
         )
     
-    postal_address = schema.Text(
-            title=_(u"Postal Address"),
+    zip = schema.TextLine(
+            title=_(u"ZIP"),
             required=False,
         )
-    
+
+    city = schema.TextLine(
+            title=_(u"City"),
+            required=False,
+        )
+
     # related contacts
 
     text = RichText(
@@ -93,16 +101,7 @@ class IAccount(model.Schema):
             required=False,
         )
 
-    offers = RelationChoice(
-        title=_(u"Offers"),
-        source=ObjPathSourceBinder(object_provides=IOffer.__identifier__),
-        required=False,
-    )
 
-    invoices = RelationChoice(
-        title=_(u"Invoices"),
-        source=ObjPathSourceBinder(object_provides=IInvoice.__identifier__),
-        required=False,
-    )
-
-
+class Account(Container):
+    """ Account class
+    """

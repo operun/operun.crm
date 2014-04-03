@@ -4,7 +4,6 @@
   <object name="operun.crm.accounts" meta_type="Dexterity FTI" />
   <object name="operun.crm.contact" meta_type="Dexterity FTI" />
   <object name="operun.crm.contacts" meta_type="Dexterity FTI" />
-  <object name="operun.crm.files" meta_type="Dexterity FTI" />
   <object name="operun.crm.invoice" meta_type="Dexterity FTI" />
   <object name="operun.crm.offer" meta_type="Dexterity FTI" />
   <object name="operun.crm.todo" meta_type="Dexterity FTI" />
