@@ -40,6 +40,11 @@
 			<pre tal:content="structure context/billing_address"></pre>
 		</div>
 
+		<div class="billing-email" tal:condition="context/billing_email">
+			<h3 i18n:translate="label_billing_email">Billing E-Mail</h3>
+			<pre tal:content="structure context/billing_email"></pre>
+		</div>
+
 		<div class="postal-address" tal:condition="context/postal_address">
 			<h3 i18n:translate="label_postal_address">Postal Address</h3>
 			<pre tal:content="structure context/postal_address"></pre>

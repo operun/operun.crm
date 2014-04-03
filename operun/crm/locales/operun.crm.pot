@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-03 15:45+0000\n"
+"POT-Creation-Date: 2014-04-03 17:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,14 @@ msgstr ""
 msgid "A Folder to contain contacts in the operun CRM"
 msgstr ""
 
+#: ./profiles/default/types/operun.crm.invoice.xml
+msgid "A Invoice in the operun CRM"
+msgstr ""
+
+#: ./profiles/default/types/operun.crm.offer.xml
+msgid "A Offer in the operun CRM"
+msgstr ""
+
 #: ./profiles/default/types/operun.crm.todo.xml
 msgid "A Todo in the operun CRM"
 msgstr ""
@@ -38,7 +46,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: ./account.py:29
+#: ./account.py:43
 msgid "Account Type"
 msgstr ""
 
@@ -54,8 +62,16 @@ msgstr ""
 msgid "An Folder for accounts in the operun CRM"
 msgstr ""
 
-#: ./account.py:55
+#: ./profiles/default/types/operun.crm.files.xml
+msgid "An Folder for files in the operun CRM"
+msgstr ""
+
+#: ./account.py:69
 msgid "Billing Address"
+msgstr ""
+
+#: ./account.py:74
+msgid "Billing E-Mail"
 msgstr ""
 
 #: ./profiles/default/types/operun.crm.contact.xml
@@ -75,17 +91,40 @@ msgstr ""
 msgid "E-Mail"
 msgstr ""
 
-#: ./account.py:45
+#: ./account.py:59
 msgid "Fax"
+msgstr ""
+
+#: ./account.py:38
+#: ./profiles/default/types/operun.crm.files.xml
+msgid "Files"
+msgstr ""
+
+#: ./invoice.py:13
+#: ./profiles/default/types/operun.crm.invoice.xml
+msgid "Invoice"
+msgstr ""
+
+#: ./account.py:97
+msgid "Invoices"
 msgstr ""
 
 #: ./contact.py:53
 msgid "Mobile"
 msgstr ""
 
-#: ./account.py:35
+#: ./account.py:33
 #: ./contact.py:75
 msgid "Notes"
+msgstr ""
+
+#: ./offer.py:13
+#: ./profiles/default/types/operun.crm.offer.xml
+msgid "Offer"
+msgstr ""
+
+#: ./account.py:91
+msgid "Offers"
 msgstr ""
 
 #: ./contact.py:63
@@ -96,12 +135,24 @@ msgstr ""
 msgid "Office Phone"
 msgstr ""
 
-#: ./account.py:40
+#: ./account.py:54
 #: ./contact.py:48
 msgid "Phone"
 msgstr ""
 
-#: ./account.py:60
+#: ./invoice.py:14
+msgid "Please upload a invoice"
+msgstr ""
+
+#: ./offer.py:14
+msgid "Please upload a offer"
+msgstr ""
+
+#: ./account.py:49
+msgid "Please upload an image"
+msgstr ""
+
+#: ./account.py:79
 msgid "Postal Address"
 msgstr ""
 
@@ -121,7 +172,7 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: ./account.py:50
+#: ./account.py:64
 msgid "Website"
 msgstr ""
 
@@ -140,13 +191,18 @@ msgstr ""
 msgid "label_billing_address"
 msgstr ""
 
+#. Default: "Billing E-Mail"
+#: ./browser/templates/account.pt:44
+msgid "label_billing_email"
+msgstr ""
+
 #. Default: "Office Fax"
 #: ./browser/templates/account.pt:29
 msgid "label_fax"
 msgstr ""
 
 #. Default: "Notes"
-#: ./browser/templates/account.pt:49
+#: ./browser/templates/account.pt:54
 msgid "label_notes"
 msgstr ""
 
@@ -156,7 +212,7 @@ msgid "label_phone"
 msgstr ""
 
 #. Default: "Postal Address"
-#: ./browser/templates/account.pt:44
+#: ./browser/templates/account.pt:49
 msgid "label_postal_address"
 msgstr ""
 

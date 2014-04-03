@@ -28,7 +28,9 @@ setup(name='operun.crm',
           'setuptools',
           'plone.app.dexterity [relations]',
           'plone.app.relationfield',
+          'plone.directives.form',
           'plone.namedfile [blobs]',
+          'plone.formwidget.namedfile',
       ],
       entry_points="""
       # -*- Entry points: -*-
