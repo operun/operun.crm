@@ -6,7 +6,7 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Files</property>
   <property name="description"
-    i18n:translate="">An Folder for files in the operun CRM</property>
+    i18n:translate="">A Folder for files in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/files-16.png</property>
   <property name="factory">operun.crm.files</property>
   <property name="global_allow">True</property>
