@@ -34,12 +34,6 @@ class IAccount(model.Schema):
         required=False,
     )
 
-    # active = schema.Bool(
-    #        title=_(u"Active Account"),
-    #        required=False,
-    #        default=True,
-    #    )
-
     phone = schema.TextLine(
         title=_(u"Phone"),
         required=False,
@@ -75,7 +69,7 @@ class IAccount(model.Schema):
         required=False,
     )
 
-    # related contacts
+    # Related Contacts
 
     text = RichText(
         title=_(u"Notes"),

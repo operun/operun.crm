@@ -13,10 +13,6 @@ class IContact(model.Schema):
     """ Contact Content Type
     """
 
-    # full name stored in title
-
-    # description maybe faded out
-
     firstname = schema.TextLine(
         title=_(u"Firstname"),
         required=False,
@@ -33,7 +29,7 @@ class IContact(model.Schema):
         required=True,
     )
 
-    # job title works like keywords
+    # Job Title
 
     account = RelationChoice(
         title=_(u"Account"),
@@ -41,7 +37,7 @@ class IContact(model.Schema):
         required=False,
     )
 
-    # department e.g. public relations
+    # Department
 
     phone = schema.TextLine(
         title=_(u"Phone"),
@@ -53,16 +49,10 @@ class IContact(model.Schema):
         required=False,
     )
 
-    # office phone from account
-
-    # office fax from account
-
     email = schema.TextLine(
         title=_(u"E-Mail"),
         required=False,
     )
-
-    # address if other than account
 
     notes = RichText(
         title=_(u"Notes"),
