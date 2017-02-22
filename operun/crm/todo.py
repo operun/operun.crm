@@ -3,10 +3,12 @@ from plone.supermodel import model
 
 
 class ITodo(model.Schema):
-    """ Todo Content Type
+    """
+    Todo Content Type
     """
 
 
 class Todo(Item):
-    """ Todo class
+    """
+    Todo class
     """

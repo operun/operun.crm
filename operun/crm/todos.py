@@ -3,10 +3,12 @@ from plone.supermodel import model
 
 
 class ITodos(model.Schema):
-    """ Todos Content Type
+    """
+    Todos Content Type
     """
 
 
 class Todos(Container):
-    """ Todos class
+    """
+    Todos class
     """

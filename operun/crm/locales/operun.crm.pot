@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-03 22:56+0000\n"
+"POT-Creation-Date: 2017-02-22 14:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,12 +41,12 @@ msgstr ""
 msgid "A Todo in the operun CRM"
 msgstr ""
 
-#: ./contact.py:53
+#: ./contact.py:35
 #: ./profiles/default/types/operun.crm.account.xml
 msgid "Account"
 msgstr ""
 
-#: ./account.py:44
+#: ./account.py:26
 msgid "Account Type"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Accounts"
 msgstr ""
 
-#: ./account.py:34
+#: ./account.py:16
 msgid "Address"
 msgstr ""
 
@@ -70,11 +70,11 @@ msgstr ""
 msgid "An Folder for files in the operun CRM"
 msgstr ""
 
-#: ./account.py:93
+#: ./account.py:68
 msgid "City"
 msgstr ""
 
-#: ./account.py:50
+#: ./account.py:32
 msgid "Company Logo"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: ./contact.py:45
+#: ./contact.py:27
 msgid "Contact Type"
 msgstr ""
 
@@ -94,11 +94,15 @@ msgstr ""
 msgid "Customer"
 msgstr ""
 
-#: ./contact.py:75
+#: ./contact.py:53
 msgid "E-Mail"
 msgstr ""
 
-#: ./account.py:67
+#: ./configure.zcml:25
+msgid "Extension profile for operun CRM"
+msgstr ""
+
+#: ./account.py:43
 msgid "Fax"
 msgstr ""
 
@@ -106,7 +110,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: ./contact.py:34
+#: ./contact.py:17
 msgid "Firstname"
 msgstr ""
 
@@ -115,20 +119,20 @@ msgstr ""
 msgid "Invoice"
 msgstr ""
 
-#: ./account.py:83
+#: ./account.py:58
 msgid "Invoice Contact"
 msgstr ""
 
-#: ./contact.py:40
+#: ./contact.py:22
 msgid "Lastname"
 msgstr ""
 
-#: ./contact.py:66
+#: ./contact.py:48
 msgid "Mobile"
 msgstr ""
 
-#: ./account.py:39
-#: ./contact.py:82
+#: ./account.py:21
+#: ./contact.py:58
 msgid "Notes"
 msgstr ""
 
@@ -137,8 +141,8 @@ msgstr ""
 msgid "Offer"
 msgstr ""
 
-#: ./account.py:62
-#: ./contact.py:61
+#: ./account.py:38
+#: ./contact.py:43
 msgid "Phone"
 msgstr ""
 
@@ -150,7 +154,7 @@ msgstr ""
 msgid "Please upload a offer"
 msgstr ""
 
-#: ./account.py:51
+#: ./account.py:33
 msgid "Please upload an image"
 msgstr ""
 
@@ -170,11 +174,11 @@ msgstr ""
 msgid "Vendor"
 msgstr ""
 
-#: ./account.py:72
+#: ./account.py:48
 msgid "Website"
 msgstr ""
 
-#: ./account.py:88
+#: ./account.py:63
 msgid "ZIP"
 msgstr ""
 
@@ -228,3 +232,6 @@ msgstr ""
 msgid "label_website"
 msgstr ""
 
+#: ./configure.zcml:25
+msgid "operun CRM"
+msgstr ""

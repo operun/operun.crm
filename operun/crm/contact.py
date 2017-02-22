@@ -10,7 +10,8 @@ from operun.crm import MessageFactory as _
 
 
 class IContact(model.Schema):
-    """ Contact Content Type
+    """
+    Contact Content Type
     """
 
     firstname = schema.TextLine(
@@ -61,5 +62,6 @@ class IContact(model.Schema):
 
 
 class Contact(Item):
-    """ Contact class
+    """
+    Contact class
     """

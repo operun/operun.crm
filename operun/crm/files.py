@@ -3,10 +3,12 @@ from plone.supermodel import model
 
 
 class IFiles(model.Schema):
-    """ Files Content Type
+    """
+    Files Content Type
     """
 
 
 class Files(Container):
-    """ Files class
+    """
+    Files class
     """

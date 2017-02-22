@@ -3,10 +3,12 @@ from plone.supermodel import model
 
 
 class IContacts(model.Schema):
-    """ Contacts Content Type
+    """
+    Contacts Content Type
     """
 
 
 class Contacts(Container):
-    """ Contacts class
+    """
+    Contacts class
     """

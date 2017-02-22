@@ -3,10 +3,12 @@ from plone.supermodel import model
 
 
 class IAccounts(model.Schema):
-    """ Accounts Content Type
+    """
+    Accounts Content Type
     """
 
 
 class Accounts(Container):
-    """ Accounts class
+    """
+    Accounts class
     """

@@ -13,7 +13,7 @@ class IOffer(model.Schema):
 
     file = NamedBlobFile(
         title=_(u"Offer"),
-        description=_(u"Please upload a offer"),
+        description=_(u"Please upload an offer"),
         required=False,
     )
 

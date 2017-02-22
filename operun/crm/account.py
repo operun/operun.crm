@@ -9,7 +9,8 @@ from operun.crm.config import ACCOUNT_TYPES
 
 
 class IAccount(model.Schema):
-    """ Account Content Type
+    """
+    Account Content Type
     """
 
     form.fieldset('address',
@@ -78,5 +79,6 @@ class IAccount(model.Schema):
 
 
 class Account(Container):
-    """ Account class
+    """
+    Account class
     """
