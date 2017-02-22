@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.0'
+version = '1.1.0'
 
 setup(name='operun.crm',
       version=version,
@@ -11,10 +11,10 @@ setup(name='operun.crm',
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+      ],
       keywords='',
       author='',
       author_email='',
@@ -31,6 +31,7 @@ setup(name='operun.crm',
           'plone.directives.form',
           'plone.namedfile [blobs]',
           'plone.formwidget.namedfile',
+          'plone.formwidget.contenttree',
       ],
       entry_points="""
       # -*- Entry points: -*-
