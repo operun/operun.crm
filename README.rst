@@ -15,7 +15,22 @@ This system is inspired by Zurmo. Use this package if other web-based CRMs like 
 Compatibility
 =============
 
-Version 1.0.0 is tested with Plone 4.3.x & 5.0.x.
+Version 1.0.0 is tested with Plone 4.3.x.
+Version 1.0.0 is tested with Plone 5.0.x with a few exceptions:
+
+* You must define the ``plone.formwidget.contenttree`` inside your buildout.
+
+.. code-block:: ini
+
+    eggs =
+        ...
+        plone.formwidget.contenttree
+
+* For Plone 5 it may also be necessary to pin the package.
+
+.. code-block:: ini
+
+    plone.formwidget.contenttree = 1.0.15
 
 
 Installation
