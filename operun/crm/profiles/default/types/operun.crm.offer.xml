@@ -6,7 +6,7 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Offer</property>
   <property name="description"
-    i18n:translate="">A Offer in the operun CRM</property>
+    i18n:translate="">An Offer in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/offer-16.png</property>
   <property name="factory">operun.crm.offer</property>
   <property name="global_allow">False</property>

@@ -6,7 +6,7 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Invoice</property>
   <property name="description"
-    i18n:translate="">A Invoice in the operun CRM</property>
+    i18n:translate="">An Invoice in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/invoice-16.png</property>
   <property name="factory">operun.crm.invoice</property>
   <property name="global_allow">False</property>

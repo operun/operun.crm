@@ -1,16 +1,43 @@
-# python generated files
-*.py[co]
-
-# ingore egg directories
-*.egg
-
-# ignore egg info directory
+.coverage
 *.egg-info
-
-# eclipse and pydev project files
-.project
-.pydevproject
-*.prefs
-
-# translations
+*.log
 *.mo
+*.py?
+*.swp
+
+# dirs
+bin/
+buildout-cache/
+develop-eggs/
+eggs/
+htmlcov/
+include/
+lib/
+local/
+parts/
+src/*
+test.plone_addon/
+var/
+
+# files
+lib64
+log.html
+output.xml
+pip-selfcheck.json
+.installed.cfg
+report.html
+
+# excludes
+!.coveragerc
+!.editorconfig
+!.gitattributes
+!.gitignore
+!.gitkeep
+!.travis.yml
+!src/webmontag
+
+# node and grunt
+node_modules/
+package.json
+Gruntfile.js
+temp_resources
