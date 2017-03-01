@@ -8,4 +8,12 @@
   <object name="operun.crm.offer" meta_type="Dexterity FTI" />
   <object name="operun.crm.todo" meta_type="Dexterity FTI" />
   <object name="operun.crm.todos" meta_type="Dexterity FTI" />
+  <object name="Account" meta_type="Dexterity FTI" />
+  <object name="Accounts" meta_type="Dexterity FTI" />
+  <object name="Contact" meta_type="Dexterity FTI" />
+  <object name="Contacts" meta_type="Dexterity FTI" />
+  <object name="Invoice" meta_type="Dexterity FTI" />
+  <object name="Offer" meta_type="Dexterity FTI" />
+  <object name="Todo" meta_type="Dexterity FTI" />
+  <object name="Todos" meta_type="Dexterity FTI" />
 </object>
