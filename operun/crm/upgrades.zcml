@@ -6,7 +6,8 @@
     <gs:upgradeStep
         title="Upgrade operun.crm Content-Types"
         description="operun.crm upgrade step"
-        source="*"
+        source="110"
+        destination="120"
         handler=".upgrades.upgrade_ct"
         profile="operun.crm:default" />
 
