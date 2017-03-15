@@ -12,13 +12,13 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-  	<element value="operun.crm.account" />
+  	<element value="Account" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">operun.crm.accounts.IAccounts</property>
-  <property name="klass">operun.crm.accounts.Accounts</property>
+  <property name="schema">operun.crm.content.accounts.IAccounts</property>
+  <property name="klass">operun.crm.content.accounts.Accounts</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />

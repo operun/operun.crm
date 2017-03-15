@@ -15,8 +15,8 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">operun.crm.invoice.IInvoice</property>
-  <property name="klass">operun.crm.invoice.Invoice</property>
+  <property name="schema">operun.crm.content.invoice.IInvoice</property>
+  <property name="klass">operun.crm.content.invoice.Invoice</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />

@@ -26,14 +26,4 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!--
-  <genericsetup:importStep
-      name="operun.crm.various"
-      title="operun CRM Package: miscellaneous import steps"
-      description="Various import steps that are not handled by GS import/export handlers."
-      handler="operun.crm.setuphandlers.setupVarious">
-    <depends name="skins"/>
-  </genericsetup:importStep>
-  -->
-
 </configure>

@@ -12,13 +12,13 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-	<element value="operun.crm.todo" />
+	<element value="Todo" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">operun.crm.todos.ITodos</property>
-  <property name="klass">operun.crm.todos.Todos</property>
+  <property name="schema">operun.crm.content.todos.ITodos</property>
+  <property name="klass">operun.crm.content.todos.Todos</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
