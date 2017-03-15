@@ -2,9 +2,8 @@ from zope import schema
 from z3c.relationfield.schema import RelationChoice
 from plone.dexterity.content import Item
 from plone.app.textfield import RichText
-from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.app.vocabularies.catalog import CatalogSource
 from plone.supermodel import model
-from operun.crm.account import IAccount
 from operun.crm.config import ACCOUNT_TYPES
 from operun.crm import MessageFactory as _
 
@@ -34,7 +33,7 @@ class IContact(model.Schema):
 
     account = RelationChoice(
         title=_(u"Account"),
-        source=ObjPathSourceBinder(object_provides=IAccount.__identifier__),
+        source=CatalogSource(portal_type='Account'),
         required=False,
     )
 
