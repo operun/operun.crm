@@ -45,6 +45,11 @@ class IAccount(model.Schema):
         required=False,
     )
 
+    billing_email = schema.TextLine(
+        title=_(u"Billing E-Mail"),
+        required=False,
+    )
+
     website = schema.TextLine(
         title=_(u"Website"),
         required=False,
@@ -52,6 +57,11 @@ class IAccount(model.Schema):
 
     address = schema.TextLine(
         title=_(u"Address"),
+        required=False,
+    )
+
+    ceo = schema.TextLine(
+        title=_(u"CEO"),
         required=False,
     )
 
