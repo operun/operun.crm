@@ -4,8 +4,14 @@
    i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types">
+
 	<element value="operun.crm.accounts" />
 	<element value="operun.crm.contacts" />
 	<element value="operun.crm.files" />
- </property> 
+
+  <element value="Accounts" />
+	<element value="Contacts" />
+	<element value="Files" />
+  
+ </property>
 </object>
