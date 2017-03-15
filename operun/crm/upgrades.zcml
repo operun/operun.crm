@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="operun.crm">
+
+    <gs:upgradeStep
+        title="Upgrade operun.crm Content-Types"
+        description="operun.crm upgrade step"
+        source="110"
+        destination="120"
+        handler=".upgrades.upgrade_ct"
+        profile="operun.crm:default" />
+
+</configure>
