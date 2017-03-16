@@ -12,7 +12,6 @@ def upgrade_ct(context):
     """Update operun.crm Content-Type names to new format."""
     logger.info("Upgrading operun.crm Content-Type names...")
     catalog = getToolByName(context, 'portal_catalog')
-
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',
@@ -24,7 +23,6 @@ def upgrade_ct(context):
         'operun.crm.todo': 'Todo',
         'operun.crm.todos': 'Todos',
     }
-
     for key in type_upgrade.keys():
         contents = api.content.find(portal_type=key)
         for item in catalog():
@@ -45,10 +43,10 @@ def upgrade_ct(context):
             logger.info(
                 "{} was not updated since no index or items were present.".format(key)  # noqa
             )
-
     context.runImportStepFromProfile(default_profile, 'controlpanel')
 
 
 def remove_browserlayer(context):
+    """Remove old browserlayer."""
     unregister_layer(name=u"operun.crm")
     context.runImportStepFromProfile(default_profile, 'controlpanel')
