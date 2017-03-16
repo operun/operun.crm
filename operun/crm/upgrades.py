@@ -2,6 +2,7 @@
 from plone import api
 import logging
 from Products.CMFCore.utils import getToolByName
+from plone.browserlayer.utils import unregister_layer
 
 default_profile = 'profile-operun.crm:default'
 logger = logging.getLogger("Plone")
@@ -44,5 +45,11 @@ def upgrade_ct(context):
             logger.info(
                 "{} was not updated since no index or items were present.".format(key)  # noqa
             )
+
+    context.runImportStepFromProfile(default_profile, 'controlpanel')
+
+
+def remove_browserlayer(context):
+    unregister_layer(name=u"operun.crm")
 
     context.runImportStepFromProfile(default_profile, 'controlpanel')

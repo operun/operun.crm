@@ -4,6 +4,15 @@
     i18n_domain="operun.crm">
 
     <gs:upgradeStep
+      source="2"
+      destination="3"
+      title="Remove Browserlayer"
+      description="Remove the browserlayer, which is not needed anymore."
+      profile="operun.crm:default"
+      handler=".upgrades.remove_browserlayer"
+      />
+
+    <gs:upgradeStep
         title="Upgrade operun.crm Content-Types"
         description="operun.crm upgrade step"
         source="110"
