@@ -15,8 +15,8 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">operun.crm.offer.IOffer</property>
-  <property name="klass">operun.crm.offer.Offer</property>
+  <property name="schema">operun.crm.content.offer.IOffer</property>
+  <property name="klass">operun.crm.content.offer.Offer</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
