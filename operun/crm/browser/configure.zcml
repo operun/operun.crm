@@ -12,15 +12,4 @@
       directory="images"
       />
 
-  <!--
-  <browser:page
-      name="view"
-      for="operun.crm.account.IAccount"
-      class="operun.crm.browser.account.AccountView"
-      permission="zope2.View"
-      menu="plone_displayviews"
-      title="View Account"
-      />
-      -->
- 
 </configure>
