@@ -1,0 +1,23 @@
+<registry>
+
+  <records interface='Products.CMFPlone.interfaces.IResourceRegistry' prefix="plone.resources/crm">
+    <value key="js">++resource++operun.crm/crm.js</value>
+    <value key="deps">jquery</value>
+    <value key="css">
+      <element>++resource++operun.crm/crm.css</element>
+    </value>
+  </records>
+
+  <records interface='Products.CMFPlone.interfaces.IBundleRegistry' prefix="plone.bundles/crm">
+    <value key="resources">
+      <element>crm</element>
+    </value>
+    <value key="jscompilation">++resource++operun.crm/crm-compiled.js</value>
+    <value key="csscompilation">++resource++operun.crm/crm-compiled.css</value>
+    <value key="enabled">True</value>
+    <value key="compile">True</value>
+    <value key="depends">plone</value>
+    <value key="last_compilation"></value>
+  </records>
+
+</registry>
