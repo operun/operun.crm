@@ -6,18 +6,16 @@
     <gs:upgradeStep
         title="Upgrade operun.crm Content-Types"
         description="operun.crm upgrade step"
-        source="110"
-        destination="120"
+        source="*"
+        destination="200"
         handler=".upgrades.upgrade_ct"
         profile="operun.crm:default" />
 
-    <gs:upgradeStep
+    <!-- <gs:upgradeStep
       title="Remove Browserlayer"
-      description="Remove the browserlayer, which is not needed anymore."
-      source="2"
-      destination="3"
+      description="Remove the browserlayer."
       handler=".upgrades.remove_browserlayer"
       profile="operun.crm:default"
-      />
+      /> -->
 
 </configure>
