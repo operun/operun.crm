@@ -9,9 +9,12 @@ logger = logging.getLogger("Plone")
 
 
 def upgrade_ct(context):
-    """Update operun.crm Content-Type names to new format."""
-    logger.info("Upgrading operun.crm Content-Type names...")
-    catalog = getToolByName(context, 'portal_catalog')
+    """
+    Update operun.crm Content-Type names to new format.
+    """
+    logger.info("Upgrading operun.crm Content-Types...")
+    portal_catalog = getToolByName(context, 'portal_catalog')
+    portal_quickinstaller = getToolByName(context, 'portal_quickinstaller')
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',
@@ -25,7 +28,7 @@ def upgrade_ct(context):
     }
     for key in type_upgrade.keys():
         contents = api.content.find(portal_type=key)
-        for item in catalog():
+        for item in portal_catalog():
             obj = item.getObject()
             if obj.portal_type == key:
                 logger.info(
@@ -43,10 +46,14 @@ def upgrade_ct(context):
             logger.info(
                 "{} was not updated since no index or items were present.".format(key)  # noqa
             )
+    portal_catalog.manage_catalogRebuild()
+    portal_quickinstaller.reinstallProducts(['operun.crm'])
     context.runImportStepFromProfile(default_profile, 'controlpanel')
 
 
 def remove_browserlayer(context):
-    """Remove old browserlayer."""
+    """
+    Remove browserlayer.
+    """
     unregister_layer(name=u"operun.crm")
     context.runImportStepFromProfile(default_profile, 'controlpanel')
