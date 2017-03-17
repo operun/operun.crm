@@ -2,14 +2,37 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="operun.crm">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="operun.crm.interfaces.IOperunCrmLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="operun.crm"
+      directory="static"
+      />
+
+  <!-- Publish images -->
+  <browser:resourceDirectory
+      name="operun.crm.images"
+      directory="images"
+      />
 
   <include package="plone.app.registry" />
   <include package="plone.app.contentmenu" />
 
-  <browser:resourceDirectory
-      name="operun.crm.images"
-      directory="images"
+  <!-- Browser views -->
+  <browser:page
+      name="account"
+      for="*"
+      permission="zope2.View"
+      class=".account.AccountView"
       />
 
 </configure>

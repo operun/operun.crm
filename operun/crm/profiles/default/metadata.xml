@@ -1,7 +1,11 @@
+<?xml version="1.0"?>
 <metadata>
   <version>100</version>
-    <dependencies>
-        <dependency>profile-plone.app.dexterity:default</dependency>
-        <dependency>profile-plone.app.relationfield:default</dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>profile-plone.app.dexterity:default</dependency>
+    <dependency>profile-plone.app.relationfield:default</dependency>
+    <!-- Theming -->
+    <dependency>profile-plone.app.theming:default</dependency>
+    <dependency>profile-plonetheme.barceloneta:registerless</dependency>
+  </dependencies>
 </metadata>

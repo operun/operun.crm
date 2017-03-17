@@ -1,0 +1,37 @@
+/* Icons */
+
+a#accounts.contenttype-accounts:after {
+  content: '';
+}
+
+a#account.contenttype-account:after {
+  content: '';
+}
+
+a#contacts.contenttype-contacts:after {
+  content: '';
+}
+
+a#contact.contenttype-contact:after {
+  content: '';
+}
+
+a#todos.contenttype-todos:after {
+  content: '';
+}
+
+a#todo.contenttype-todo:after {
+  content: '';
+}
+
+a#invoice.contenttype-invoice:after {
+  content: '';
+}
+
+a#offer.contenttype-offer:after {
+  content: '';
+}
+
+a#files.contenttype-files:after {
+  content: '';
+}

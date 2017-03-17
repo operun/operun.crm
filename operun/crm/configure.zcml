@@ -7,16 +7,19 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="operun.crm">
 
-   <!-- Include configuration for dependencies listed in setup.py -->
+  <i18n:registerTranslations directory="locales" />
+
   <includeDependencies package="." />
 
   <include package="plone.app.relationfield" />
-
   <include file="upgrades.zcml" />
-
-  <i18n:registerTranslations directory="locales" />
-
   <include package=".browser" />
+
+  <plone:static
+      directory="theme"
+      type="theme"
+      name="operun-crm"
+      />
 
   <genericsetup:registerProfile
       name="default"
