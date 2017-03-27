@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="operun.crm">
+
+  <include package="plone.app.registry" />
+  <include package="plone.app.contentmenu" />
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="operun.crm.interfaces.IOperunCrmLayer"
+      />
+
+  <!-- Publish static files -->
+  <plone:static
+      name="operun.crm"
+      type="plone"
+      directory="static"
+      />
+
+  <browser:resourceDirectory
+      name="operun.crm.images"
+      directory="images"
+      />
+
+</configure>
