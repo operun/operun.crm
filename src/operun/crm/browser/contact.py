@@ -33,9 +33,6 @@ class ContactView(BrowserView):
         Custom view for contact Content-Type.
         """
 
-        import pdb; pdb.set_trace()
-        
-
         return self.template()
 
     def modify_user_attribute(self, user=None, attribute=None, new_value=None):
