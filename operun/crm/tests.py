@@ -1,13 +1,12 @@
+# -*- coding: utf-8 -*-
 import doctest
 import unittest
 
-from Testing import ZopeTestCase as ztc
-
+import operun.crm
 from Products.Five import zcml
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
-
-import operun.crm
+from Testing import ZopeTestCase as ztc
 
 OPTION_FLAGS = doctest.NORMALIZE_WHITESPACE | \
     doctest.ELLIPSIS

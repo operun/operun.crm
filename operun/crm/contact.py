@@ -1,11 +1,12 @@
-from zope import schema
-from z3c.relationfield.schema import RelationChoice
-from plone.dexterity.content import Item
+# -*- coding: utf-8 -*-
+from operun.crm import MessageFactory as _
+from operun.crm.config import ACCOUNT_TYPES
 from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
+from plone.dexterity.content import Item
 from plone.supermodel import model
-from operun.crm.config import ACCOUNT_TYPES
-from operun.crm import MessageFactory as _
+from z3c.relationfield.schema import RelationChoice
+from zope import schema
 
 
 class IContact(model.Schema):
@@ -14,17 +15,17 @@ class IContact(model.Schema):
     """
 
     firstname = schema.TextLine(
-        title=_(u"Firstname"),
+        title=_(u'Firstname'),
         required=False,
     )
 
     lastname = schema.TextLine(
-        title=_(u"Lastname"),
+        title=_(u'Lastname'),
         required=False,
     )
 
     type = schema.Choice(
-        title=_(u"Contact Type"),
+        title=_(u'Contact Type'),
         vocabulary=ACCOUNT_TYPES,
         required=True,
     )
@@ -32,7 +33,7 @@ class IContact(model.Schema):
     # Job Title
 
     account = RelationChoice(
-        title=_(u"Account"),
+        title=_(u'Account'),
         source=CatalogSource(portal_type='Account'),
         required=False,
     )
@@ -40,22 +41,22 @@ class IContact(model.Schema):
     # Department
 
     phone = schema.TextLine(
-        title=_(u"Phone"),
+        title=_(u'Phone'),
         required=False,
     )
 
     mobile = schema.TextLine(
-        title=_(u"Mobile"),
+        title=_(u'Mobile'),
         required=False,
     )
 
     email = schema.TextLine(
-        title=_(u"E-Mail"),
+        title=_(u'E-Mail'),
         required=False,
     )
 
     notes = RichText(
-        title=_(u"Notes"),
+        title=_(u'Notes'),
         required=False,
     )
 
