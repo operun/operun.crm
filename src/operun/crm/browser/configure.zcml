@@ -9,7 +9,7 @@
   <include package="plone.app.contentmenu" />
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  
+
   <include package="z3c.jbot" file="meta.zcml" />
   <browser:jbot
       directory="overrides"
@@ -32,7 +32,7 @@
   <!-- Browser views -->
 
   <browser:page
-      name="account"
+      name="view"
       for="operun.crm.account.IAccount"
       permission="zope2.View"
       class=".account.AccountView"
