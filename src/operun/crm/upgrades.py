@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Upgrade steps for operun.crm."""
-import logging
-
 from plone import api
 from plone.browserlayer.utils import unregister_layer
+
+import logging
 
 
 default_profile = 'profile-operun.crm:default'
@@ -16,7 +16,7 @@ def upgrade_ct(context):
     """
     logger.info('Upgrading operun.crm Content-Types...')
     portal_catalog = api.portal.get_tool(context, 'portal_catalog')
-    portal_quickinstaller = api.portal.get_tool(context, 'portal_quickinstaller')
+    portal_quickinstaller = api.portal.get_tool(context, 'portal_quickinstaller')  # noqa
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',

@@ -1,0 +1,275 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-03-27 08:43+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: operun.crm\n"
+
+#: operun/crm/profiles/default/types/Contact.xml
+#: operun/crm/profiles/default/types/operun.crm.contact.xml
+msgid "A Contact in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Accounts.xml
+#: operun/crm/profiles/default/types/operun.crm.accounts.xml
+msgid "A Folder for accounts in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Files.xml
+#: operun/crm/profiles/default/types/operun.crm.files.xml
+msgid "A Folder for files in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Todos.xml
+#: operun/crm/profiles/default/types/operun.crm.todos.xml
+msgid "A Folder for todos in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Contacts.xml
+#: operun/crm/profiles/default/types/operun.crm.contacts.xml
+msgid "A Folder to contain contacts in the operun CRM"
+msgstr ""
+
+#: operun/crm/contact.py:36
+#: operun/crm/profiles/default/types/Account.xml
+#: operun/crm/profiles/default/types/operun.crm.account.xml
+msgid "Account"
+msgstr ""
+
+#: operun/crm/account.py:28
+msgid "Account Type"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Accounts.xml
+#: operun/crm/profiles/default/types/operun.crm.accounts.xml
+msgid "Accounts"
+msgstr ""
+
+#: operun/crm/account.py:18
+msgid "Address"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Account.xml
+#: operun/crm/profiles/default/types/operun.crm.account.xml
+msgid "An Account in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Invoice.xml
+#: operun/crm/profiles/default/types/operun.crm.invoice.xml
+msgid "An Invoice in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Offer.xml
+#: operun/crm/profiles/default/types/operun.crm.offer.xml
+msgid "An Offer in the operun CRM"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Todo.xml
+#: operun/crm/profiles/default/types/operun.crm.todo.xml
+msgid "An Todo in the operun CRM"
+msgstr ""
+
+#: operun/crm/account.py:50
+msgid "Billing E-Mail"
+msgstr ""
+
+#: operun/crm/account.py:65
+msgid "CEO"
+msgstr ""
+
+#: operun/crm/account.py:80
+msgid "City"
+msgstr ""
+
+#: operun/crm/account.py:34
+msgid "Company Logo"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Contact.xml
+#: operun/crm/profiles/default/types/operun.crm.contact.xml
+msgid "Contact"
+msgstr ""
+
+#: operun/crm/contact.py:28
+msgid "Contact Type"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Contacts.xml
+#: operun/crm/profiles/default/types/operun.crm.contacts.xml
+msgid "Contacts"
+msgstr ""
+
+#: operun/crm/config.py:8
+msgid "Customer"
+msgstr ""
+
+#: operun/crm/contact.py:54
+msgid "E-Mail"
+msgstr ""
+
+#: operun/crm/account.py:45
+msgid "Fax"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Files.xml
+#: operun/crm/profiles/default/types/operun.crm.files.xml
+msgid "Files"
+msgstr ""
+
+#: operun/crm/contact.py:18
+msgid "Firstname"
+msgstr ""
+
+#: operun/crm/configure.zcml:23
+msgid "Installs the operun.crm add-on."
+msgstr ""
+
+#: operun/crm/invoice.py:14
+#: operun/crm/profiles/default/types/Invoice.xml
+#: operun/crm/profiles/default/types/operun.crm.invoice.xml
+msgid "Invoice"
+msgstr ""
+
+#: operun/crm/account.py:70
+msgid "Invoice Contact"
+msgstr ""
+
+#: operun/crm/contact.py:23
+msgid "Lastname"
+msgstr ""
+
+#: operun/crm/contact.py:49
+msgid "Mobile"
+msgstr ""
+
+#: operun/crm/account.py:23
+#: operun/crm/contact.py:59
+msgid "Notes"
+msgstr ""
+
+#: operun/crm/offer.py:14
+#: operun/crm/profiles/default/types/Offer.xml
+#: operun/crm/profiles/default/types/operun.crm.offer.xml
+msgid "Offer"
+msgstr ""
+
+#: operun/crm/config.py:10
+msgid "Partner"
+msgstr ""
+
+#: operun/crm/account.py:40
+#: operun/crm/contact.py:44
+msgid "Phone"
+msgstr ""
+
+#: operun/crm/account.py:35
+msgid "Please upload an image"
+msgstr ""
+
+#: operun/crm/invoice.py:15
+msgid "Please upload an invoice"
+msgstr ""
+
+#: operun/crm/offer.py:15
+msgid "Please upload an offer"
+msgstr ""
+
+#: operun/crm/config.py:11
+msgid "Prospect"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Todo.xml
+#: operun/crm/profiles/default/types/operun.crm.todo.xml
+msgid "Todo"
+msgstr ""
+
+#: operun/crm/profiles/default/types/Todos.xml
+#: operun/crm/profiles/default/types/operun.crm.todos.xml
+msgid "Todos"
+msgstr ""
+
+#: operun/crm/configure.zcml:32
+msgid "Uninstalls the operun.crm add-on."
+msgstr ""
+
+#: operun/crm/config.py:9
+msgid "Vendor"
+msgstr ""
+
+#: operun/crm/account.py:55
+msgid "Website"
+msgstr ""
+
+#: operun/crm/account.py:75
+msgid "ZIP"
+msgstr ""
+
+#. Default: "Contacts"
+#: operun/crm/browser/templates/account.pt:15
+msgid "contacts"
+msgstr ""
+
+#. Default: "Account Activity"
+#: operun/crm/browser/templates/account.pt:25
+msgid "label_account_active"
+msgstr ""
+
+#. Default: "Account Type"
+#: operun/crm/browser/templates/account.pt:20
+msgid "label_account_type"
+msgstr ""
+
+#. Default: "Billing Address"
+#: operun/crm/browser/templates/account.pt:45
+msgid "label_billing_address"
+msgstr ""
+
+#. Default: "Billing E-Mail"
+#: operun/crm/browser/templates/account.pt:50
+msgid "label_billing_email"
+msgstr ""
+
+#. Default: "Office Fax"
+#: operun/crm/browser/templates/account.pt:35
+msgid "label_fax"
+msgstr ""
+
+#. Default: "Notes"
+#: operun/crm/browser/templates/account.pt:60
+msgid "label_notes"
+msgstr ""
+
+#. Default: "Office Phone"
+#: operun/crm/browser/templates/account.pt:30
+msgid "label_phone"
+msgstr ""
+
+#. Default: "Postal Address"
+#: operun/crm/browser/templates/account.pt:55
+msgid "label_postal_address"
+msgstr ""
+
+#. Default: "Website"
+#: operun/crm/browser/templates/account.pt:40
+msgid "label_website"
+msgstr ""
+
+#: operun/crm/configure.zcml:23
+msgid "operun CRM"
+msgstr ""
+
+#: operun/crm/configure.zcml:32
+msgid "operun CRM (uninstall)"
+msgstr ""
