@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from operun.crm import MessageFactory as _
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 ACCOUNT_TYPES = SimpleVocabulary(
