@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-03-27 08:43+0000\n"
+"POT-Creation-Date: 2017-03-29 08:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,56 +212,6 @@ msgstr "Website"
 #: operun/crm/account.py:75
 msgid "ZIP"
 msgstr "Postleitzahl"
-
-#. Default: "Contacts"
-#: operun/crm/browser/templates/account.pt:15
-msgid "contacts"
-msgstr "Kontakte"
-
-#. Default: "Account Activity"
-#: operun/crm/browser/templates/account.pt:25
-msgid "label_account_active"
-msgstr "Status der Kundenbeziehung"
-
-#. Default: "Account Type"
-#: operun/crm/browser/templates/account.pt:20
-msgid "label_account_type"
-msgstr "Art der Beziehung"
-
-#. Default: "Billing Address"
-#: operun/crm/browser/templates/account.pt:45
-msgid "label_billing_address"
-msgstr "Rechnungsadresse"
-
-#. Default: "Billing E-Mail"
-#: operun/crm/browser/templates/account.pt:50
-msgid "label_billing_email"
-msgstr "E-Mail-Rechnungsadresse"
-
-#. Default: "Office Fax"
-#: operun/crm/browser/templates/account.pt:35
-msgid "label_fax"
-msgstr "Büro Fax"
-
-#. Default: "Notes"
-#: operun/crm/browser/templates/account.pt:60
-msgid "label_notes"
-msgstr "Notizen"
-
-#. Default: "Office Phone"
-#: operun/crm/browser/templates/account.pt:30
-msgid "label_phone"
-msgstr "Büro Telefon"
-
-#. Default: "Postal Address"
-#: operun/crm/browser/templates/account.pt:55
-msgid "label_postal_address"
-msgstr "Postadresse"
-
-#. Default: "Website"
-#: operun/crm/browser/templates/account.pt:40
-msgid "label_website"
-msgstr "Website"
 
 #: operun/crm/configure.zcml:23
 msgid "operun CRM"
