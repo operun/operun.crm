@@ -4,11 +4,10 @@ import logging
 
 from plone import api
 from plone.browserlayer.utils import unregister_layer
-from Products.CMFCore.utils import getToolByName
 
 
 default_profile = 'profile-operun.crm:default'
-logger = logging.getLogger("Plone")
+logger = logging.getLogger('Plone')
 
 
 def upgrade_ct(context):
@@ -16,8 +15,8 @@ def upgrade_ct(context):
     Update operun.crm Content-Type names to new format.
     """
     logger.info('Upgrading operun.crm Content-Types...')
-    portal_catalog = getToolByName(context, 'portal_catalog')
-    portal_quickinstaller = getToolByName(context, 'portal_quickinstaller')
+    portal_catalog = api.portal.get_tool(context, 'portal_catalog')
+    portal_quickinstaller = api.portal.get_tool(context, 'portal_quickinstaller')
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',
