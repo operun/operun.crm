@@ -13,6 +13,12 @@
   <include package="plone.app.relationfield" />
   <include file="upgrades.zcml" />
 
+  <plone:static
+      directory="theme"
+      type="theme"
+      name="operun.crm"
+      />
+
   <genericsetup:registerProfile
       name="default"
       title="operun CRM"
