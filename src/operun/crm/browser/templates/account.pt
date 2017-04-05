@@ -11,32 +11,69 @@
 <metal:content-core fill-slot="content-core">
     <metal:content-core define-macro="content-core">
 
-      <br>
+      <h2 i18n:translate="account_view_general_information_details">General Information</h2>
 
-      <h4><b>Type</b></h4>
-      <div tal:content="context/type"></div>
-      <h4><b>Logo</b></h4>
-      <div tal:content="structure view/get_image"></div>
-      <h4><b>Phone</b></h4>
-      <div tal:content="context/phone"></div>
-      <h4><b>Fax</b></h4>
-      <div tal:content="context/fax"></div>
-      <h4><b>Billing E-Mail</b></h4>
-      <div tal:content="context/billing_email"></div>
-      <h4><b>Website</b></h4>
-      <div tal:content="context/website"></div>
-      <h4><b>Address</b></h4>
-      <div tal:content="context/address"></div>
-      <h4><b>CEO</b></h4>
-      <div tal:content="context/ceo"></div>
-      <h4><b>Invoice Name</b></h4>
-      <div tal:content="context/invoice"></div>
-      <h4><b>Postal Code</b></h4>
-      <div tal:content="context/zip"></div>
-      <h4><b>City</b></h4>
-      <div tal:content="context/city"></div>
-      <h4><b>Notes</b></h4>
-      <div tal:content="structure context/text/output"></div>
+      <div class="section-ceo">
+        <h3 i18n:translate="account_view_ceo_heading">CEO</h3>
+        <div tal:content="python:context.ceo"></div>
+      </div>
+
+      <div class="section-type">
+        <h3 i18n:translate="account_view_account_type_heading">Type</h3>
+        <div tal:content="python:context.type"></div>
+      </div>
+
+      <div class="section-logo">
+        <h3 i18n:translate="account_view_logo_heading">Logo</h3>
+        <div tal:content="structure python:view.get_image()"></div>
+      </div>
+
+      <h2 i18n:translate="account_view_postal_address_details">Postal Address</h2>
+
+      <div class="section-address">
+        <span tal:replace="python:context.title"/><br/>
+        <span tal:replace="python:context.address"/><br/>
+        <span tal:replace="python:context.zip" /> <span tal:replace="python:context.city" />
+      </div>
+
+      <h2 i18n:translate="account_view_connect_heading">Connect</h2>
+
+      <div class="section-phone">
+        <h3 i18n:translate="account_view_phone_heading">Phone</h3>
+        <div tal:content="python:context.phone"></div>
+      </div>
+
+      <div class="section-fax">
+        <h3 i18n:translate="account_view_fax_heading">Fax</h3>
+        <div tal:content="python:context.fax"></div>
+      </div>
+
+      <div class="section-website">
+        <h3 i18n:translate="account_view_webiste_heading">Website</h3>
+        <div>
+          <a href="" tal:attributes="href python:context.website" tal:content="python:context.website">https://www.domain.com</a>
+        </div>
+      </div>
+
+      <h2 i18n:translate="account_view_billing_heading">Billing</h2>
+
+      <div class="section-invoice">
+        <h3 i18n:translate="account_view_billing_contact_heading">Contact</h3>
+        <div tal:content="python:context.invoice"></div>
+      </div>
+
+      <div class="section-email">
+        <h3 i18n:translate="account_view_billing_email_heading">E-Mail</h3>
+        <div>
+          <a href="" tal:attributes="href python:'mailto:'+context.billing_email" tal:content="python:context.billing_email">firstname.lastname@domain.com</a>
+        </div>
+      </div>
+
+      <h2 i18n:translate="account_view_notes_heading">Notes</h2>
+
+      <div tal:replace="structure context/text/output"></div>
+
+
 
     </metal:content-core>
 </metal:content-core>
