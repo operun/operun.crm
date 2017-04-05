@@ -11,17 +11,31 @@
 <metal:content-core fill-slot="content-core">
     <metal:content-core define-macro="content-core">
 
+      <br>
+
+      <h4><b>Type</b></h4>
       <div tal:content="context/type"></div>
+      <h4><b>Logo</b></h4>
       <div tal:content="structure view/get_image"></div>
+      <h4><b>Phone</b></h4>
       <div tal:content="context/phone"></div>
+      <h4><b>Fax</b></h4>
       <div tal:content="context/fax"></div>
+      <h4><b>Billing E-Mail</b></h4>
       <div tal:content="context/billing_email"></div>
+      <h4><b>Website</b></h4>
       <div tal:content="context/website"></div>
+      <h4><b>Address</b></h4>
       <div tal:content="context/address"></div>
+      <h4><b>CEO</b></h4>
       <div tal:content="context/ceo"></div>
+      <h4><b>Invoice Name</b></h4>
       <div tal:content="context/invoice"></div>
+      <h4><b>Postal Code</b></h4>
       <div tal:content="context/zip"></div>
+      <h4><b>City</b></h4>
       <div tal:content="context/city"></div>
+      <h4><b>Notes</b></h4>
       <div tal:content="structure context/text/output"></div>
 
     </metal:content-core>

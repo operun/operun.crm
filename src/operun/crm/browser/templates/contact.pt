@@ -11,13 +11,23 @@
 <metal:content-core fill-slot="content-core">
     <metal:content-core define-macro="content-core">
 
+      <br>
+
+      <h4><b>Firstname</b></h4>
       <div tal:content="context/firstname" tal:condition="context/firstname"></div>
+      <h4><b>Lastname</b></h4>
       <div tal:content="context/lastname" tal:condition="context/lastname"></div>
+      <h4><b>Type</b></h4>
       <div tal:content="context/type" tal:condition="context/type"></div>
+      <h4><b>Account Relation</b></h4>
       <div tal:content="context/account/to_object/title" tal:condition="context/account"></div>
+      <h4><b>Phone</b></h4>
       <div tal:content="context/phone" tal:condition="context/phone"></div>
+      <h4><b>Mobile</b></h4>
       <div tal:content="context/mobile" tal:condition="context/mobile"></div>
+      <h4><b>E-Mail</b></h4>
       <div tal:content="context/email" tal:condition="context/email"></div>
+      <h4><b>Notes</b></h4>
       <div tal:replace="structure context/notes/output" tal:condition="context/notes"></div>
 
     </metal:content-core>
