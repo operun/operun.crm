@@ -38,4 +38,11 @@
       class=".account.AccountView"
       />
 
+  <browser:page
+      name="view"
+      for="operun.crm.contact.IContact"
+      permission="zope2.View"
+      class=".contact.ContactView"
+      />
+
 </configure>

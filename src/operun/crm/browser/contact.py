@@ -4,13 +4,13 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
-class AccountView(BrowserView):
+class ContactView(BrowserView):
 
-    template = ViewPageTemplateFile('templates/account.pt')
+    template = ViewPageTemplateFile('templates/contact.pt')
 
     def __call__(self):
         """
-        Custom view for account Content-Type
+        Custom view for contact Content-Type
         """
 
         return self.template()
@@ -22,8 +22,8 @@ class AccountView(BrowserView):
         context = self.context
         request = self.request
         tag = None
-        if context.logo:
+        if context.image:
             images_view = api.content.get_view('images', context, request)
-            scale = images_view.scale('logo', width=250, height=250, direction='down')  # noqa
+            scale = images_view.scale('image')
             tag = scale.tag()
         return tag
