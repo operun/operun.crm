@@ -12,7 +12,7 @@
     <metal:content-core define-macro="content-core">
 
       <div tal:content="context/type"></div>
-      <div tal:content="context/logo/filename"></div>
+      <div tal:content="structure view/get_image"></div>
       <div tal:content="context/phone"></div>
       <div tal:content="context/fax"></div>
       <div tal:content="context/billing_email"></div>
