@@ -53,7 +53,7 @@
 
       <h2 i18n:translate="contact_view_notes_heading">Notes</h2>
 
-      <div tal:replace="structure context/notes/output"></div>
+      <div tal:condition="context/notes" tal:replace="structure context/notes/output"></div>
 
     </metal:content-core>
 </metal:content-core>

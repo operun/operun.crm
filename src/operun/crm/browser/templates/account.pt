@@ -71,7 +71,7 @@
 
       <h2 i18n:translate="account_view_notes_heading">Notes</h2>
 
-      <div tal:replace="structure context/text/output"></div>
+      <div tal:condition="context/text" tal:replace="structure context/text/output"></div>
 
 
 
