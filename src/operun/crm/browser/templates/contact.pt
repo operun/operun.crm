@@ -46,8 +46,8 @@
 
       <div class="section-email">
         <h3 i18n:translate="contact_view_email_heading">E-Mail</h3>
-        <div>
-          <a href="" tal:attributes="href python:'mailto:'+context.email" tal:content="python:context.email">firstname.lastname@domain.com</a>
+        <div tal:define="email python:context.email" tal:condition="email">
+          <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email">firstname.lastname@domain.com</a>
         </div>
       </div>
 
