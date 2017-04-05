@@ -24,6 +24,6 @@ class AccountView(BrowserView):
         tag = None
         if context.logo:
             images_view = api.content.get_view('images', context, request)
-            scale = images_view.scale('logo', width=250, height=250, direction='down')  # noqa
+            scale = images_view.scale('logo', width=250, height=250, direction='thumbnail')  # noqa
             tag = scale.tag()
         return tag
