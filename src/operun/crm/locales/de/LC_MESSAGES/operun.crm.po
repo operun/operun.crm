@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-03-29 08:54+0000\n"
+"POT-Creation-Date: 2017-04-05 22:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,9 +129,9 @@ msgstr "Dateien"
 msgid "Firstname"
 msgstr "Vorname"
 
-#: operun/crm/configure.zcml:23
+#: operun/crm/configure.zcml:29
 msgid "Installs the operun.crm add-on."
-msgstr ""
+msgstr "Installiert das operun.crm-Paket"
 
 #: operun/crm/invoice.py:14
 #: operun/crm/profiles/default/types/Invoice.xml
@@ -197,9 +197,9 @@ msgstr "Todo"
 msgid "Todos"
 msgstr "Todos"
 
-#: operun/crm/configure.zcml:32
+#: operun/crm/configure.zcml:38
 msgid "Uninstalls the operun.crm add-on."
-msgstr ""
+msgstr "Deinstalliert das operun.crm-Paket"
 
 #: operun/crm/config.py:9
 msgid "Vendor"
@@ -213,10 +213,120 @@ msgstr "Website"
 msgid "ZIP"
 msgstr "Postleitzahl"
 
-#: operun/crm/configure.zcml:23
+#. Default: "Type"
+#: operun/crm/browser/templates/account.pt:22
+msgid "account_view_account_type_heading"
+msgstr "Typ"
+
+#. Default: "Contact"
+#: operun/crm/browser/templates/account.pt:61
+msgid "account_view_billing_contact_heading"
+msgstr "Kontakt für Rechnungen"
+
+#. Default: "E-Mail"
+#: operun/crm/browser/templates/account.pt:66
+msgid "account_view_billing_email_heading"
+msgstr "E-Mail-Adresse für Rechnungen"
+
+#. Default: "Billing"
+#: operun/crm/browser/templates/account.pt:58
+msgid "account_view_billing_heading"
+msgstr "Abrechnung"
+
+#. Default: "CEO"
+#: operun/crm/browser/templates/account.pt:17
+msgid "account_view_ceo_heading"
+msgstr "Geschäftsführer"
+
+#. Default: "Connect"
+#: operun/crm/browser/templates/account.pt:39
+msgid "account_view_connect_heading"
+msgstr "Connect"
+
+#. Default: "Fax"
+#: operun/crm/browser/templates/account.pt:47
+msgid "account_view_fax_heading"
+msgstr "Fax"
+
+#. Default: "General Information"
+#: operun/crm/browser/templates/account.pt:14
+msgid "account_view_general_information_details"
+msgstr "Allgemeine Informationen"
+
+#. Default: "Logo"
+#: operun/crm/browser/templates/account.pt:27
+msgid "account_view_logo_heading"
+msgstr "Logo"
+
+#. Default: "Notes"
+#: operun/crm/browser/templates/account.pt:72
+msgid "account_view_notes_heading"
+msgstr "Notizen"
+
+#. Default: "Phone"
+#: operun/crm/browser/templates/account.pt:42
+msgid "account_view_phone_heading"
+msgstr "Telefon"
+
+#. Default: "Postal Address"
+#: operun/crm/browser/templates/account.pt:31
+msgid "account_view_postal_address_details"
+msgstr "Postanschrift"
+
+#. Default: "Website"
+#: operun/crm/browser/templates/account.pt:52
+msgid "account_view_webiste_heading"
+msgstr "Webseite"
+
+#. Default: "Account"
+#: operun/crm/browser/templates/contact.pt:26
+msgid "contact_view_account_heading"
+msgstr "Account"
+
+#. Default: "Connect"
+#: operun/crm/browser/templates/contact.pt:35
+msgid "contact_view_connect_heading"
+msgstr "Connect"
+
+#. Default: "Contact Details"
+#: operun/crm/browser/templates/contact.pt:14
+msgid "contact_view_contact_details"
+msgstr "Kontaktdetails"
+
+#. Default: "E-Mail"
+#: operun/crm/browser/templates/contact.pt:48
+msgid "contact_view_email_heading"
+msgstr "E-Mail"
+
+#. Default: "Firstname"
+#: operun/crm/browser/templates/contact.pt:17
+msgid "contact_view_firstname_heading"
+msgstr "Vorname"
+
+#. Default: "Lastname"
+#: operun/crm/browser/templates/contact.pt:22
+msgid "contact_view_lastname_heading"
+msgstr "Nachname"
+
+#. Default: "Mobile"
+#: operun/crm/browser/templates/contact.pt:43
+msgid "contact_view_mobile_heading"
+msgstr "Mobil"
+
+#. Default: "Notes"
+#: operun/crm/browser/templates/contact.pt:54
+msgid "contact_view_notes_heading"
+msgstr "Notizen"
+
+#. Default: "Phone"
+#: operun/crm/browser/templates/contact.pt:38
+msgid "contact_view_phone_heading"
+msgstr "Telefon"
+
+#: operun/crm/configure.zcml:29
 msgid "operun CRM"
 msgstr "operun CRM"
 
-#: operun/crm/configure.zcml:32
+#: operun/crm/configure.zcml:38
 msgid "operun CRM (uninstall)"
-msgstr ""
+msgstr "operun CRM (deinstallieren)"
