@@ -6,32 +6,41 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="operun.crm">
-<body>
+  <body>
 
-<metal:content-core fill-slot="content-core">
-    <metal:content-core define-macro="content-core">
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
 
-      <br>
+        <div class="contact-wrapper">
 
-      <h4><b>Firstname</b></h4>
-      <div tal:content="context/firstname" tal:condition="context/firstname"></div>
-      <h4><b>Lastname</b></h4>
-      <div tal:content="context/lastname" tal:condition="context/lastname"></div>
-      <h4><b>Type</b></h4>
-      <div tal:content="context/type" tal:condition="context/type"></div>
-      <h4><b>Account Relation</b></h4>
-      <div tal:content="context/account/to_object/title" tal:condition="context/account"></div>
-      <h4><b>Phone</b></h4>
-      <div tal:content="context/phone" tal:condition="context/phone"></div>
-      <h4><b>Mobile</b></h4>
-      <div tal:content="context/mobile" tal:condition="context/mobile"></div>
-      <h4><b>E-Mail</b></h4>
-      <div tal:content="context/email" tal:condition="context/email"></div>
-      <h4><b>Notes</b></h4>
-      <div tal:replace="structure context/notes/output" tal:condition="context/notes"></div>
+          <h4 i18n:translate="contact_view_firstname">Firstname</h4>
+          <div tal:content="context/firstname" tal:condition="context/firstname"></div>
 
+          <h4 i18n:translate="contact_view_lastname">Lastname</h4>
+          <div tal:content="context/lastname" tal:condition="context/lastname"></div>
+
+          <h4 i18n:translate="contact_view_type">Type</h4>
+          <div tal:content="context/type" tal:condition="context/type"></div>
+
+          <h4 i18n:translate="contact_view_account_relation">Account Relation</h4>
+          <div tal:content="context/account/to_object/title" tal:condition="context/account"></div>
+
+          <h4 i18n:translate="contact_view_phone">Phone</h4>
+          <div tal:content="context/phone" tal:condition="context/phone"></div>
+
+          <h4 i18n:translate="contact_view_mobile">Mobile</h4>
+          <div tal:content="context/mobile" tal:condition="context/mobile"></div>
+
+          <h4 i18n:translate="contact_view_email">E-Mail</h4>
+          <div tal:content="context/email" tal:condition="context/email"></div>
+
+          <h4 i18n:translate="contact_view_notes">Notes</h4>
+          <div tal:replace="structure context/notes/output" tal:condition="context/notes"></div>
+
+        </div>
+
+      </metal:content-core>
     </metal:content-core>
-</metal:content-core>
 
-</body>
+  </body>
 </html>

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-03-29 08:54+0000\n"
+"POT-Creation-Date: 2017-04-06 08:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Firstname"
 msgstr ""
 
-#: operun/crm/configure.zcml:23
+#: operun/crm/configure.zcml:29
 msgid "Installs the operun.crm add-on."
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Todos"
 msgstr ""
 
-#: operun/crm/configure.zcml:32
+#: operun/crm/configure.zcml:38
 msgid "Uninstalls the operun.crm add-on."
 msgstr ""
 
@@ -216,10 +216,110 @@ msgstr ""
 msgid "ZIP"
 msgstr ""
 
-#: operun/crm/configure.zcml:23
+#. Default: "Address"
+#: operun/crm/browser/templates/account.pt:34
+msgid "account_view_address"
+msgstr ""
+
+#. Default: "Billing E-Mail"
+#: operun/crm/browser/templates/account.pt:28
+msgid "account_view_billing_email"
+msgstr ""
+
+#. Default: "CEO"
+#: operun/crm/browser/templates/account.pt:37
+msgid "account_view_ceo"
+msgstr ""
+
+#. Default: "City"
+#: operun/crm/browser/templates/account.pt:46
+msgid "account_view_city"
+msgstr ""
+
+#. Default: "Fax"
+#: operun/crm/browser/templates/account.pt:25
+msgid "account_view_fax"
+msgstr ""
+
+#. Default: "Invoice name"
+#: operun/crm/browser/templates/account.pt:40
+msgid "account_view_invoice_name"
+msgstr ""
+
+#. Default: "Logo"
+#: operun/crm/browser/templates/account.pt:19
+msgid "account_view_logo"
+msgstr ""
+
+#. Default: "Notes"
+#: operun/crm/browser/templates/account.pt:49
+msgid "account_view_notes"
+msgstr ""
+
+#. Default: "Phone"
+#: operun/crm/browser/templates/account.pt:22
+msgid "account_view_phone"
+msgstr ""
+
+#. Default: "Postal code"
+#: operun/crm/browser/templates/account.pt:43
+msgid "account_view_postal_code"
+msgstr ""
+
+#. Default: "Type"
+#: operun/crm/browser/templates/account.pt:16
+msgid "account_view_type"
+msgstr ""
+
+#. Default: "Website"
+#: operun/crm/browser/templates/account.pt:31
+msgid "account_view_website"
+msgstr ""
+
+#. Default: "Account Relation"
+#: operun/crm/browser/templates/contact.pt:25
+msgid "contact_view_account_relation"
+msgstr ""
+
+#. Default: "E-Mail"
+#: operun/crm/browser/templates/contact.pt:34
+msgid "contact_view_email"
+msgstr ""
+
+#. Default: "Firstname"
+#: operun/crm/browser/templates/contact.pt:16
+msgid "contact_view_firstname"
+msgstr ""
+
+#. Default: "Lastname"
+#: operun/crm/browser/templates/contact.pt:19
+msgid "contact_view_lastname"
+msgstr ""
+
+#. Default: "Mobile"
+#: operun/crm/browser/templates/contact.pt:31
+msgid "contact_view_mobile"
+msgstr ""
+
+#. Default: "Notes"
+#: operun/crm/browser/templates/contact.pt:37
+msgid "contact_view_notes"
+msgstr ""
+
+#. Default: "Phone"
+#: operun/crm/browser/templates/contact.pt:28
+msgid "contact_view_phone"
+msgstr ""
+
+#. Default: "Type"
+#: operun/crm/browser/templates/contact.pt:22
+msgid "contact_view_type"
+msgstr ""
+
+#: operun/crm/configure.zcml:29
 msgid "operun CRM"
 msgstr ""
 
-#: operun/crm/configure.zcml:32
+#: operun/crm/configure.zcml:38
 msgid "operun CRM (uninstall)"
 msgstr ""
