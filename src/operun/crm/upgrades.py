@@ -17,6 +17,8 @@ def upgrade_ct(context):
     logger.info('Upgrading operun.crm Content-Types...')
     portal_catalog = api.portal.get_tool('portal_catalog')
     portal_quickinstaller = api.portal.get_tool('portal_quickinstaller')
+    types = api.portal.get_registry_record('plone.displayed_types')
+    types_updated = types
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',
@@ -29,14 +31,9 @@ def upgrade_ct(context):
         'operun.crm.todos': 'Todos',
     }
     for key in type_upgrade.keys():
-        types = api.portal.get_registry_record('plone.displayed_types')
         contents = api.content.find(portal_type=key)
         # Find & replace old Content-Types in displayed_types
-        logger.info(
-            'Displayed types being updated...'.format(key)
-        )
-        types_updated = types.replace(key, type_upgrade[key])
-        types = types_updated
+        types_updated = tuple(type_upgrade[key] if x == key else x for x in types_updated)
         # Update catalog and portal entries
         for item in portal_catalog():
             obj = item.getObject()
@@ -54,8 +51,12 @@ def upgrade_ct(context):
                 obj.portal_type = type_upgrade[key]
         else:
             logger.info(
-                '{0} was not updated since no index or items were present.'.format(key)  # noqa
+                '{0} already updated to {1}.'.format(key, type_upgrade[key])
             )
+    types = types_updated
+    logger.info(
+        'Updated displayed_types:\nOLD: {0}\nNEW: {1}'.format(types, types_updated)
+    )
     portal_catalog.manage_catalogRebuild()
     portal_quickinstaller.reinstallProducts(['operun.crm'])
     context.runImportStepFromProfile(default_profile, 'controlpanel')
