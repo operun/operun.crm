@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-05 22:12+0000\n"
+"POT-Creation-Date: 2017-04-10 16:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,11 +23,6 @@ msgstr "Ein Kontakt im operun CRM"
 #: operun/crm/profiles/default/types/operun.crm.accounts.xml
 msgid "A Folder for accounts in the operun CRM"
 msgstr "Ein Ordner für Konten im operun CRM"
-
-#: operun/crm/profiles/default/types/Files.xml
-#: operun/crm/profiles/default/types/operun.crm.files.xml
-msgid "A Folder for files in the operun CRM"
-msgstr "Ein Ordner für Dateien im operun CRM"
 
 #: operun/crm/profiles/default/types/Todos.xml
 #: operun/crm/profiles/default/types/operun.crm.todos.xml
@@ -119,11 +114,6 @@ msgstr "E-Mail"
 #: operun/crm/account.py:45
 msgid "Fax"
 msgstr "Fax"
-
-#: operun/crm/profiles/default/types/Files.xml
-#: operun/crm/profiles/default/types/operun.crm.files.xml
-msgid "Files"
-msgstr "Dateien"
 
 #: operun/crm/contact.py:18
 msgid "Firstname"
@@ -218,6 +208,11 @@ msgstr "Postleitzahl"
 msgid "account_view_account_type_heading"
 msgstr "Typ"
 
+#. Default: "Attachments"
+#: operun/crm/browser/templates/account.pt:76
+msgid "account_view_attachments_heading"
+msgstr ""
+
 #. Default: "Contact"
 #: operun/crm/browser/templates/account.pt:61
 msgid "account_view_billing_contact_heading"
@@ -284,7 +279,7 @@ msgid "contact_view_account_heading"
 msgstr "Account"
 
 #. Default: "Connect"
-#: operun/crm/browser/templates/contact.pt:35
+#: operun/crm/browser/templates/contact.pt:37
 msgid "contact_view_connect_heading"
 msgstr "Connect"
 
@@ -294,7 +289,7 @@ msgid "contact_view_contact_details"
 msgstr "Kontaktdetails"
 
 #. Default: "E-Mail"
-#: operun/crm/browser/templates/contact.pt:48
+#: operun/crm/browser/templates/contact.pt:50
 msgid "contact_view_email_heading"
 msgstr "E-Mail"
 
@@ -309,17 +304,17 @@ msgid "contact_view_lastname_heading"
 msgstr "Nachname"
 
 #. Default: "Mobile"
-#: operun/crm/browser/templates/contact.pt:43
+#: operun/crm/browser/templates/contact.pt:45
 msgid "contact_view_mobile_heading"
 msgstr "Mobil"
 
 #. Default: "Notes"
-#: operun/crm/browser/templates/contact.pt:54
+#: operun/crm/browser/templates/contact.pt:56
 msgid "contact_view_notes_heading"
 msgstr "Notizen"
 
 #. Default: "Phone"
-#: operun/crm/browser/templates/contact.pt:38
+#: operun/crm/browser/templates/contact.pt:40
 msgid "contact_view_phone_heading"
 msgstr "Telefon"
 
