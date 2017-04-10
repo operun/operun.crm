@@ -15,8 +15,8 @@ def upgrade_ct(context):
     Update operun.crm Content-Type names to new format.
     """
     logger.info('Upgrading operun.crm Content-Types...')
-    portal_catalog = api.portal.get_tool(context, 'portal_catalog')
-    portal_quickinstaller = api.portal.get_tool(context, 'portal_quickinstaller')  # noqa
+    portal_catalog = api.portal.get_tool('portal_catalog')
+    portal_quickinstaller = api.portal.get_tool('portal_quickinstaller')
     type_upgrade = {
         'operun.crm.account': 'Account',
         'operun.crm.accounts': 'Accounts',
