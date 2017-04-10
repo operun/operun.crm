@@ -30,5 +30,5 @@ def _displayed_types():
     Add Training to displayed types.
     """
     types = api.portal.get_registry_record('plone.displayed_types')
-    types = types + (u'Accounts', u'Contacts', u'Todos',  u'Files')
+    types = types + ('Accounts', 'Contacts', 'Todos')
     api.portal.set_registry_record('plone.displayed_types', types)
