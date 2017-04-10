@@ -27,3 +27,23 @@ class AccountView(BrowserView):
             scale = images_view.scale('logo', width=250, height=250, direction='thumbnail')  # noqa
             tag = scale.tag()
         return tag
+
+    def get_attachments(self):
+        """
+        Get folder contents.
+        """
+        context = self.context
+        contents = context.listFolderContents()
+
+        items = {
+            'invoices': [],
+            'offers': [],
+        }
+
+        for item in contents:
+            if item.Type() == 'Invoice':
+                items['invoices'].append(item)
+            else:
+                items['offers'].append(item)
+
+        return items
