@@ -76,16 +76,38 @@
           <h2 i18n:translate="account_view_attachments_heading">Attachments</h2>
           <h3>Invoices</h3>
           <hr>
+
           <div class="invoice-item-wrapper" tal:repeat="invoice python:attachments['invoices']">
-            <h4 tal:content="invoice/title"></h4>
-            <a href="" tal:attributes="href python:invoice.absolute_url()" tal:content="invoice/file/filename"></a>
+            <ul>
+              <li tal:define="obj python:invoice.getObject();
+                               url obj/absolute_url;
+                               filename obj/file/filename">
+                <h4>
+                  <a href="" tal:attributes="href url">
+                    <span tal:replace="invoice/Title"></span>
+                    (<small tal:content="filename">Filename</small>)</a>
+                </h4>
+              </li>
+            </ul>
           </div>
+
           <h3>Offers</h3>
           <hr>
+
           <div class="offer-item-wrapper" tal:repeat="offer python:attachments['offers']">
-            <h4 tal:content="offer/title"></h4>
-            <a href="" tal:attributes="href python:offer.absolute_url()" tal:content="offer/file/filename"></a>
+            <ul>
+              <li tal:define="obj python:offer.getObject();
+                               url obj/absolute_url;
+                               filename obj/file/filename">
+                <h4>
+                  <a href="" tal:attributes="href url">
+                    <span tal:replace="offer/Title"></span>
+                    (<small tal:content="filename">Filename</small>)</a>
+                </h4>
+              </li>
+            </ul>
           </div>
+
         </div>
 
       </metal:content-core>
