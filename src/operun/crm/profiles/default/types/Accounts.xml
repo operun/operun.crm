@@ -9,7 +9,7 @@
     i18n:translate="">A Folder for accounts in the operun CRM</property>
   <property name="icon_expr">string:${portal_url}/++resource++operun.crm.images/accounts-16.png</property>
   <property name="factory">Accounts</property>
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
   	<element value="Account" />
