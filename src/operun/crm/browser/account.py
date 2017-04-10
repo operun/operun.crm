@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone import api
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -33,17 +34,15 @@ class AccountView(BrowserView):
         Get folder contents.
         """
         context = self.context
-        contents = context.listFolderContents()
+        catalog = getToolByName(context, 'portal_catalog')
+        invoices = catalog.searchResults(
+            portal_type='Invoice', sort_order='ascending')[:3]
+        offers = catalog.searchResults(
+            portal_type='Offer', sort_order='ascending')[:3]
 
         items = {
-            'invoices': [],
-            'offers': [],
+            'invoices': invoices,
+            'offers': offers,
         }
-
-        for item in contents:
-            if item.Type() == 'Invoice':
-                items['invoices'].append(item)
-            else:
-                items['offers'].append(item)
 
         return items
