@@ -9,7 +9,6 @@
   <element value="Accounts" />
 	<element value="Contacts" />
   <element value="Todos" />
-  <element value="Files" />
 
  </property>
 </object>

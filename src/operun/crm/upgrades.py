@@ -24,7 +24,6 @@ def upgrade_ct(context):
         'operun.crm.accounts': 'Accounts',
         'operun.crm.contact': 'Contact',
         'operun.crm.contacts': 'Contacts',
-        'operun.crm.files': 'Files',
         'operun.crm.invoice': 'Invoice',
         'operun.crm.offer': 'Offer',
         'operun.crm.todo': 'Todo',

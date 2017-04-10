@@ -9,6 +9,5 @@
   <object name="Todos" meta_type="Dexterity FTI" />
   <object name="Invoice" meta_type="Dexterity FTI" />
   <object name="Offer" meta_type="Dexterity FTI" />
-  <object name="Files" meta_type="Dexterity FTI" />
 
 </object>
