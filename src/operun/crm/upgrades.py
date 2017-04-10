@@ -29,7 +29,15 @@ def upgrade_ct(context):
         'operun.crm.todos': 'Todos',
     }
     for key in type_upgrade.keys():
+        types = api.portal.get_registry_record('plone.displayed_types')
         contents = api.content.find(portal_type=key)
+        # Find & replace old Content-Types in displayed_types
+        logger.info(
+            'Displayed types being updated...'.format(key)
+        )
+        types_updated = types.replace(key, type_upgrade[key])
+        types = types_updated
+        # Update catalog and portal entries
         for item in portal_catalog():
             obj = item.getObject()
             if obj.portal_type == key:
