@@ -29,20 +29,14 @@ class AccountView(BrowserView):
             tag = scale.tag()
         return tag
 
-    def get_attachments(self):
+    def get_invoices(self):
         """
-        Get folder contents.
+        Return invoices.
         """
-        context = self.context
-        catalog = getToolByName(context, 'portal_catalog')
-        invoices = catalog.searchResults(
-            portal_type='Invoice', sort_order='ascending')[:3]
-        offers = catalog.searchResults(
-            portal_type='Offer', sort_order='ascending')[:3]
+        return api.content.find(portal_type='Invoice', sort_order='reverse', sort_on='Date')[:3]
 
-        items = {
-            'invoices': invoices,
-            'offers': offers,
-        }
-
-        return items
+    def get_offers(self):
+        """
+        Return offers.
+        """
+        return api.content.find(portal_type='Offer', sort_order='reverse', sort_on='Date')[:3]
