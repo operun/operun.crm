@@ -6,57 +6,59 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="operun.crm">
-<body>
+  <body>
 
-<metal:content-core fill-slot="content-core">
-    <metal:content-core define-macro="content-core">
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
 
-      <h2 i18n:translate="contact_view_contact_details">Contact Details</h2>
+        <h2 i18n:translate="contact_view_contact_details">Contact Details</h2>
 
-      <div class="section-firstname">
-        <h3 i18n:translate="contact_view_firstname_heading">Firstname</h3>
-        <div tal:content="python:context.firstname"></div>
-      </div>
-
-      <div class="section-lastname">
-        <h3 i18n:translate="contact_view_lastname_heading">Lastname</h3>
-        <div tal:content="python:context.lastname"></div>
-      </div>
-
-      <h2 i18n:translate="contact_view_account_heading">Account</h2>
-
-      <div class="section-relation">
-        <h3 tal:content="python:context.type">Account Type</h3>
-        <div tal:define="account python:context.account; obj python:account.to_object">
-          <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title">Account Title</a>
+        <div class="section-firstname">
+          <h3 i18n:translate="contact_view_firstname_heading">Firstname</h3>
+          <div tal:content="python:context.firstname" tal:condition="python:context.firstname"></div>
         </div>
-      </div>
 
-      <h2 i18n:translate="contact_view_connect_heading">Connect</h2>
-
-      <div class="section-phone">
-        <h3 i18n:translate="contact_view_phone_heading">Phone</h3>
-        <div tal:content="python:context.phone"></div>
-      </div>
-
-      <div class="section-mobile">
-        <h3 i18n:translate="contact_view_mobile_heading">Mobile</h3>
-        <div tal:content="python:context.mobile"></div>
-      </div>
-
-      <div class="section-email">
-        <h3 i18n:translate="contact_view_email_heading">E-Mail</h3>
-        <div tal:define="email python:context.email" tal:condition="email">
-          <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email">firstname.lastname@domain.com</a>
+        <div class="section-lastname">
+          <h3 i18n:translate="contact_view_lastname_heading">Lastname</h3>
+          <div tal:content="python:context.lastname" tal:condition="python:context.lastname"></div>
         </div>
-      </div>
 
-      <h2 i18n:translate="contact_view_notes_heading">Notes</h2>
+        <h2 i18n:translate="contact_view_account_heading">Account</h2>
 
-      <div tal:condition="context/notes" tal:replace="structure context/notes/output"></div>
+        <div class="section-relation">
+          <h3 tal:content="python:context.type" tal:condition="python:context.type">Account Type</h3>
+          <div tal:define="account python:context.account" tal:condition="account">
+            <div tal:define="obj python:account.to_object" tal:condition="obj">
+              <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title">Account Title</a>
+            </div>
+          </div>
+        </div>
 
+        <h2 i18n:translate="contact_view_connect_heading">Connect</h2>
+
+        <div class="section-phone">
+          <h3 i18n:translate="contact_view_phone_heading">Phone</h3>
+          <div tal:content="python:context.phone" tal:condition="python:context.phone"></div>
+        </div>
+
+        <div class="section-mobile">
+          <h3 i18n:translate="contact_view_mobile_heading">Mobile</h3>
+          <div tal:content="python:context.mobile" tal:condition="python:context.mobile"></div>
+        </div>
+
+        <div class="section-email">
+          <h3 i18n:translate="contact_view_email_heading">E-Mail</h3>
+          <div tal:define="email python:context.email" tal:condition="email">
+            <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email">firstname.lastname@domain.com</a>
+          </div>
+        </div>
+
+        <h2 i18n:translate="contact_view_notes_heading">Notes</h2>
+
+        <div tal:condition="context/notes" tal:replace="structure context/notes/output"></div>
+
+      </metal:content-core>
     </metal:content-core>
-</metal:content-core>
 
-</body>
+  </body>
 </html>
