@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from operun.crm.browser.utils import user_map
+from operun.crm.browser.utils import user_uid_generator
+
 import ldap
 import logging
 
@@ -8,6 +11,8 @@ logger = logging.getLogger('Plone')
 # NOTE: Should be set in control-panel
 root_users = 'ou=users,dc=operun,dc=de'
 root_groups = 'ou=groups,dc=operun,dc=de'
+
+branch_customers = 'ou=customers'
 
 server = '10.0.0.126'
 crm_user = 'uid=crm,ou=services,ou=users,dc=operun,dc=de'
@@ -36,28 +41,17 @@ def connect(user=None, password=None, server='0.0.0.0'):
                 available_users = con.search_s(root_users, ldap.SCOPE_SUBTREE, '(objectclass=inetOrgPerson)')  # noqa
                 tree['users'] = available_users
             except ldap.LDAPError:
-                logger.info('NOTE: User does not have access to the users DN.')
+                logger.info('NOTE: Users DN restricted to this account.')
         if root_groups:
             try:
                 available_groups = con.search_s(root_groups, ldap.SCOPE_SUBTREE, '(objectclass=posixGroup)')  # noqa
                 tree['groups'] = available_groups
             except ldap.LDAPError:
-                logger.info('NOTE: User does not have access to the groups DN.')  # noqa
+                logger.info('NOTE: Groups DN restricted to this account.')  # noqa
         return con
 
 
-def assign_attribute(attribute_list=[]):
-    """
-    Assign field to LDAP attribute.
-    """
-    # NOTE: Need to store dict somewhere..?
-    attribute_map = dict
-    for plone_field, ldap_attribute in attribute_list:
-        attribute_map[plone_field] = ldap_attribute
-    return attribute_map
-
-
-def update_user(contact, event, attribute_list=[], branch='ou=customers'):
+def update_user(contact, event, attribute_list=[], branch=branch_customers):
     """
     Update user attributes in LDAP directory.
     attribute_list == [(attr, val),
@@ -67,18 +61,20 @@ def update_user(contact, event, attribute_list=[], branch='ou=customers'):
     """
     con = connect(user=crm_user, password=crm_user_pw, server=server)
     mod_attrs = []
-    title = contact.title
+    if not attribute_list:
+        attribute_list = user_map(mail=contact.email)
     if attribute_list:
         for attribute, value in attribute_list:
-            mod_attrs.append((ldap.MOD_REPLACE, attribute, value))
+            if value:
+                mod_attrs.append((ldap.MOD_REPLACE, attribute, value))
     try:
-        con.modify_s('cn={0}{1},{2}'.format(title, ',{0}'.format(branch), root_users), mod_attrs)  # noqa
+        con.modify_s('cn={0}{1},{2}'.format(contact.title, ',{0}'.format(branch), root_users), mod_attrs)  # noqa
     except ldap.LDAPError:
-        logger.info('{0} could not be updated.'.format(title))
+        logger.info('{0} could not be updated.'.format(contact.title))
     con.unbind()
 
 
-def add_user(contact, event, attribute_list=[], branch='ou=customers'):
+def add_user(contact, event, attribute_list=[], branch=branch_customers):
     """
     Add user into LDAP directory.
     attribute_list == [(attr, val),
@@ -86,20 +82,29 @@ def add_user(contact, event, attribute_list=[], branch='ou=customers'):
                        (attr, val),]
     NOTE: Attribute should be LDAP variant!
     """
-    con = connect(user=crm_user, password=crm_user_pw, server=server)
-    title = contact.title
+    con = connect(user=crm_user,
+                  password=crm_user_pw,
+                  server=server)
+    if not attribute_list:
+        attribute_list = user_map(cn=contact.title,
+                                  mail=contact.email,
+                                  givenname=contact.firstname,
+                                  objectclass='inetOrgPerson',
+                                  sn=contact.lastname,
+                                  uid=user_uid_generator(givenname=contact.firstname,  # noqa
+                                                         sn=contact.lastname))
     try:
-        con.add_s('cn={0}{1},{2}'.format(title, ',{0}'.format(branch), root_users), attribute_list)  # noqa
+        con.add_s('cn={0}{1},{2}'.format(contact.title, ',{0}'.format(branch), root_users), attribute_list)  # noqa
     except ldap.LDAPError:
-        logger.info('{0} could not be added.'.format(title))
+        logger.info('{0} could not be added.'.format(contact.title))
     con.unbind()
 
 
-def delete_user(contact, event, branch='ou=customers'):
+def delete_user(contact, event, branch=branch_customers):
     """
     Delete user from LDAP.
     """
-    # NOTE: Should use UID instead of name in-case object changes...
+    # NOTE: Should use unique ID for modification...
     con = connect(user=crm_user, password=crm_user_pw, server=server)
     title = contact.title
     con.delete('cn={0}{1},{2}'.format(title, ',{0}'.format(branch), root_users))  # noqa
