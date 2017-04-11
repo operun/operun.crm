@@ -32,7 +32,7 @@ def upgrade_ct(context):
     for key in type_upgrade.keys():
         contents = api.content.find(portal_type=key)
         # Find & replace old Content-Types in displayed_types
-        displayed_types_updated = tuple(type_upgrade[key] if x == key else x for x in displayed_types_updated)
+        displayed_types_updated = tuple(type_upgrade[key] if x == key else x for x in displayed_types_updated)  # noqa
         # Update catalog and portal entries
         for item in portal_catalog():
             obj = item.getObject()
@@ -52,9 +52,9 @@ def upgrade_ct(context):
             logger.info(
                 '{0} already updated to {1}.'.format(key, type_upgrade[key])
             )
-    api.portal.set_registry_record('plone.displayed_types', displayed_types_updated)
+    api.portal.set_registry_record('plone.displayed_types', displayed_types_updated)  # noqa
     logger.info(
-        'Updated displayed_types:\nOLD: {0}\nNEW: {1}'.format(displayed_types, displayed_types_updated)
+        'Updated displayed_types:\nOLD: {0}\nNEW: {1}'.format(displayed_types, displayed_types_updated)  # noqa
     )
     portal_catalog.manage_catalogRebuild()
     portal_quickinstaller.reinstallProducts(['operun.crm'])
