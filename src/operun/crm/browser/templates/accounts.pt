@@ -11,14 +11,46 @@
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
 
-        <h2>Account Listing</h2>
-
         <div id="accounts-container">
           <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()" tal:repeat="account accounts">
             <div class="account-wrapper" tal:define="obj python:account.getObject()">
+
               <a href="" tal:attributes="href obj/absolute_url">
                 <h3 tal:content="obj/title"></h3>
               </a>
+
+              <div class="row">
+                <div class="col-md-8">
+
+                  <div class="row" tal:condition="obj/phone">
+                    <span class="col-md-2">
+                      <strong>Phone:</strong>
+                    </span>
+                    <span class="col-md-6" tal:content="obj/phone"></span>
+                  </div><br>
+
+                  <div class="row" tal:condition="obj/ceo">
+                    <span class="col-md-2">
+                      <strong>CEO:</strong>
+                    </span>
+                    <span class="col-md-6" tal:content="obj/ceo"></span>
+                  </div><br>
+
+                  <div class="row" tal:condition="obj/address">
+                    <span class="col-md-2">
+                      <strong>Address:</strong>
+                    </span>
+                    <div class="col-md-6">
+                      <span tal:replace="obj/title" tal:condition="obj/title"/><br/>
+                      <span tal:replace="obj/address" tal:condition="obj/address"/><br/>
+                      <span tal:replace="obj/zip" tal:condition="obj/zip"/>
+                      <span tal:replace="obj/city" tal:condition="obj/city"/>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
