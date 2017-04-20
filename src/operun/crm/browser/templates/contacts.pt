@@ -12,9 +12,10 @@
       <metal:content-core define-macro="content-core">
 
         <div id="contacts-container">
-          <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()" tal:repeat="contact contacts">
+          <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()">
 
-            <div class="contact-wrapper" tal:define="obj python:contact.getObject()">
+            <div class="contact-wrapper" tal:repeat="contact contacts"
+                                         tal:define="obj python:contact.getObject()">
 
               <a href="" tal:attributes="href obj/absolute_url">
                 <h3 tal:content="obj/title"></h3>
