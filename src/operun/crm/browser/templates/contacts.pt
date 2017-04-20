@@ -26,21 +26,21 @@
 
                   <div class="row" tal:condition="obj/phone">
                     <span class="col-md-2">
-                      <strong>Phone:</strong>
+                      <strong i18n:translate="contacts_view_phone_heading">Phone:</strong>
                     </span>
                     <span class="col-md-6" tal:content="obj/phone"></span>
                   </div><br>
 
                   <div class="row" tal:condition="obj/mobile">
                     <span class="col-md-2">
-                      <strong>Mobile:</strong>
+                      <strong i18n:translate="contacts_view_mobile_heading">Mobile:</strong>
                     </span>
                     <span class="col-md-6" tal:content="obj/mobile"></span>
                   </div><br>
 
                   <div class="row" tal:condition="obj/email">
                     <span class="col-md-2">
-                      <strong>E-Mail:</strong>
+                      <strong i18n:translate="contacts_view_email_heading">E-Mail:</strong>
                     </span>
                     <span class="col-md-6" tal:content="obj/email"></span>
                   </div>
