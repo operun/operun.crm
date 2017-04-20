@@ -27,3 +27,11 @@ class AccountsView(BrowserView):
             scale = images_view.scale('image')
             tag = scale.tag()
         return tag
+
+    def get_accounts(self):
+        """
+        Return contact items
+        """
+        return api.content.find(portal_type='Account',
+                                sort_order='reverse',
+                                sort_on='id')
