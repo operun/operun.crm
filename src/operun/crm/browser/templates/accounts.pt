@@ -11,8 +11,18 @@
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core">
 
-        <h2>Accounts</h2>
-        
+        <h2>Account Listing</h2>
+
+        <div id="accounts-container">
+          <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()" tal:repeat="account accounts">
+            <div class="account-wrapper" tal:define="obj python:account.getObject()">
+              <a href="" tal:attributes="href obj/absolute_url">
+                <h3 tal:content="obj/title"></h3>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </metal:content-core>
     </metal:content-core>
 

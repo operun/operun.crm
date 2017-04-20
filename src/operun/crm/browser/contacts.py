@@ -27,3 +27,11 @@ class ContactsView(BrowserView):
             scale = images_view.scale('image')
             tag = scale.tag()
         return tag
+
+    def get_contacts(self):
+        """
+        Return contact items
+        """
+        return api.content.find(portal_type='Contact',
+                                sort_order='reverse',
+                                sort_on='id')
