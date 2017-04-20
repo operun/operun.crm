@@ -45,4 +45,18 @@
       class=".contact.ContactView"
       />
 
+  <browser:page
+      name="view"
+      for="operun.crm.accounts.IAccounts"
+      permission="zope2.View"
+      class=".accounts.AccountsView"
+      />
+
+  <browser:page
+      name="view"
+      for="operun.crm.contacts.IContacts"
+      permission="zope2.View"
+      class=".contacts.ContactsView"
+      />
+
 </configure>
