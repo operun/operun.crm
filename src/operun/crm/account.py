@@ -27,7 +27,8 @@ class IAccount(model.Schema):
     type = schema.Choice(
         title=_(u'Account Type'),
         vocabulary=ACCOUNT_TYPES,
-        required=True,
+        required=False,
+        default=u'customer',
     )
 
     logo = NamedBlobImage(

@@ -27,7 +27,8 @@ class IContact(model.Schema):
     type = schema.Choice(
         title=_(u'Contact Type'),
         vocabulary=ACCOUNT_TYPES,
-        required=True,
+        required=False,
+        default=u'contact',
     )
 
     # Job Title
