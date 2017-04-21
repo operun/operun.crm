@@ -77,6 +77,7 @@
           <h3>Invoices</h3>
           <hr>
 
+          <!--
           <div class="invoice-item-wrapper" tal:repeat="invoice invoices">
             <ul>
               <li tal:define="obj python:invoice.getObject();
@@ -91,7 +92,9 @@
             </ul>
           </div>
         </div>
+        -->
 
+        <!--
         <div tal:define="offers python:view.get_offers()">
           <h3>Offers</h3>
           <hr>
@@ -111,6 +114,7 @@
           </div>
 
         </div>
+      -->
 
       </metal:content-core>
     </metal:content-core>
