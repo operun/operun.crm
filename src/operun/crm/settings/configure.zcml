@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="operun.crm">
+
+  <include package="plone.app.registry" />
+  <include package="plone.app.contentmenu" />
+
+  <!-- Settings -->
+
+  <browser:page
+      name="crm-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".settings.SettingsView"
+      permission="cmf.ManagePortal"
+      />
+
+</configure>
