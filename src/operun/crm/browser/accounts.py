@@ -30,8 +30,13 @@ class AccountsView(BrowserView):
 
     def get_accounts(self):
         """
-        Return contact items
+        Return account items
         """
-        return api.content.find(portal_type='Account',
-                                sort_order='reverse',
-                                sort_on='id')
+        items = []
+        accounts = api.content.find(portal_type='Account',
+                                    sort_order='reverse',
+                                    sort_on='id')
+        if accounts:
+            for account in accounts:
+                items.append(account.getObject())
+        return items

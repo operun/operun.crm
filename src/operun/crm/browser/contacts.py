@@ -32,6 +32,11 @@ class ContactsView(BrowserView):
         """
         Return contact items
         """
-        return api.content.find(portal_type='Contact',
-                                sort_order='reverse',
-                                sort_on='id')
+        items = []
+        contacts = api.content.find(portal_type='Contact',
+                                    sort_order='reverse',
+                                    sort_on='id')
+        if contacts:
+            for contact in contacts:
+                items.append(contact.getObject())
+        return items

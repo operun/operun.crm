@@ -13,9 +13,7 @@
 
         <div id="contacts-container">
           <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()">
-
-            <div class="contact-wrapper" tal:repeat="contact contacts"
-                                         tal:define="obj python:contact.getObject()">
+            <div class="contact-wrapper" tal:repeat="obj contacts">
 
               <a href="" tal:attributes="href obj/absolute_url">
                 <h3 tal:content="obj/title"></h3>
@@ -49,7 +47,6 @@
               </div>
 
             </div>
-
           </div>
         </div>
 
