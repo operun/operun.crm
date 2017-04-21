@@ -38,6 +38,14 @@
       post_handler=".setuphandlers.uninstall"
       />
 
+  <genericsetup:registerProfile
+      name="demo"
+      title="operun CRM (demo)"
+      directory="profiles/default"
+      description="Installs the operun.crm add-on with demo content."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.demo"
+      />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"

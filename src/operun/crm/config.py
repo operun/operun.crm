@@ -8,5 +8,6 @@ ACCOUNT_TYPES = SimpleVocabulary(
     [SimpleTerm(value=u'customer', title=_(u'Customer')),
      SimpleTerm(value=u'vendor', title=_(u'Vendor')),
      SimpleTerm(value=u'partner', title=_(u'Partner')),
-     SimpleTerm(value=u'prospect', title=_(u'Prospect'))]
+     SimpleTerm(value=u'prospect', title=_(u'Prospect')),
+     SimpleTerm(value=u'contact', title=_(u'Contact'))]
     )
