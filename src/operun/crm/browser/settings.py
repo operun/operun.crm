@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+"""
+Controlpanel configuration.
+"""
+
+from operun.crm import MessageFactory as _
+from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
+from plone.app.registry.browser.controlpanel import RegistryEditForm
+from plone.supermodel.directives import fieldset
+from plone.z3cform import layout
+from zope import schema
+from zope.interface import Interface
+
+
+class ISettings(Interface):
+    """
+    Controlpanel fields.
+    """
+
+    fieldset('Server', fields=['sync_to_ldap',
+                               'ldap_server_uri',
+                               'ldap_service_user',
+                               'ldap_service_pass'])
+
+    sync_to_ldap = schema.Bool(
+        title=_(u'settings_sync_to_ldap_title',
+                default=u'LDAP Syncing'),
+        description=_(u'settings_sync_to_ldap_description',
+                      default=u'If enabled, the CRM will attempt to sync to LDAP on all modify events.'),  # noqa
+        required=False,
+        default=True,
+    )
+
+    ldap_server_uri = schema.TextLine(
+        title=_(u'settings_ldap_server_uri_title',
+                default=u'LDAP Server URI'),
+        default=u'ldap://',
+        required=False,
+    )
+
+    ldap_service_user = schema.TextLine(
+        title=_(u'settings_ldap_service_user_title',
+                default=u'LDAP Service User'),
+        required=False,
+    )
+
+    ldap_service_pass = schema.Password(
+        title=_(u'settings_ldap_service_pass_title',
+                default=u'LDAP Service Password'),
+        required=False,
+    )
+
+    fieldset('DN', fields=['users_dn',
+                           'groups_dn',
+                           'accounts_dn'])
+
+    users_dn = schema.TextLine(
+        title=_(u'settings_users_dn_title',
+                default=u'Users DN'),
+        description=_(u'settings_users_dn_description',
+                      default=u'Include the users DN. e.g. ou=users,dc=example,dc=com'),  # noqa
+        required=False,
+    )
+
+    groups_dn = schema.TextLine(
+        title=_(u'settings_groups_dn_title',
+                default=u'Groups DN'),
+        description=_(u'settings_groups_dn_description',
+                      default=u'Include the groups DN. e.g. ou=groups,dc=example,dc=com'),  # noqa
+        required=False,
+    )
+
+    accounts_dn = schema.TextLine(
+        title=_(u'settings_accounts_dn_title',
+                default=u'Accounts DN'),
+        description=_(u'settings_accounts_dn_description',
+                      default=u'Include the accounts DN. e.g. ou=accounts,dc=example,dc=com'),  # noqa
+        required=False,
+    )
+
+    fieldset('Mapping', fields=['ldap_field_mapping_contact',
+                                'ldap_field_mapping_account'])
+
+    ldap_field_mapping_contact = schema.List(
+        title=_(u'settings_ldap_field_mapping_contact_title',
+                default=u'Contact Attribute Mapping'),
+        description=_(u'settings_ldap_field_mapping_contact_description',
+                      default=u'Map Plone fields to their corresponding LDAP attributes. Plone|LDAP'),  # noqa
+        value_type=schema.TextLine(),
+        default=['title|cn',
+                 'email|mail',
+                 'firstname|givenname',
+                 'lastname|sn'],
+        required=False,
+    )
+
+    ldap_field_mapping_account = schema.List(
+        title=_(u'settings_ldap_field_mapping_account_title',
+                default=u'Account Attribute Mapping'),
+        description=_(u'settings_ldap_field_mapping_account_description',
+                      default=u'Map Plone fields to their corresponding LDAP attributes. Plone|LDAP'),  # noqa
+        value_type=schema.TextLine(),
+        default=['title|cn'],
+        required=False,
+    )
+
+
+class SettingsEditForm(RegistryEditForm):
+    schema = ISettings
+    schema_prefix = 'operun.crm'
+    label = u'CRM Settings'
+
+
+SettingsView = layout.wrap_form(SettingsEditForm, ControlPanelFormWrapper)

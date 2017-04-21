@@ -59,4 +59,13 @@
       class=".contacts.ContactsView"
       />
 
+  <!-- Settings -->
+
+  <browser:page
+      name="crm-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".settings.SettingsView"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>
