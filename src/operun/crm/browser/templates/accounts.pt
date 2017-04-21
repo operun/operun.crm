@@ -13,8 +13,7 @@
 
         <div id="accounts-container">
           <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()">
-            <div class="account-wrapper" tal:repeat="account accounts"
-                                         tal:define="obj python:account.getObject()">
+            <div class="account-wrapper" tal:repeat="obj accounts">
 
               <a href="" tal:attributes="href obj/absolute_url">
                 <h3 tal:content="obj/title"></h3>
