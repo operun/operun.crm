@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 from plone import api
+from plone import namedfile
 from plone.app.textfield.value import RichTextValue
-from plone.namedfile.field import NamedBlobFile
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
-
-import os
-import random
 
 
 @implementer(INonInstallable)
@@ -55,9 +52,8 @@ def _create_demo_setup(portal, context):
     profile_id = 'operun.crm:default'
     profile_context = context._getImportContext(profile_id)
     profile_path = profile_context._profile_path
-    files_dir = profile_path + '/files/'
-    pdf = random.choice(os.listdir(files_dir))
-    abs_file_path = os.path.join(files_dir, pdf)
+    offer_path = profile_path + '/files/offer.pdf'
+    invoice_path = profile_path + '/files/invoice.pdf'
 
     # Setup Contacts
     contacts = api.content.create(
@@ -126,11 +122,11 @@ def _create_demo_setup(portal, context):
         id='invoice-2017-04-21',
         title=u'Invoice 2017-04-21',
         description=u'Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.',  # noqa
-        file=NamedBlobFile(data=open(abs_file_path, 'r').read(), filename=pdf),
+        file=namedfile.NamedBlobFile(
+            open(invoice_path, 'r').read(),
+            filename=u'invoice.pdf'),
     )
     api.content.transition(obj=invoice, transition='publish')
-
-    pdf = random.choice(os.listdir(files_dir))
 
     offer = api.content.create(
         type='Offer',
@@ -138,7 +134,9 @@ def _create_demo_setup(portal, context):
         id='offer-2017-04-21',
         title=u'Offer 2017-04-21',
         description=u'Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.',  # noqa
-        file=NamedBlobFile(data=open(abs_file_path, 'r').read(), filename=pdf),
+        file=namedfile.NamedFile(
+            data=open(offer_path, 'r').read(),
+            filename=u'offer.pdf'),
     )
     api.content.transition(obj=offer, transition='publish')
 
