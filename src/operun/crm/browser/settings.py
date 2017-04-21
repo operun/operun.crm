@@ -17,10 +17,11 @@ class ISettings(Interface):
     Controlpanel fields.
     """
 
-    fieldset('Server', fields=['sync_to_ldap',
-                               'ldap_server_uri',
-                               'ldap_service_user',
-                               'ldap_service_pass'])
+    fieldset(_(u'settings_fieldset_server',
+               default=u'Server'), fields=['sync_to_ldap',
+                                           'ldap_server_uri',
+                                           'ldap_service_user',
+                                           'ldap_service_pass'])
 
     sync_to_ldap = schema.Bool(
         title=_(u'settings_sync_to_ldap_title',
@@ -28,13 +29,13 @@ class ISettings(Interface):
         description=_(u'settings_sync_to_ldap_description',
                       default=u'If enabled, the CRM will attempt to sync to LDAP on all modify events.'),  # noqa
         required=False,
-        default=True,
+        default=False,
     )
 
     ldap_server_uri = schema.TextLine(
         title=_(u'settings_ldap_server_uri_title',
                 default=u'LDAP Server URI'),
-        default=u'ldap://',
+        default=u'ldap://127.0.0.1',
         required=False,
     )
 
@@ -50,9 +51,10 @@ class ISettings(Interface):
         required=False,
     )
 
-    fieldset('DN', fields=['users_dn',
-                           'groups_dn',
-                           'accounts_dn'])
+    fieldset(_(u'settings_fieldset_dn',
+               default=u'DN'), fields=['users_dn',
+                                       'groups_dn',
+                                       'accounts_dn'])
 
     users_dn = schema.TextLine(
         title=_(u'settings_users_dn_title',
@@ -78,8 +80,9 @@ class ISettings(Interface):
         required=False,
     )
 
-    fieldset('Mapping', fields=['ldap_field_mapping_contact',
-                                'ldap_field_mapping_account'])
+    fieldset(_(u'settings_fieldset_mapping',
+               default=u'Mapping'), fields=['ldap_field_mapping_contact',
+                                            'ldap_field_mapping_account'])
 
     ldap_field_mapping_contact = schema.List(
         title=_(u'settings_ldap_field_mapping_contact_title',
