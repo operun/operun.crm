@@ -4,7 +4,10 @@ from plone import namedfile
 from plone.app.textfield.value import RichTextValue
 from plone.namedfile.file import NamedBlobImage
 from Products.CMFPlone.interfaces import INonInstallable
+from z3c.relationfield import RelationValue
+from zope.component import getUtility
 from zope.interface import implementer
+from zope.intid.interfaces import IIntIds
 
 
 @implementer(INonInstallable)
@@ -77,24 +80,6 @@ def _create_demo_setup(portal, context):
     )
     api.content.transition(obj=accounts, transition='publish')
 
-    # Create Contact
-    contact = api.content.create(
-        type='Contact',
-        container=contacts,
-        id='max-mustermann',
-        title=u'Max Mustermann',
-        description=u'Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
-        firstname=u'Max',
-        lastname=u'Max',
-        account=u'Musterfirma GmbH',
-        phone=u'+49 89 123456-78',
-        mobile=u'+49 170 1234567',
-        email=u'max.mustermann@musterfirma.de',
-        notes=RichTextValue(
-            u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
-    )
-    api.content.transition(obj=contact, transition='publish')
-
     # Create Account
     account = api.content.create(
         type='Account',
@@ -116,6 +101,27 @@ def _create_demo_setup(portal, context):
             u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
     )
     api.content.transition(obj=account, transition='publish')
+
+    # RelationValue
+    intids = getUtility(IIntIds)
+
+    # Create Contact
+    contact = api.content.create(
+        type='Contact',
+        container=contacts,
+        id='max-mustermann',
+        title=u'Max Mustermann',
+        description=u'Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
+        firstname=u'Max',
+        lastname=u'Max',
+        account=RelationValue(intids.getId(account)),
+        phone=u'+49 89 123456-78',
+        mobile=u'+49 170 1234567',
+        email=u'max.mustermann@musterfirma.de',
+        notes=RichTextValue(
+            u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
+    )
+    api.content.transition(obj=contact, transition='publish')
 
     # Create Invoice & Offer
 
