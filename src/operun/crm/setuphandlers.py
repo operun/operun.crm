@@ -2,6 +2,7 @@
 from plone import api
 from plone import namedfile
 from plone.app.textfield.value import RichTextValue
+from plone.namedfile.file import NamedBlobImage
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
 
@@ -54,6 +55,7 @@ def _create_demo_setup(portal, context):
     profile_path = profile_context._profile_path
     offer_path = profile_path + '/files/offer.pdf'
     invoice_path = profile_path + '/files/invoice.pdf'
+    logo_path = profile_path + '/files/logo.jpg'
 
     # Setup Contacts
     contacts = api.content.create(
@@ -100,6 +102,7 @@ def _create_demo_setup(portal, context):
         id='musterfirma-gmbh',
         title=u'Musterfirma GmbH',
         description=u'Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
+        logo=NamedBlobImage(open(logo_path, 'r').read(), filename=u'logo.jpg'),
         phone=u'+49 89 123456-0',
         fax=u'+49 89 123456-99',
         billing_email=u'rechnung@musterfirma.de',
