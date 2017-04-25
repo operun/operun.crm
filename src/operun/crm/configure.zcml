@@ -11,6 +11,7 @@
   <includeDependencies package="." />
   <include package=".browser" />
   <include package=".settings" />
+  <include package=".ldap" />
   <include package="plone.app.relationfield" />
   <include file="upgrades.zcml" />
 

@@ -5,9 +5,9 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 
 ACCOUNT_TYPES = SimpleVocabulary(
-    [SimpleTerm(value=u'customer', title=_(u'Customer')),
-     SimpleTerm(value=u'vendor', title=_(u'Vendor')),
-     SimpleTerm(value=u'partner', title=_(u'Partner')),
-     SimpleTerm(value=u'prospect', title=_(u'Prospect')),
-     SimpleTerm(value=u'contact', title=_(u'Contact'))]
-    )
+    [SimpleTerm(value=u'contact', title=_(u'Contact')),
+     SimpleTerm(value=u'employee', title=_(u'Employee')),
+     SimpleTerm(value=u'lead', title=_(u'Lead')),
+     SimpleTerm(value=u'customer', title=_(u'Customer')),
+     SimpleTerm(value=u'vendor', title=_(u'Vendor'))]
+)

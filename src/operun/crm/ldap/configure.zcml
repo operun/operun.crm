@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="operun.crm">
+
+  <include package="plone.app.registry" />
+  <include package="plone.app.contentmenu" />
+
+  <!-- Event handlers | Contact -->
+
+  <subscriber
+      for="operun.crm.contact.IContact
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      handler=".event_handlers.add_obj"
+      />
+
+  <subscriber
+      for="operun.crm.contact.IContact
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".event_handlers.update_obj"
+      />
+
+  <subscriber
+      for="operun.crm.contact.IContact
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+      handler=".event_handlers.delete_obj"
+      />
+
+  <!-- Event handlers | Account -->
+
+  <!-- <subscriber
+      for="operun.crm.account.IAccount
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      handler=".ldap.ldap_create_object"
+      />
+
+  <subscriber
+      for="operun.crm.account.IAccount
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".ldap.ldap_update_object"
+      />
+
+  <subscriber
+      for="operun.crm.account.IAccount
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+      handler=".ldap.ldap_delete_object"
+      /> -->
+
+</configure>
