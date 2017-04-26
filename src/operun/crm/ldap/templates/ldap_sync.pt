@@ -13,9 +13,9 @@
 
       <div>
 
-        <h1>LDAP Sync</h1>
+        <h1 i18n:translate="ldap_sync_title">LDAP Sync</h1>
 
-        <h3>TODO</h3>
+        <h3 i18n:translate="ldap_sync_message">TODO</h3>
 
         <form action="${context/absolute_url}/@@ldap-sync"
               id="ldap-sync"
@@ -23,7 +23,7 @@
               enctype="multipart/form-data"
               method="post">
           <div class="formControls">
-            <button type="submit" value="Sync" name="form.buttons.sync">
+            <button type="submit" value="Sync" name="form.buttons.sync" i18n:translate="">
               Sync
             </button>
           </div>

@@ -82,7 +82,8 @@ class ISettings(Interface):
 
     fieldset(_(u'settings_fieldset_mapping',
                default=u'Mapping'), fields=['ldap_field_mapping_contact',
-                                            'ldap_field_mapping_account'])
+                                            'ldap_field_mapping_account',
+                                            'ldap_objectclass_mapping'])
 
     ldap_field_mapping_contact = schema.List(
         title=_(u'settings_ldap_field_mapping_contact_title',
@@ -104,6 +105,17 @@ class ISettings(Interface):
                       default=u'Map Plone fields to their corresponding LDAP attributes. Plone|LDAP'),  # noqa
         value_type=schema.TextLine(),
         default=['title|cn'],
+        required=False,
+    )
+
+    ldap_objectclass_mapping = schema.List(
+        title=_(u'settings_ldap_objectclass_mapping_title',
+                default=u'Content-Type to objectClass Mapping'),
+        description=_(u'settings_ldap_objectclass_mapping_description',
+                      default=u'Map Plone Content-Type to an LDAP objectClass. Plone|LDAP'),  # noqa
+        value_type=schema.TextLine(),
+        default=['Account|posixGroup',
+                 'Contact|inetOrgPerson'],
         required=False,
     )
 

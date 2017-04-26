@@ -8,46 +8,6 @@
   <include package="plone.app.registry" />
   <include package="plone.app.contentmenu" />
 
-  <!-- Event handlers | Contact -->
-
-  <!-- <subscriber
-      for="operun.crm.contact.IContact
-           zope.lifecycleevent.interfaces.IObjectAddedEvent"
-      handler=".event_handlers.add_obj"
-      />
-
-  <subscriber
-      for="operun.crm.contact.IContact
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".event_handlers.update_obj"
-      />
-
-  <subscriber
-      for="operun.crm.contact.IContact
-           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
-      handler=".event_handlers.delete_obj"
-      /> -->
-
-  <!-- Event handlers | Account -->
-
-  <!-- <subscriber
-      for="operun.crm.account.IAccount
-           zope.lifecycleevent.interfaces.IObjectAddedEvent"
-      handler=".ldap.ldap_create_object"
-      />
-
-  <subscriber
-      for="operun.crm.account.IAccount
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".ldap.ldap_update_object"
-      />
-
-  <subscriber
-      for="operun.crm.account.IAccount
-           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
-      handler=".ldap.ldap_delete_object"
-      /> -->
-
   <!-- Browser Views -->
 
   <browser:page
