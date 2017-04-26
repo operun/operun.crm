@@ -10,7 +10,7 @@
       <property name="url_expr">string:${object_url}/@@ldap-sync</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr"/>object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
@@ -24,7 +24,7 @@
       <property name="url_expr">string:${object_url}/@@ldap-add</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr"/>object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
@@ -38,7 +38,7 @@
       <property name="url_expr">string:${object_url}/@@ldap-update</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr"/>object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
@@ -52,7 +52,7 @@
       <property name="url_expr">string:${object_url}/@@ldap-delete</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr"/>object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
