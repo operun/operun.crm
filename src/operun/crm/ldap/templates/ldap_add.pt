@@ -13,9 +13,9 @@
 
       <div tal:define="context_title context/title">
 
-        <h1>LDAP Add</h1>
+        <h1 i18n:translate="ldap_add_title">LDAP Add</h1>
 
-        <h3>${context_title} will be added to LDAP.</h3>
+        <h3>${context_title} <span i18n:translate="ldap_add_message">will be added to LDAP.</span></h3>
 
         <form action="${context/absolute_url}/@@ldap-add"
               id="ldap-add"
@@ -23,7 +23,7 @@
               enctype="multipart/form-data"
               method="post">
           <div class="formControls">
-            <button type="submit" value="Add" name="form.buttons.sync">
+            <button type="submit" value="Add" name="form.buttons.sync" i18n:translate="">
               Add
             </button>
           </div>

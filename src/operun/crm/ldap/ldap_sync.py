@@ -186,14 +186,13 @@ class LdapSyncView(BrowserView):
         Generates a mod_attrs list with objectClass and UID.
         Used in LDAP create object mode.
         """
+        ldap_objectclass_mapping = api.portal.get_registry_record(
+            name='operun.crm.ldap_objectclass_mapping')
         mod_attrs = self.generate_mod_attrs(obj)
         content_type = obj.Type()
         object_uid = obj.UID()
-        class_list = {
-            'Account': 'posixGroup',
-            'Contact': 'inetOrgPerson',
-        }
-        mod_attrs.append(('objectclass', class_list[content_type]))
+        object_class = self.list_to_dict(ldap_objectclass_mapping)[content_type]  # noqa
+        mod_attrs.append(('objectclass', object_class))
         mod_attrs.append(('uid', object_uid))
         return mod_attrs
 
@@ -205,42 +204,63 @@ class LdapSyncView(BrowserView):
         mod_attrs = self.generate_mod_attrs(obj)
         return [(ldap.MOD_REPLACE,) + item for item in mod_attrs]
 
+    def generate_ldap_node(self, obj):
+        """
+        Generates an LDAP node for DN construction.
+        """
+        ldap_node_mapping = {
+            'contact': 'contacts',
+            'employee': 'employees',
+            'lead': 'leads',
+            'customer': 'customers',
+            'vendor': 'vendors'
+        }
+        object_title = obj.Title()
+        content_type = obj.Type()
+        account_type = obj.type
+        if content_type == 'Contact':
+            ldap_node = 'cn={0},ou={1}'.format(
+                object_title,
+                ldap_node_mapping[account_type]
+            )
+        elif content_type == 'Account':
+            ldap_node = 'cn={0}'.format(object_title)
+        return ldap_node
+
     def generate_ldap_dn(self, obj):
         """
         Generate path for LDAP modification.
         """
-        users_dn = api.portal.get_registry_record(name='operun.crm.users_dn')
         accounts_dn = api.portal.get_registry_record(
             name='operun.crm.accounts_dn')
+        users_dn = api.portal.get_registry_record(name='operun.crm.users_dn')
         obj = self.convert_to_object(obj)
         content_type = obj.Type()
         if obj and users_dn or accounts_dn:
             if content_type == 'Contact':
-                object_title = obj.Title()
-                object_type = obj.type
-                ldap_node = 'cn={0},ou={1}s'.format(object_title, object_type)
-                return '{0},{1}'.format(ldap_node, users_dn)
+                return '{0},{1}'.format(
+                    self.generate_ldap_node(obj),
+                    users_dn
+                )
             elif content_type == 'Account':
-                object_title = obj.Title()
-                ldap_node = 'cn={0}'.format(object_title)
-                return '{0},{1}'.format(ldap_node, accounts_dn)
+                return '{0},{1}'.format(
+                    self.generate_ldap_node(obj),
+                    accounts_dn
+                )
 
     def get_field_mapping(self, content_type):
         """
         Map Plone field to LDAP attribute from config.
         Return mapped dictionary as: {'field': 'attribute'}
         """
-        contact_mapping = api.portal.get_registry_record(
-            name='operun.crm.ldap_field_mapping_contact')
-        account_mapping = api.portal.get_registry_record(
-            name='operun.crm.ldap_field_mapping_account')
-        if content_type:
-            if content_type == 'Contact':
-                return self.list_to_dict(contact_mapping)
-            elif content_type == 'Account':
-                return self.list_to_dict(account_mapping)
-        else:
-            return None
+        if content_type == 'Contact':
+            mapping = api.portal.get_registry_record(
+                name='operun.crm.ldap_field_mapping_contact')
+        elif content_type == 'Account':
+            mapping = api.portal.get_registry_record(
+                name='operun.crm.ldap_field_mapping_account')
+        if mapping:
+            return self.list_to_dict(mapping)
 
     def get_mapped_field(self, content_type, field):
         """
@@ -259,12 +279,8 @@ class LdapSyncView(BrowserView):
         """
         Check whether or not the manual LDAP actions are enabled in the config.
         """
-        manual_ldap_actions = api.portal.get_registry_record(
+        return api.portal.get_registry_record(
             name='operun.crm.manual_ldap_actions')
-        if manual_ldap_actions:
-            return True
-        else:
-            return False
 
 
 class LdapSyncAddView(LdapSyncView):
