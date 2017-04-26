@@ -247,7 +247,13 @@ class LdapSyncAddView(LdapSyncView):
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             self.add_ldap_object(self.context)
-        return self.template()
+            api.portal.show_message(
+                _(u'Successfully added to LDAP.'),
+                self.request
+            )
+            return self.template()
+        else:
+            return self.template()
 
 
 class LdapSyncUpdateView(LdapSyncView):
@@ -257,7 +263,13 @@ class LdapSyncUpdateView(LdapSyncView):
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             self.add_update_object(self.context)
-        return self.template()
+            api.portal.show_message(
+                _(u'Successfully updated LDAP entry.'),
+                self.request
+            )
+            return self.template()
+        else:
+            return self.template()
 
 
 class LdapSyncDeleteView(LdapSyncView):
@@ -267,4 +279,10 @@ class LdapSyncDeleteView(LdapSyncView):
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             self.delete_ldap_object(self.context)
-        return self.template()
+            api.portal.show_message(
+                _(u'Successfully deleted from LDAP.'),
+                self.request
+            )
+            return self.template()
+        else:
+            return self.template()
