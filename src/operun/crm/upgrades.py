@@ -41,6 +41,9 @@ def upgrade_ct(context):
                     '{0} in catalog is being updated...'.format(key)
                 )
                 obj.portal_type = type_upgrade[key]
+            if hasattr(obj, 'type'):
+                if obj.type == 'prospect':
+                    obj.type = 'lead'
         if contents:
             for item in contents:
                 logger.info(
