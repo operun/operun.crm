@@ -13,7 +13,7 @@
       <property name="available_expr"/>
       <property name="permissions"/>
       <property name="visible">True</property>
-      <property name="modal" type="text">{}</property>
+      <!-- <property name="modal" type="text">{}</property> -->
     </object>
   </object>
 
@@ -27,7 +27,7 @@
       <property name="available_expr"/>
       <property name="permissions"/>
       <property name="visible">True</property>
-      <property name="modal" type="text">{}</property>
+      <!-- <property name="modal" type="text">{}</property> -->
     </object>
   </object>
 
@@ -41,7 +41,7 @@
       <property name="available_expr"/>
       <property name="permissions"/>
       <property name="visible">True</property>
-      <property name="modal" type="text">{}</property>
+      <!-- <property name="modal" type="text">{}</property> -->
     </object>
   </object>
 
@@ -55,7 +55,7 @@
       <property name="available_expr"/>
       <property name="permissions"/>
       <property name="visible">True</property>
-      <property name="modal" type="text">{}</property>
+      <!-- <property name="modal" type="text">{}</property> -->
     </object>
   </object>
 
