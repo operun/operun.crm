@@ -11,17 +11,21 @@
 
     <metal:content-core fill-slot="main">
 
-      <div tal:define="context context/title">
+      <div tal:define="context_title context/title">
 
-        <h1>LDAP Delete ${context}</h1>
+        <h1>LDAP Add</h1>
 
-        <form enctype="multipart/form-data" method="post">
-          <div class="sync-main">
-            <div class="sub-main">
-              <button type="submit" value="Delete" class="sync-button" name="form.buttons.sync">
-                <span>Delete</span>
-              </button>
-            </div>
+        <h3>${context_title} will be added to LDAP.</h3>
+
+        <form action="${context/absolute_url}/@@ldap-add"
+              id="ldap-add"
+              name="ldap-add-form"
+              enctype="multipart/form-data"
+              method="post">
+          <div class="formControls">
+            <button type="submit" value="Add" name="form.buttons.sync">
+              Add
+            </button>
           </div>
         </form>
 

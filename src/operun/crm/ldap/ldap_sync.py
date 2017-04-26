@@ -34,7 +34,7 @@ class LdapSyncView(BrowserView):
         if connection:
             if not item:
                 item = self.context
-            mod_attrs = self.generate_mod_attrs(item)
+            mod_attrs = self.generate_create_mod_attrs(item)
             ldap_dn = self.generate_ldap_dn(item)
             try:
                 connection.add_s(ldap_dn, mod_attrs)
@@ -51,7 +51,7 @@ class LdapSyncView(BrowserView):
         if connection:
             if not item:
                 item = self.context
-            mod_attrs = self.generate_mod_attrs(item)
+            mod_attrs = self.generate_update_mod_attrs(item)
             ldap_dn = self.generate_ldap_dn(item)
             try:
                 connection.modify_s(ldap_dn, mod_attrs)
@@ -173,21 +173,37 @@ class LdapSyncView(BrowserView):
         mod_attrs = []
         obj = self.convert_to_object(obj)
         content_type = obj.Type()
-        object_uid = obj.UID()
         if content_type in self.types_to_sync():
             for field in self.get_fields_to_update(content_type):
                 mod_attrs.append(
                     (self.get_mapped_field(content_type, field),
                      str(getattr(obj, field)))
                 )
+        return mod_attrs
+
+    def generate_create_mod_attrs(self, obj):
+        """
+        Generates a mod_attrs list with objectClass and UID.
+        Used in LDAP create object mode.
+        """
+        mod_attrs = self.generate_mod_attrs(obj)
+        content_type = obj.Type()
+        object_uid = obj.UID()
         class_list = {
             'Account': 'posixGroup',
             'Contact': 'inetOrgPerson',
         }
         mod_attrs.append(('objectclass', class_list[content_type]))
         mod_attrs.append(('uid', object_uid))
-
         return mod_attrs
+
+    def generate_update_mod_attrs(self, obj):
+        """
+        Generates a mod_attrs list with ldap.MOD_REPLACE attribute.
+        Used in LDAP update object attributes mode.
+        """
+        mod_attrs = self.generate_mod_attrs(obj)
+        return [(ldap.MOD_REPLACE,) + item for item in mod_attrs]
 
     def generate_ldap_dn(self, obj):
         """
@@ -242,47 +258,32 @@ class LdapSyncView(BrowserView):
 
 class LdapSyncAddView(LdapSyncView):
 
-    template = ViewPageTemplateFile('templates/ldap_sync_add.pt')
+    template = ViewPageTemplateFile('templates/ldap_add.pt')
 
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             self.add_ldap_object(self.context)
-            api.portal.show_message(
-                _(u'Successfully added to LDAP.'),
-                self.request
-            )
-            return self.template()
         else:
             return self.template()
 
 
 class LdapSyncUpdateView(LdapSyncView):
 
-    template = ViewPageTemplateFile('templates/ldap_sync_update.pt')
+    template = ViewPageTemplateFile('templates/ldap_update.pt')
 
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
-            self.add_update_object(self.context)
-            api.portal.show_message(
-                _(u'Successfully updated LDAP entry.'),
-                self.request
-            )
-            return self.template()
+            self.update_ldap_object(self.context)
         else:
             return self.template()
 
 
 class LdapSyncDeleteView(LdapSyncView):
 
-    template = ViewPageTemplateFile('templates/ldap_sync_delete.pt')
+    template = ViewPageTemplateFile('templates/ldap_delete.pt')
 
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             self.delete_ldap_object(self.context)
-            api.portal.show_message(
-                _(u'Successfully deleted from LDAP.'),
-                self.request
-            )
-            return self.template()
         else:
             return self.template()

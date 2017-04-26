@@ -51,28 +51,28 @@
   <!-- Browser Views -->
 
   <browser:page
-      name="ldap_sync_view"
+      name="ldap-sync"
       for="*"
       permission="zope2.View"
       class=".ldap_sync.LdapSyncView"
       />
 
   <browser:page
-      name="ldap_sync_add"
+      name="ldap-add"
       for="*"
       permission="zope2.View"
       class=".ldap_sync.LdapSyncAddView"
       />
 
   <browser:page
-      name="ldap_sync_update"
+      name="ldap-update"
       for="*"
       permission="zope2.View"
       class=".ldap_sync.LdapSyncUpdateView"
       />
 
   <browser:page
-      name="ldap_sync_delete"
+      name="ldap-delete"
       for="*"
       permission="zope2.View"
       class=".ldap_sync.LdapSyncDeleteView"
