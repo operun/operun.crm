@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="operun.crm">
+
+  <body>
+
+    <metal:content-core fill-slot="main">
+
+      <div tal:define="context context/title">
+
+        <h1>LDAP Delete ${context}</h1>
+
+        <form enctype="multipart/form-data" method="post">
+          <div class="sync-main">
+            <div class="sub-main">
+              <button type="submit" value="Delete" class="sync-button" name="form.buttons.sync">
+                <span>Delete</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    </metal:content-core>
+
+  </body>
+
+</html>
