@@ -255,6 +255,17 @@ class LdapSyncView(BrowserView):
         """
         return self.get_field_mapping(content_type).keys()
 
+    def check_manual_ldap_actions_enabled(self):
+        """
+        Check whether or not the manual LDAP actions are enabled in the config.
+        """
+        manual_ldap_actions = api.portal.get_registry_record(
+            name='operun.crm.manual_ldap_actions')
+        if manual_ldap_actions:
+            return True
+        else:
+            return False
+
 
 class LdapSyncAddView(LdapSyncView):
 

@@ -27,7 +27,7 @@ class ISettings(Interface):
         title=_(u'settings_sync_to_ldap_title',
                 default=u'LDAP Syncing'),
         description=_(u'settings_sync_to_ldap_description',
-                      default=u'If enabled, the CRM will attempt to sync to LDAP on all modify events.'),  # noqa
+                      default=u'If enabled, the CRM will attempt an LDAP connection on sync events.'),  # noqa
         required=False,
         default=False,
     )
@@ -105,6 +105,18 @@ class ISettings(Interface):
         value_type=schema.TextLine(),
         default=['title|cn'],
         required=False,
+    )
+
+    fieldset(_(u'settings_fieldset_other',
+               default=u'Other'), fields=['manual_ldap_actions'])
+
+    manual_ldap_actions = schema.Bool(
+        title=_(u'settings_manual_ldap_actions_title',
+                default=u'Manual LDAP Actions'),
+        description=_(u'settings_manual_ldap_actions_description',
+                      default=u'Enable manual LDAP controls in the actions menu.'),  # noqa
+        required=False,
+        default=False,
     )
 
 
