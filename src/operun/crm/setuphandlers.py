@@ -113,7 +113,7 @@ def _create_demo_setup(portal, context):
         title=u'Max Mustermann',
         description=u'Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
         firstname=u'Max',
-        lastname=u'Max',
+        lastname=u'Mustermann',
         account=RelationValue(intids.getId(account)),
         phone=u'+49 89 123456-78',
         mobile=u'+49 170 1234567',
