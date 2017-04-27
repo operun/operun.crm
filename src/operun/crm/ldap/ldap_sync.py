@@ -93,7 +93,7 @@ class LdapSyncView(BrowserView):
             try:
                 connection.modify_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
-                logger.info(_('An error occurred...'))  # noqa
+                logger.info(_('An error occurred...'))
         self.unbind()
 
     # Connection Methods
