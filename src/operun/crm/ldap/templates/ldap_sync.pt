@@ -14,14 +14,29 @@
       <div>
 
         <h1 i18n:translate="ldap_sync_title">LDAP Sync</h1>
+        <h3 i18n:translate="ldap_sync_message">Proceeding will attempt to:</h3>
 
-        <h3 i18n:translate="ldap_sync_message">TODO</h3>
+        <ul>
+          <li>
+            <span i18n:translate="">Remove duplicate entries by UID.</span><br>
+            <i i18n:translate="">If conditions (1 & 2) are met.</i>
+          </li>
+          <li>
+            <span i18n:translate="">Add an object if it doesn't exist in the LDAP.</span><br>
+            <i i18n:translate="">If conditions (2) are met.</i>
+          </li>
+          <li i18n:translate="">Move a user to a new superior (LDAP node) if LDAP attribute differs from the CRM.</li>
+        </ul>
 
-        <form action="${context/absolute_url}/@@ldap-sync"
-              id="ldap-sync"
-              name="ldap-sync-form"
-              enctype="multipart/form-data"
-              method="post">
+        <p>
+          <h4 i18n:translate="ldap_sync_title_conditions">Conditions:</h4>
+          1.
+          <strong i18n:translate="ldap_sync_condition_one">Entries with different UIDs but the same CN under another node will not be removed.</strong><br>
+          2.
+          <strong i18n:translate="ldap_sync_condition_two">LDAP prohibits duplicate DNs under the same node, regardless of its UID or attributes.</strong>
+        </p>
+
+        <form action="${context/absolute_url}/@@ldap-sync" id="ldap-sync" name="ldap-sync-form" enctype="multipart/form-data" method="post">
           <div class="formControls">
             <button type="submit" value="Sync" name="form.buttons.sync" i18n:translate="">
               Sync
