@@ -20,9 +20,37 @@ class LdapSyncView(BrowserView):
     template = ViewPageTemplateFile('templates/ldap_sync.pt')
 
     def __call__(self):
-        return self.template()
+        if self.request.form.get('form.buttons.sync'):
+            self.sync_ldap_objects(self.context)
+        else:
+            return self.template()
 
     # LDAP Object Methods
+
+    def sync_ldap_objects(self, obj):
+        """
+        Syncs missing objects to LDAP.
+        """
+        connection = self.connect()
+        content_type = obj.Type()
+        if connection:
+            # Folder
+            if content_type == 'Contacts' or 'Accounts':
+                folder_contents = obj.listFolderContents()
+                for item in folder_contents:
+                    result = self.search_for_user(item)
+                    if result:
+                        self.rectify_node_tree(item)
+                    else:
+                        self.add_ldap_object(item)
+            # Item
+            else:
+                result = self.search_for_user(obj)
+                if result:
+                    self.rectify_node_tree(obj)
+                else:
+                    self.add_ldap_object(obj)
+        self.unbind()
 
     def add_ldap_object(self, item=None):
         """
@@ -53,6 +81,7 @@ class LdapSyncView(BrowserView):
                 item = self.context
             mod_attrs = self.generate_update_mod_attrs(item)
             ldap_dn = self.generate_ldap_dn(item)
+            self.rectify_node_tree(item)
             try:
                 connection.modify_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
@@ -67,7 +96,11 @@ class LdapSyncView(BrowserView):
         if connection:
             if not item:
                 item = self.context
-            ldap_dn = self.generate_ldap_dn(item)
+                ldap_dn = self.generate_ldap_dn(item)
+            else:
+                ldap_dn = item
+                if not isinstance(item, str):
+                    ldap_dn = self.generate_ldap_dn(item)
             try:
                 connection.delete(ldap_dn)
             except ldap.LDAPError:
@@ -141,6 +174,52 @@ class LdapSyncView(BrowserView):
         else:
             logger.info(_('Disconnected from LDAP server...'))
 
+    def search_for_user(self, obj):
+        """
+        Search for user by UID and return DN from LDAP.
+        Can be used as conditional method if user exists in LDAP.
+        Should take single object, either passed or through iteration.
+        """
+        ldap_objectclass_mapping = api.portal.get_registry_record(
+            name='operun.crm.ldap_objectclass_mapping')
+        accounts_dn = api.portal.get_registry_record(
+            name='operun.crm.accounts_dn')
+        users_dn = api.portal.get_registry_record(
+            name='operun.crm.users_dn')
+        # Defaults
+        content_type = obj.Type()
+        object_class = self.list_to_dict(ldap_objectclass_mapping)[content_type]  # noqa
+        # Check Type
+        if content_type == 'Account':
+            ldap_dn = accounts_dn
+        if content_type == 'Contact':
+            ldap_dn = users_dn
+        try:
+            # Returns DN(s) if user exists in LDAP
+            search_result = self.connection.search_s(ldap_dn, ldap.SCOPE_SUBTREE, '(&(uid={0})(objectClass={1}))'.format(obj.UID(), object_class))  # noqa
+        except ldap.LDAPError:
+            pass
+        else:
+            return search_result
+
+    def rectify_node_tree(self, obj):
+        """
+        Removes duplicate users and fixes node tree inconsistencies.
+        """
+        result = self.search_for_user(obj)
+        current_dn = self.generate_ldap_dn(obj)
+        if len(result) > 1:
+            for item in result:
+                old_dn = item[0]
+                if old_dn != current_dn:
+                    self.delete_ldap_object(old_dn)
+        else:
+            old_dn = result[0][0]
+            obj_cn = self.generate_ldap_dn(obj, cn=True)
+            obj_superior = self.generate_ldap_dn(obj, superior=True)
+            if old_dn != current_dn:
+                self.connection.rename_s(old_dn, obj_cn, obj_superior)
+
     # Common Utils
 
     def list_to_dict(self, list_of_items):
@@ -204,10 +283,15 @@ class LdapSyncView(BrowserView):
         mod_attrs = self.generate_mod_attrs(obj)
         return [(ldap.MOD_REPLACE,) + item for item in mod_attrs]
 
-    def generate_ldap_node(self, obj):
+    def generate_ldap_dn(self, obj, cn=False, superior=False):
         """
-        Generates an LDAP node for DN construction.
+        Generates a DN for use in LDAP object modifiers.
         """
+        # Defaults
+        accounts_dn = api.portal.get_registry_record(
+            name='operun.crm.accounts_dn')
+        users_dn = api.portal.get_registry_record(
+            name='operun.crm.users_dn')
         ldap_node_mapping = {
             'contact': 'contacts',
             'employee': 'employees',
@@ -215,38 +299,25 @@ class LdapSyncView(BrowserView):
             'customer': 'customers',
             'vendor': 'vendors'
         }
+        # Object Variables
+        obj = self.convert_to_object(obj)
         object_title = obj.Title()
         content_type = obj.Type()
         account_type = obj.type
+        mapped_type = ldap_node_mapping[account_type]
+        # Set DN
         if content_type == 'Contact':
-            ldap_node = 'cn={0},ou={1}'.format(
-                object_title,
-                ldap_node_mapping[account_type]
-            )
-        elif content_type == 'Account':
-            ldap_node = 'cn={0}'.format(object_title)
-        return ldap_node
-
-    def generate_ldap_dn(self, obj):
-        """
-        Generate path for LDAP modification.
-        """
-        accounts_dn = api.portal.get_registry_record(
-            name='operun.crm.accounts_dn')
-        users_dn = api.portal.get_registry_record(name='operun.crm.users_dn')
-        obj = self.convert_to_object(obj)
-        content_type = obj.Type()
-        if obj and users_dn or accounts_dn:
-            if content_type == 'Contact':
-                return '{0},{1}'.format(
-                    self.generate_ldap_node(obj),
-                    users_dn
-                )
-            elif content_type == 'Account':
-                return '{0},{1}'.format(
-                    self.generate_ldap_node(obj),
-                    accounts_dn
-                )
+            ldap_node = users_dn
+        if content_type == 'Account':
+            ldap_node = accounts_dn
+        # Construct Full-DN
+        if cn and not superior:
+            ldap_dn = 'cn={0}'.format(object_title)
+        elif superior and not cn:
+            ldap_dn = 'ou={0},{1}'.format(mapped_type, ldap_node)
+        else:
+            ldap_dn = 'cn={0},ou={1},{2}'.format(object_title, mapped_type, ldap_node)  # noqa
+        return ldap_dn
 
     def get_field_mapping(self, content_type):
         """
