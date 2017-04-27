@@ -42,6 +42,7 @@ setup(
         'plone.api',
         'setuptools',
         'Products.GenericSetup>=1.8.2',
+        'plone.app.registry',
         'plone.app.relationfield',
         'plone.app.dexterity [relations]',
         'plone.formwidget.namedfile',

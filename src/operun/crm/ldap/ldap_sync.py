@@ -39,7 +39,7 @@ class LdapSyncView(BrowserView):
             try:
                 connection.add_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
-                logger.info(_('An error occurred...'))
+                logger.info(_('An error occurred, likely due to a conflicting LDAP entry.'))  # noqa
         self.unbind()
 
     def update_ldap_object(self, item=None):
@@ -93,7 +93,7 @@ class LdapSyncView(BrowserView):
             try:
                 connection.modify_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
-                logger.info(_('An error occurred...'))
+                logger.info(_('An error occurred...'))  # noqa
         self.unbind()
 
     # Connection Methods
@@ -137,7 +137,7 @@ class LdapSyncView(BrowserView):
         try:
             self.connection.unbind()
         except AttributeError:
-            logger.info(_('No connection!'))
+            pass
         else:
             logger.info(_('Disconnected from LDAP server...'))
 
