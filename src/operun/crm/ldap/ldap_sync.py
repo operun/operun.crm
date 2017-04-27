@@ -39,7 +39,7 @@ class LdapSyncView(BrowserView):
             try:
                 connection.add_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
-                logger.info(_('An error occurred, likely due to a conflicting LDAP entry.'))  # noqa
+                logger.info(_('An error occurred...'))
         self.unbind()
 
     def update_ldap_object(self, item=None):
