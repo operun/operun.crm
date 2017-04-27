@@ -10,7 +10,7 @@
 
   <!-- Event handlers | Contact -->
 
-  <subscriber
+  <!-- <subscriber
       for="operun.crm.contact.IContact
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
       handler=".event_handlers.add_obj"
@@ -26,11 +26,11 @@
       for="operun.crm.contact.IContact
            zope.lifecycleevent.interfaces.IObjectRemovedEvent"
       handler=".event_handlers.delete_obj"
-      />
+      /> -->
 
   <!-- Event handlers | Account -->
 
-  <subscriber
+  <!-- <subscriber
       for="operun.crm.account.IAccount
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
     handler=".event_handlers.add_obj"
@@ -46,6 +46,6 @@
       for="operun.crm.account.IAccount
            zope.lifecycleevent.interfaces.IObjectRemovedEvent"
       handler=".event_handlers.delete_obj"
-      />
+      /> -->
 
 </configure>
