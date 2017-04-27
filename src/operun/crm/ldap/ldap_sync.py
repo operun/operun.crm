@@ -27,29 +27,31 @@ class LdapSyncView(BrowserView):
 
     # LDAP Object Methods
 
-    def sync_ldap_objects(self, obj):
+    def sync_ldap_objects(self, container):
         """
         Syncs missing objects to LDAP.
         """
         connection = self.connect()
-        content_type = obj.Type()
+        content_type = container.Type()
         if connection:
             # Folder
-            if content_type == 'Contacts' or 'Accounts':
-                folder_contents = obj.listFolderContents()
+            if content_type in self.types_to_sync('containers'):
+                folder_contents = container.listFolderContents()
                 for item in folder_contents:
                     result = self.search_for_user(item)
                     if result:
-                        self.rectify_node_tree(item)
+                        self.update_node_tree(item)
+                        self.update_ldap_object(item)
                     else:
                         self.add_ldap_object(item)
             # Item
             else:
-                result = self.search_for_user(obj)
+                result = self.search_for_user(container)
                 if result:
-                    self.rectify_node_tree(obj)
+                    self.update_node_tree(container)
+                    self.update_ldap_object(container)
                 else:
-                    self.add_ldap_object(obj)
+                    self.add_ldap_object(container)
         self.unbind()
 
     def add_ldap_object(self, item=None):
@@ -81,7 +83,7 @@ class LdapSyncView(BrowserView):
                 item = self.context
             mod_attrs = self.generate_update_mod_attrs(item)
             ldap_dn = self.generate_ldap_dn(item)
-            self.rectify_node_tree(item)
+            self.update_node_tree(item)
             try:
                 connection.modify_s(ldap_dn, mod_attrs)
             except ldap.LDAPError:
@@ -180,15 +182,16 @@ class LdapSyncView(BrowserView):
         Can be used as conditional method if user exists in LDAP.
         Should take single object, either passed or through iteration.
         """
+        connection = self.connect()
         ldap_objectclass_mapping = api.portal.get_registry_record(
             name='operun.crm.ldap_objectclass_mapping')
         accounts_dn = api.portal.get_registry_record(
             name='operun.crm.accounts_dn')
-        users_dn = api.portal.get_registry_record(
-            name='operun.crm.users_dn')
+        users_dn = api.portal.get_registry_record(name='operun.crm.users_dn')
         # Defaults
         content_type = obj.Type()
-        object_class = self.list_to_dict(ldap_objectclass_mapping)[content_type]  # noqa
+        object_class = self.list_to_dict(
+            ldap_objectclass_mapping)[content_type]
         # Check Type
         if content_type == 'Account':
             ldap_dn = accounts_dn
@@ -196,13 +199,14 @@ class LdapSyncView(BrowserView):
             ldap_dn = users_dn
         try:
             # Returns DN(s) if user exists in LDAP
-            search_result = self.connection.search_s(ldap_dn, ldap.SCOPE_SUBTREE, '(&(uid={0})(objectClass={1}))'.format(obj.UID(), object_class))  # noqa
+            search_result = connection.search_s(ldap_dn, ldap.SCOPE_SUBTREE, '(&(uid={0})(objectClass={1}))'.format(obj.UID(), object_class))  # noqa
         except ldap.LDAPError:
             pass
         else:
             return search_result
+        self.unbind()
 
-    def rectify_node_tree(self, obj):
+    def update_node_tree(self, obj):
         """
         Removes duplicate users and fixes node tree inconsistencies.
         """
@@ -218,7 +222,12 @@ class LdapSyncView(BrowserView):
             obj_cn = self.generate_ldap_dn(obj, cn=True)
             obj_superior = self.generate_ldap_dn(obj, superior=True)
             if old_dn != current_dn:
-                self.connection.rename_s(old_dn, obj_cn, obj_superior)
+                try:
+                    self.connection.rename_s(old_dn, obj_cn, obj_superior)
+                except ldap.LDAPError:
+                    logger.info(
+                        _('An error occurred, likely due to a conflicting DN.')
+                    )
 
     # Common Utils
 
@@ -228,12 +237,18 @@ class LdapSyncView(BrowserView):
         """
         return dict(item.split('|') for item in list_of_items)
 
-    def types_to_sync(self):
+    def types_to_sync(self, type):
         """
         Return list of Content-Types to sync.
         """
-        types = ['Account', 'Contact']
-        return types
+        objects = ['Account', 'Contact']
+        containers = ['Accounts', 'Contact']
+        if 'objects':
+            return objects
+        elif 'containers':
+            return containers
+        else:
+            return (objects, containers)
 
     def convert_to_object(self, obj):
         """
@@ -252,7 +267,7 @@ class LdapSyncView(BrowserView):
         mod_attrs = []
         obj = self.convert_to_object(obj)
         content_type = obj.Type()
-        if content_type in self.types_to_sync():
+        if content_type in self.types_to_sync('objects'):
             for field in self.get_fields_to_update(content_type):
                 mod_attrs.append(
                     (self.get_mapped_field(content_type, field),
@@ -270,7 +285,8 @@ class LdapSyncView(BrowserView):
         mod_attrs = self.generate_mod_attrs(obj)
         content_type = obj.Type()
         object_uid = obj.UID()
-        object_class = self.list_to_dict(ldap_objectclass_mapping)[content_type]  # noqa
+        object_class = self.list_to_dict(
+            ldap_objectclass_mapping)[content_type]
         mod_attrs.append(('objectclass', object_class))
         mod_attrs.append(('uid', object_uid))
         return mod_attrs
@@ -290,8 +306,7 @@ class LdapSyncView(BrowserView):
         # Defaults
         accounts_dn = api.portal.get_registry_record(
             name='operun.crm.accounts_dn')
-        users_dn = api.portal.get_registry_record(
-            name='operun.crm.users_dn')
+        users_dn = api.portal.get_registry_record(name='operun.crm.users_dn')
         ldap_node_mapping = {
             'contact': 'contacts',
             'employee': 'employees',
@@ -316,7 +331,8 @@ class LdapSyncView(BrowserView):
         elif superior and not cn:
             ldap_dn = 'ou={0},{1}'.format(mapped_type, ldap_node)
         else:
-            ldap_dn = 'cn={0},ou={1},{2}'.format(object_title, mapped_type, ldap_node)  # noqa
+            ldap_dn = 'cn={0},ou={1},{2}'.format(
+                object_title, mapped_type, ldap_node)
         return ldap_dn
 
     def get_field_mapping(self, content_type):
