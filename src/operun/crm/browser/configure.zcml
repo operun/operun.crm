@@ -33,28 +33,28 @@
 
   <browser:page
       name="view"
-      for="operun.crm.account.IAccount"
+      for="operun.crm.content.account.IAccount"
       permission="zope2.View"
       class=".account.AccountView"
       />
 
   <browser:page
       name="view"
-      for="operun.crm.contact.IContact"
+      for="operun.crm.content.contact.IContact"
       permission="zope2.View"
       class=".contact.ContactView"
       />
 
   <browser:page
       name="view"
-      for="operun.crm.accounts.IAccounts"
+      for="operun.crm.content.accounts.IAccounts"
       permission="zope2.View"
       class=".accounts.AccountsView"
       />
 
   <browser:page
       name="view"
-      for="operun.crm.contacts.IContacts"
+      for="operun.crm.content.contacts.IContacts"
       permission="zope2.View"
       class=".contacts.ContactsView"
       />
