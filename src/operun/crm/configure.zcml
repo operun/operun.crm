@@ -13,7 +13,6 @@
 
   <!-- Include Additional Directories -->
   <include package=".browser" />
-  <include package=".content" />
   <include package=".events" />
   <include package=".ldap" />
   <include package=".settings" />
