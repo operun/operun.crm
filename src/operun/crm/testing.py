@@ -18,8 +18,6 @@ class OperunCrmLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load any other ZCML that is required for your tests.
-        # The z3c.autoinclude feature is disabled in the Plone fixture base
-        # layer.
         self.loadZCML(package=operun.crm)
 
     def setUpPloneSite(self, portal):
@@ -28,11 +26,20 @@ class OperunCrmLayer(PloneSandboxLayer):
             SITE_OWNER_NAME, SITE_OWNER_PASSWORD, ['Manager'], [])
 
 
+class OperunCrmDemoLayer(OperunCrmLayer):
+
+    def setUpPloneSite(self, portal):
+        applyProfile(portal, 'operun.crm:demo')
+        portal.acl_users.userFolderAddUser(
+            SITE_OWNER_NAME, SITE_OWNER_PASSWORD, ['Manager'], [])
+
+
 OPERUN_CRM_FIXTURE = OperunCrmLayer()
+OPERUN_CRM_DEMO_FIXTURE = OperunCrmDemoLayer()
 
 
 OPERUN_CRM_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(OPERUN_CRM_FIXTURE,),
+    bases=(OPERUN_CRM_DEMO_FIXTURE,),
     name='OperunCrmLayer:IntegrationTesting'
 )
 
