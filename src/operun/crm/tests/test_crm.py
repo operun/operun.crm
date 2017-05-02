@@ -25,7 +25,6 @@ class TestCrm(unittest.TestCase):
                                'text/html'),
             firstname='Mary',
             lastname='Lee',
-            account='customer',
             phone='+49 8070 4546 700',
             mobile='+49 172 8030 100',
             email='mary.lee@example.de',
@@ -96,7 +95,8 @@ class TestCrm(unittest.TestCase):
         self.assertEqual(new_contact.notes.raw, u'\u03b9 \u2113\u03c3\u03bd\u0454 \u03c1\u2113\u03c3\u0438\u0454! Plone 5 2017')  # noqa
 
         # Check Length of Contacts
-        self.assertEqual(len(contacts_folder), 2)
+        contact_items = api.content.find(portal_type='Contact')
+        self.assertEqual(len(contact_items), 2)
 
         # Check Contact Modify
         self.assertEqual(new_contact.phone, '+49 8070 4546 700')
