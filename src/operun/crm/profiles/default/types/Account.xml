@@ -18,8 +18,8 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">operun.crm.account.IAccount</property>
-  <property name="klass">operun.crm.account.Account</property>
+  <property name="schema">operun.crm.content.account.IAccount</property>
+  <property name="klass">operun.crm.content.account.Account</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
