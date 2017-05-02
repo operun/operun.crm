@@ -53,7 +53,7 @@ def _create_demo_setup(portal, context):
     Create demo content for operun CRM.
     """
 
-    profile_id = 'operun.crm:default'
+    profile_id = 'operun.crm:demo'
     profile_context = context._getImportContext(profile_id)
     profile_path = profile_context._profile_path
     offer_path = profile_path + '/files/offer.pdf'
@@ -155,5 +155,4 @@ def demo(context):
     Run demo content install.
     """
     portal = api.portal.get()
-    post_install(context)
     _create_demo_setup(portal, context)
