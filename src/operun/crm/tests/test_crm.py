@@ -52,7 +52,7 @@ class TestCrm(unittest.TestCase):
 
     def test_contacts(self):
         contacts = self._create_contacts()
-        contact = self._create_contact()
+        contact = self._create_contact(contacts)
 
         self.assertEqual(contacts.title, 'Contacts', msg=None)
         self.assertEqual(contact.title, 'Mary Lee', msg=None)
