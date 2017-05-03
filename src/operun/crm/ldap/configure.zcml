@@ -21,21 +21,21 @@
       name="ldap-add"
       for="*"
       permission="zope2.View"
-      class=".ldap_sync.LdapSyncAddView"
+      class=".ldap_sync.LdapAddView"
       />
 
   <browser:page
       name="ldap-update"
       for="*"
       permission="zope2.View"
-      class=".ldap_sync.LdapSyncUpdateView"
+      class=".ldap_sync.LdapUpdateView"
       />
 
   <browser:page
       name="ldap-delete"
       for="*"
       permission="zope2.View"
-      class=".ldap_sync.LdapSyncDeleteView"
+      class=".ldap_sync.LdapDeleteView"
       />
 
 </configure>

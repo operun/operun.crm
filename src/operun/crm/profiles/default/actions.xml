@@ -3,60 +3,58 @@
         meta_type="Plone Actions Tool"
         xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-  <object name="object_buttons" meta_type="CMF Action Category" insert-after="*">
+  <object name="object_buttons"
+          meta_type="CMF Action Category"
+          insert-after="*">
+
     <object name="ldap_sync" meta_type="CMF Action" i18n:domain="operun.crm">
       <property name="title" i18n:translate="sync_all_action_title">LDAP (Sync)</property>
       <property name="description"/>
       <property name="url_expr">string:${object_url}/@@ldap-sync</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/access_to_sync_action|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
     </object>
-  </object>
 
-  <object name="object_buttons" meta_type="CMF Action Category" insert-after="*">
     <object name="ldap_add" meta_type="CMF Action" i18n:domain="operun.crm">
       <property name="title" i18n:translate="sync_add_action_title">LDAP (Add)</property>
       <property name="description"/>
       <property name="url_expr">string:${object_url}/@@ldap-add</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/access_to_standard_actions|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
     </object>
-  </object>
 
-  <object name="object_buttons" meta_type="CMF Action Category" insert-after="*">
     <object name="ldap_update" meta_type="CMF Action" i18n:domain="operun.crm">
       <property name="title" i18n:translate="sync_update_action_title">LDAP (Update)</property>
       <property name="description"/>
       <property name="url_expr">string:${object_url}/@@ldap-update</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/access_to_standard_actions|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
     </object>
-  </object>
 
-  <object name="object_buttons" meta_type="CMF Action Category" insert-after="*">
     <object name="ldap_delete" meta_type="CMF Action" i18n:domain="operun.crm">
       <property name="title" i18n:translate="sync_delete_action_title">LDAP (Delete)</property>
       <property name="description"/>
       <property name="url_expr">string:${object_url}/@@ldap-delete</property>
       <property name="link_target"/>
       <property name="icon_expr"/>
-      <property name="available_expr">object/@@ldap-sync/check_manual_ldap_actions_enabled|nothing</property>
+      <property name="available_expr">object/@@ldap-sync/access_to_standard_actions|nothing</property>
       <property name="permissions"/>
       <property name="visible">True</property>
       <property name="modal" type="text">{"actionOptions": {"reloadWindowOnClose": false, "redirectOnResponse": true}, "buttons": ".formControls>button"}</property>
     </object>
+
   </object>
 
 </object>
