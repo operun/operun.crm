@@ -23,22 +23,22 @@ class LdapSyncView(BrowserView):
     def __call__(self):
         if self.request.form.get('form.buttons.sync'):
             context = self.context
-            self.sync_ldap_objects(context)
+            self.sync_ldap_container(context)
         else:
             return self.template()
 
     # LDAP object methods
 
-    def sync_ldap_objects(self, obj):
+    def sync_ldap_container(self, container):
         """
         Syncs missing objects to LDAP.
         """
         connection = self.connect()
-        content_type = obj.Type()
+        content_type = container.Type()
         if connection:
-            self.ldap_remove_stale_objects(obj)
+            self.ldap_remove_stale_objects(container)
             if content_type in self.types_to_sync('containers'):
-                folder_contents = obj.listFolderContents()
+                folder_contents = container.listFolderContents()
                 for item in folder_contents:
                     result = self.search_for_user(item)
                     if result:
@@ -203,8 +203,8 @@ class LdapSyncView(BrowserView):
         # If single result, check DN and update it
         elif len(result) == 1:
             old_dn = result[0][0]
-            obj_cn = self.generate_ldap_dn(obj, cn=True)
-            obj_superior = self.generate_ldap_dn(obj, superior=True)
+            obj_cn = self.generate_ldap_cn(obj)
+            obj_superior = self.generate_ldap_superior(obj)
             if old_dn != current_dn:
                 try:
                     self.connection.rename_s(old_dn, obj_cn, obj_superior)
@@ -310,9 +310,23 @@ class LdapSyncView(BrowserView):
         mod_attrs = self.generate_mod_attrs(obj)
         return [(ldap.MOD_REPLACE,) + item for item in mod_attrs]
 
-    def generate_ldap_dn(self, obj, cn=False, superior=False):
+    def generate_ldap_dn(self, obj):
         """
-        Generates a DN for use in LDAP object modifiers.
+        Return full DN.
+        """
+        cn = self.generate_ldap_cn(obj)
+        superior = self.generate_ldap_superior(obj)
+        return '{0},{1}'.format(cn, superior)
+
+    def generate_ldap_cn(self, obj):
+        """
+        Return CN only.
+        """
+        return 'cn={0}'.format(obj.Title())
+
+    def generate_ldap_superior(self, obj):
+        """
+        Return superior only.
         """
         # Defaults
         accounts_dn = api.portal.get_registry_record(name='operun.crm.accounts_dn')  # noqa
@@ -326,7 +340,6 @@ class LdapSyncView(BrowserView):
         }
         # Object variables
         obj = self.convert_to_object(obj)
-        object_title = obj.Title()
         content_type = obj.Type()
         account_type = obj.type
         mapped_type = ldap_node_mapping[account_type]
@@ -335,14 +348,7 @@ class LdapSyncView(BrowserView):
             ldap_node = users_dn
         if content_type == 'Account':
             ldap_node = accounts_dn
-        # Construct full DN
-        if cn and not superior:
-            ldap_dn = 'cn={0}'.format(object_title)
-        elif superior and not cn:
-            ldap_dn = 'ou={0},{1}'.format(mapped_type, ldap_node)
-        else:
-            ldap_dn = 'cn={0},ou={1},{2}'.format(object_title, mapped_type, ldap_node)  # noqa
-        return ldap_dn
+        return 'ou={0},{1}'.format(mapped_type, ldap_node)
 
     def get_field_mapping(self, content_type):
         """
