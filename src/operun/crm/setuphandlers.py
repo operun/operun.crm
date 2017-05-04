@@ -86,7 +86,6 @@ def _create_demo_setup(portal, context):
         container=accounts,
         id='musterfirma-gmbh',
         title=u'Musterfirma GmbH',
-        description=u'Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
         logo=NamedBlobImage(open(logo_path, 'r').read(), filename=u'logo.jpg'),
         phone=u'+49 89 123456-0',
         fax=u'+49 89 123456-99',
@@ -111,7 +110,6 @@ def _create_demo_setup(portal, context):
         container=contacts,
         id='max-mustermann',
         title=u'Max Mustermann',
-        description=u'Dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
         firstname=u'Max',
         lastname=u'Mustermann',
         account=RelationValue(intids.getId(account)),

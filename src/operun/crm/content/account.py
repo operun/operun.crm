@@ -1,28 +1,37 @@
 # -*- coding: utf-8 -*-
 from operun.crm import MessageFactory as _
 from operun.crm.config import ACCOUNT_TYPES
+from plone import api
 from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
+from z3c.form import validator
 from zope import schema
 
+import zope.component
+import zope.interface
 
+
+@form.validator()
 class IAccount(model.Schema):
     """
     Account Content Type
     """
 
+    title = schema.TextLine(
+        title=_(u'Display Name'),
+        required=True,
+    )
+
     form.fieldset('address',
                   label=_(u'Address'),
-                  fields=['address', 'invoice', 'zip', 'city', ]
-                  )
+                  fields=['address', 'invoice', 'zip', 'city', ])
 
     form.fieldset('notes',
                   label=_(u'Notes'),
-                  fields=['text', ]
-                  )
+                  fields=['text', ])
 
     type = schema.Choice(
         title=_(u'Account Type'),
@@ -88,6 +97,31 @@ class IAccount(model.Schema):
         title=_(u'Notes'),
         required=False,
     )
+
+
+class TitleValidator(validator.SimpleFieldValidator):
+    """
+    z3c.form validator class for checking title uniqueness.
+    """
+
+    def validate(self, value):
+        """
+        Validate titles.
+        """
+        super(TitleValidator, self).validate(value)
+        context_portal_type = self.context.Type()
+        if context_portal_type == 'Accounts':
+            results = api.content.find(portal_type='Account', Title=value)  # noqa
+            if results:
+                raise zope.interface.Invalid(_(u'Display Name not unique!'))
+            else:
+                return True
+        else:
+            return True
+
+
+validator.WidgetValidatorDiscriminators(TitleValidator, field=IAccount['title'])  # noqa
+zope.component.provideAdapter(TitleValidator)
 
 
 class Account(Container):
