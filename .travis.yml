@@ -7,7 +7,7 @@ cache:
 addons:
   firefox: latest-esr
 install:
-- python bootstrap.py
+- python bootstrap-buildout.py
 - bin/buildout -c travis.cfg
 before_script:
 - export DISPLAY=:99.0

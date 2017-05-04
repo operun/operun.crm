@@ -83,3 +83,10 @@ Contributors
 
 * Stefan Antonelli <stefan.antonelli@operun.de>
 * Jesse Stippel <jesse.stippel@operun.de>
+
+
+Tests
+=====
+
+.. image:: https://travis-ci.org/operun/operun.crm.svg?branch=master
+    :target: https://travis-ci.org/operun/operun.crm
