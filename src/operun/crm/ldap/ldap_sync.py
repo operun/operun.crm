@@ -9,6 +9,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
 
+import datetime
 import ldap
 import logging
 
@@ -192,6 +193,7 @@ class LdapSyncView(BrowserView):
         Removes duplicate users and updates containers.
         """
         # Defaults
+        ldap_archiving = api.portal.get_registry_record(name='operun.crm.ldap_archiving')  # noqa
         result = self.search_for_user(obj)
         current_dn = self.generate_ldap_dn(obj)
         # Length should be 1 since we query by UID
@@ -199,7 +201,10 @@ class LdapSyncView(BrowserView):
             for item in result:
                 old_dn = item[0]
                 if old_dn != current_dn:
-                    self.delete_ldap_object(old_dn)
+                    if ldap_archiving:
+                        self.archive_item(item)
+                    else:
+                        self.delete_ldap_object(old_dn)
         # If single result, check DN and update it
         elif len(result) == 1:
             old_dn = result[0][0]
@@ -212,6 +217,18 @@ class LdapSyncView(BrowserView):
                     logger.info(_('An error occurred, likely due to a conflicting DN.'))  # noqa
         else:
             logger.info(_('An error occurred in update_node_tree()'))
+
+    def archive_item(self, item):
+        """
+        If enabled, method will attempt to archive duplicate entry.
+        """
+        archives_dn = api.portal.get_registry_record(name='operun.crm.archives_dn')  # noqa
+        old_dn = item[0]
+        item_cn = item[1]['cn'][0]
+        try:
+            self.connection.rename_s(old_dn, 'cn={0} {1}'.format(item_cn, str(datetime.datetime.now())), archives_dn)  # noqa
+        except ldap.LDAPError:
+            logger.info(_('An error occurred, item couldn\'t be archived.'))  # noqa
 
     def ldap_remove_stale_objects(self, container):
         """
