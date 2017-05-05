@@ -113,7 +113,10 @@ class TitleValidator(validator.SimpleFieldValidator):
         if context_portal_type == 'Accounts':
             results = api.content.find(portal_type='Account', Title=value)  # noqa
             if results:
-                raise zope.interface.Invalid(_(u'Display Name not unique!'))
+                raise zope.interface.Invalid(
+                    _(u'account_title_form_validator_message',
+                      default=u'Display Name not unique!')
+                )
             else:
                 return True
         else:
