@@ -359,13 +359,14 @@ class LdapSyncView(BrowserView):
         obj = self.convert_to_object(obj)
         content_type = obj.Type()
         account_type = obj.type
-        mapped_type = ldap_node_mapping[account_type]
+        mapped_type = 'ou={0},'.format(ldap_node_mapping[account_type])
         # Set DN
         if content_type == 'Contact':
             ldap_node = users_dn
         if content_type == 'Account':
             ldap_node = accounts_dn
-        return 'ou={0},{1}'.format(mapped_type, ldap_node)
+            mapped_type = ''
+        return '{0}{1}'.format(mapped_type, ldap_node)
 
     def get_field_mapping(self, content_type):
         """
