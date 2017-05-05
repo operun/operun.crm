@@ -41,6 +41,7 @@ setup(
         'z3c.jbot',
         'plone.api',
         'setuptools',
+        'vobject',
         'Products.GenericSetup>=1.8.2',
         'plone.app.registry',
         'plone.app.relationfield',
