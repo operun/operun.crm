@@ -60,6 +60,13 @@
           <div tal:content="structure image" tal:condition="image"></div>
         </div>
 
+        <div class="section-vcard">
+          <h3 i18n:translate="contact_view_vcard_heading">vCard</h3>
+          <form action="index.html" method="post" tal:attributes="action request/getURL">
+            <input type="submit" name="download" value="Download">
+          </form>
+        </div>
+
         <div class="section-notes">
           <h3 class="notes-heading" i18n:translate="contact_view_notes_heading">Notes</h3>
           <a class="notes-edit pat-plone-modal"
