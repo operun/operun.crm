@@ -54,7 +54,8 @@ class ISettings(Interface):
     fieldset(_(u'settings_fieldset_dn',
                default=u'DN'), fields=['users_dn',
                                        'groups_dn',
-                                       'accounts_dn'])
+                                       'accounts_dn',
+                                       'archives_dn'])
 
     users_dn = schema.TextLine(
         title=_(u'settings_users_dn_title',
@@ -77,6 +78,14 @@ class ISettings(Interface):
                 default=u'Accounts DN'),
         description=_(u'settings_accounts_dn_description',
                       default=u'Include the accounts DN. e.g. ou=accounts,dc=example,dc=com'),  # noqa
+        required=False,
+    )
+
+    archives_dn = schema.TextLine(
+        title=_(u'settings_archives_dn_title',
+                default=u'Archives DN'),
+        description=_(u'settings_archives_dn_description',
+                      default=u'Include the archives DN. e.g. ou=archives,dc=example,dc=com'),  # noqa
         required=False,
     )
 
@@ -120,13 +129,23 @@ class ISettings(Interface):
     )
 
     fieldset(_(u'settings_fieldset_other',
-               default=u'Other'), fields=['manual_ldap_actions'])
+               default=u'Other'), fields=['manual_ldap_actions',
+                                          'ldap_archiving'])
 
     manual_ldap_actions = schema.Bool(
         title=_(u'settings_manual_ldap_actions_title',
                 default=u'Manual LDAP Actions'),
         description=_(u'settings_manual_ldap_actions_description',
                       default=u'Enable manual LDAP controls in the actions menu.'),  # noqa
+        required=False,
+        default=False,
+    )
+
+    ldap_archiving = schema.Bool(
+        title=_(u'settings_ldap_archiving_title',
+                default=u'LDAP Archiving'),
+        description=_(u'settings_ldap_archiving_description',
+                      default=u'If enabled, duplicate LDAP entries will be archived instead of deleted.'),  # noqa
         required=False,
         default=False,
     )
