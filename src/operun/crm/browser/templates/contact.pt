@@ -55,6 +55,13 @@
           </div>
         </div>
 
+        <div class="section-vcard">
+          <h3 i18n:translate="contact_view_vcard_heading">vCard</h3>
+          <form action="index.html" method="post" tal:attributes="action request/getURL">
+            <input type="submit" name="download" value="Download">
+          </form>
+        </div>
+
         <h2 i18n:translate="contact_view_notes_heading">Notes</h2>
 
         <div tal:condition="context/notes" tal:replace="structure context/notes/output"></div>
