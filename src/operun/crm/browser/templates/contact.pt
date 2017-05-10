@@ -63,7 +63,7 @@
         <div class="section-vcard">
           <h3 i18n:translate="contact_view_vcard_heading">vCard</h3>
           <form action="index.html" method="post" tal:attributes="action request/getURL">
-            <input type="submit" name="download" value="Download">
+            <input type="submit" name="download" value="Download" i18n:attributes="value contact_view_vcard_download">
           </form>
         </div>
 
