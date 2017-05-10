@@ -6,6 +6,7 @@ from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.dexterity.content import Item
 from plone.directives import form
+from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from z3c.form import validator
 from z3c.relationfield.schema import RelationChoice
@@ -65,6 +66,12 @@ class IContact(model.Schema):
 
     email = schema.TextLine(
         title=_(u'E-Mail'),
+        required=False,
+    )
+
+    businesscard = NamedBlobImage(
+        title=_(u'Business Card'),
+        description=_(u'Please upload an image'),
         required=False,
     )
 

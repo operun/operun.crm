@@ -59,6 +59,7 @@ def _create_demo_setup(portal, context):
     offer_path = profile_path + '/files/offer.pdf'
     invoice_path = profile_path + '/files/invoice.pdf'
     logo_path = profile_path + '/files/logo.jpg'
+    businesscard_path = profile_path + '/files/businesscard.jpg'
 
     # Setup Contacts
     contacts = api.content.create(
@@ -117,6 +118,7 @@ def _create_demo_setup(portal, context):
         phone=u'+49 89 123456-78',
         mobile=u'+49 170 1234567',
         email=u'max.mustermann@musterfirma.de',
+        businesscard=NamedBlobImage(open(businesscard_path, 'r').read(), filename=u'businesscard.jpg'),  # noqa
         notes=RichTextValue(
             u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
     )

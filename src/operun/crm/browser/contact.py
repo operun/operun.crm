@@ -22,8 +22,8 @@ class ContactView(BrowserView):
         context = self.context
         request = self.request
         tag = None
-        if context.image:
+        if context.businesscard:
             images_view = api.content.get_view('images', context, request)
-            scale = images_view.scale('image')
+            scale = images_view.scale('businesscard', width=250, height=250, direction='thumbnail')  # noqa
             tag = scale.tag()
         return tag
