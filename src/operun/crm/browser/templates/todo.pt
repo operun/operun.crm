@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="operun.crm">
+  <body>
+
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+
+        <div class="section-id">
+          <h3 i18n:translate="todo_view_id_heading">ID</h3>
+          <div tal:content="python:context.task_id" tal:condition="python:context.task_id"></div>
+        </div>
+
+        <div class="section-owner">
+          <h3>Owner</h3>
+          <div tal:define="owner python:context.owner" tal:condition="owner">
+            <div tal:define="obj python:owner.to_object" tal:condition="python:owner.to_object">
+              <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-start">
+          <h3 i18n:translate="todo_view_start_heading">Start Date</h3>
+          <span class="pat-moment" data-pat-moment="format:DD. MMMM YYYY;" tal:content="context/start_date"></span>
+        </div>
+
+        <div class="section-end">
+          <h3 i18n:translate="todo_view_end_heading">End Date</h3>
+          <span class="pat-moment" data-pat-moment="format:DD. MMMM YYYY;" tal:content="context/end_date"></span>
+        </div>
+
+        <div class="section-status">
+          <h3 i18n:translate="todo_view_status_heading">Status</h3>
+          <div tal:content="python:context.status" tal:condition="python:context.status"></div>
+        </div>
+
+        <div class="section-priority">
+          <h3 i18n:translate="todo_view_priority_heading">Priority</h3>
+          <div tal:content="python:context.priority" tal:condition="python:context.priority"></div>
+        </div>
+
+      </metal:content-core>
+    </metal:content-core>
+
+  </body>
+</html>
