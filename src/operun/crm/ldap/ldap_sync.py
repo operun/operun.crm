@@ -315,7 +315,7 @@ class LdapSyncView(BrowserView):
         object_uid = obj.UID()
         object_class = self.list_to_dict(ldap_objectclass_mapping)[content_type]  # noqa
         # Append objectClass and UID to attribute tuple
-        mod_attrs.append(('objectclass', object_class))
+        mod_attrs.append(('objectclass', [str(object_class)]))
         mod_attrs.append(('uid', object_uid))
         return mod_attrs
 

@@ -1,2 +1,2 @@
-!function(a){"use strict";a(document).ready(function(){})}(jQuery),define("/home/jesse/Development/Plone_Projects/operun.crm/src/operun/crm/theme/js/crm.js",function(){});
+!function(a){"use strict";a(document).ready(function(){a(".template-contact #form-widgets-title").change(function(){var b=a(this).val().split(" ");""==a(".template-contact #form-widgets-firstname").val()&&a(".template-contact #form-widgets-firstname").val(b[0]),""==a(".template-contact #form-widgets-lastname").val()&&a(".template-contact #form-widgets-lastname").val(b[1])})})}(jQuery),define("/home/jesse/Development/Plone_Projects/operun.crm/src/operun/crm/theme/js/crm.js",function(){});
 //# sourceMappingURL=crm-compiled.js.map
