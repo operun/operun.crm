@@ -11,11 +11,11 @@
 
     <metal:content-core fill-slot="main">
 
-      <div>
+      <div tal:define="context_title context/title">
 
         <h1 i18n:translate="ldap_sync_title">LDAP Sync</h1>
 
-        <h3 i18n:translate="ldap_sync_message">Item(s) will be synced to LDAP.</h3>
+        <h3>${context_title} <span i18n:translate="ldap_sync_message">will be synced to LDAP.</span></h3>
 
         <form action="${context/absolute_url}/@@ldap-sync" id="ldap-sync" name="ldap-sync-form" enctype="multipart/form-data" method="post">
           <div class="formControls">

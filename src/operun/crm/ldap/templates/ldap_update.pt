@@ -15,7 +15,7 @@
 
         <h1 i18n:translate="ldap_update_title">LDAP Update</h1>
 
-        <h3>${context_title} <span i18n:translate="ldap_sync_message">attributes will be updated in LDAP.</span></h3>
+        <h3>${context_title} <span i18n:translate="ldap_update_message">attributes will be updated in LDAP.</span></h3>
 
         <form action="${context/absolute_url}/@@ldap-update"
               id="ldap-update"
