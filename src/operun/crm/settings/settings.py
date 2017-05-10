@@ -43,6 +43,7 @@ class ISettings(Interface):
         title=_(u'settings_ldap_service_user_title',
                 default=u'LDAP Service User'),
         required=False,
+        default=u'cn=admin,dc=example,dc=com',
     )
 
     ldap_service_pass = schema.Password(
@@ -63,6 +64,7 @@ class ISettings(Interface):
         description=_(u'settings_users_dn_description',
                       default=u'Include the users DN. e.g. ou=users,dc=example,dc=com'),  # noqa
         required=False,
+        default=u'ou=users,dc=example,dc=com',
     )
 
     groups_dn = schema.TextLine(
@@ -71,6 +73,7 @@ class ISettings(Interface):
         description=_(u'settings_groups_dn_description',
                       default=u'Include the groups DN. e.g. ou=groups,dc=example,dc=com'),  # noqa
         required=False,
+        default=u'ou=groups,dc=example,dc=com',
     )
 
     accounts_dn = schema.TextLine(
@@ -79,6 +82,7 @@ class ISettings(Interface):
         description=_(u'settings_accounts_dn_description',
                       default=u'Include the accounts DN. e.g. ou=accounts,dc=example,dc=com'),  # noqa
         required=False,
+        default=u'ou=accounts,dc=example,dc=com',
     )
 
     archives_dn = schema.TextLine(
@@ -87,6 +91,7 @@ class ISettings(Interface):
         description=_(u'settings_archives_dn_description',
                       default=u'Include the archives DN. e.g. ou=archives,dc=example,dc=com'),  # noqa
         required=False,
+        default=u'ou=archives,dc=example,dc=com',
     )
 
     fieldset(_(u'settings_fieldset_mapping',
@@ -113,7 +118,10 @@ class ISettings(Interface):
         description=_(u'settings_ldap_field_mapping_account_description',
                       default=u'Map Plone fields to their corresponding LDAP attributes. Plone|LDAP'),  # noqa
         value_type=schema.TextLine(),
-        default=['title|cn'],
+        default=['title|cn',
+                 'billing_email|mail',
+                 'ceo|givenname',
+                 'type|sn'],
         required=False,
     )
 
@@ -123,7 +131,8 @@ class ISettings(Interface):
         description=_(u'settings_ldap_objectclass_mapping_description',
                       default=u'Map Plone Content-Type to an LDAP objectClass. Plone|LDAP'),  # noqa
         value_type=schema.TextLine(),
-        default=['Account|posixGroup',
+        default=['Group|posixGroup',
+                 'Account|inetOrgPerson',
                  'Contact|inetOrgPerson'],
         required=False,
     )
