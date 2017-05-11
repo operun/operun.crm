@@ -74,14 +74,14 @@
 
         <div tal:define="invoices python:view.get_invoices()">
           <h2 i18n:translate="account_view_attachments_heading">Attachments</h2>
-          <h3>Invoices</h3>
+          <h3 i18n:translate="account_view_invoices_heading">Invoices</h3>
           <hr>
 
           <div class="invoice-item-wrapper" tal:repeat="invoice invoices">
             <ul>
               <li tal:define="obj python:invoice.getObject();
-                               url obj/absolute_url;
-                               filename obj/file/filename">
+                              url obj/absolute_url;
+                              filename obj/file/filename">
                 <span class="account-view-invoice-title">
                   <a href="" tal:attributes="href url">
                     <span tal:replace="invoice/Title"></span>
@@ -93,14 +93,14 @@
         </div>
 
         <div tal:define="offers python:view.get_offers()">
-          <h3>Offers</h3>
+          <h3 i18n:translate="account_view_offers_heading">Offers</h3>
           <hr>
 
           <div class="offer-item-wrapper" tal:repeat="offer offers">
             <ul>
               <li tal:define="obj python:offer.getObject();
-                               url obj/absolute_url;
-                               filename obj/file/filename">
+                              url obj/absolute_url;
+                              filename obj/file/filename">
                 <span class="account-view-offer-title">
                   <a href="" tal:attributes="href url">
                     <span tal:replace="offer/Title"></span>
