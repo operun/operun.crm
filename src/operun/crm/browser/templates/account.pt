@@ -33,7 +33,8 @@
         <div class="section-address">
           <span tal:replace="python:context.title" tal:condition="python:context.title"/><br/>
           <span tal:replace="python:context.address" tal:condition="python:context.address"/><br/>
-          <span tal:replace="python:context.zip" tal:condition="python:context.zip"/> <span tal:replace="python:context.city" tal:condition="python:context.city"/>
+          <span tal:replace="python:context.zip" tal:condition="python:context.zip"/>
+          <span tal:replace="python:context.city" tal:condition="python:context.city"/>
         </div>
 
         <h2 i18n:translate="account_view_connect_heading">Connect</h2>
@@ -64,15 +65,19 @@
 
         <h2 i18n:translate="account_view_billing_heading">Billing</h2>
 
-        <div class="section-invoice">
-          <h3 i18n:translate="account_view_billing_contact_heading">Contact</h3>
-          <div tal:content="python:context.invoice" tal:condition="python:context.invoice"></div>
-        </div>
-
         <div class="section-email">
-          <h3 i18n:translate="account_view_billing_email_heading">E-Mail</h3>
+          <h3 i18n:translate="account_view_billing_email_heading">Billing E-Mail</h3>
           <div tal:define="billing_email python:context.billing_email" tal:condition="billing_email">
             <a href="" tal:attributes="href python:'mailto:'+billing_email" tal:content="billing_email">firstname.lastname@domain.com</a>
+          </div>
+        </div>
+
+        <div class="section-relation">
+          <h3 i18n:translate="account_view_billing_contact_heading">Billing Contact</h3>
+          <div tal:define="billing_contact python:context.billing_contact" tal:condition="billing_contact">
+            <div tal:define="obj python:billing_contact.to_object" tal:condition="python:billing_contact.to_object">
+              <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title">Contact Title</a>
+            </div>
           </div>
         </div>
 

@@ -3,11 +3,13 @@ from operun.crm import MessageFactory as _
 from operun.crm.config import ACCOUNT_TYPES
 from plone import api
 from plone.app.textfield import RichText
+from plone.app.vocabularies.catalog import CatalogSource
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from z3c.form import validator
+from z3c.relationfield.schema import RelationChoice
 from zope import schema
 
 import zope.component
@@ -27,7 +29,7 @@ class IAccount(model.Schema):
 
     form.fieldset('address',
                   label=_(u'Address'),
-                  fields=['address', 'invoice', 'zip', 'city', ])
+                  fields=['address', 'zip', 'city', ])
 
     form.fieldset('notes',
                   label=_(u'Notes'),
@@ -61,6 +63,17 @@ class IAccount(model.Schema):
         required=False,
     )
 
+    billing_contact = RelationChoice(
+        title=_(u'Billing Contact'),
+        source=CatalogSource(portal_type='Contact'),
+        required=False,
+    )
+
+    invoice = schema.TextLine(
+        title=_(u'Invoice Contact'),
+        required=False,
+    )
+
     website = schema.TextLine(
         title=_(u'Website'),
         required=False,
@@ -73,11 +86,6 @@ class IAccount(model.Schema):
 
     ceo = schema.TextLine(
         title=_(u'CEO'),
-        required=False,
-    )
-
-    invoice = schema.TextLine(
-        title=_(u'Invoice Contact'),
         required=False,
     )
 
