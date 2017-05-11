@@ -91,6 +91,12 @@ class IAccount(model.Schema):
         required=False,
     )
 
+    project_reference = schema.TextLine(
+        title=_(u'Project Reference'),
+        description=_(u'A link to a Trac or Redmine project.'),
+        required=False,
+    )
+
     # Related Contacts
 
     text = RichText(

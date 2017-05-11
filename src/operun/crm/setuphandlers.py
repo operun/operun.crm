@@ -96,6 +96,7 @@ def _create_demo_setup(portal, context):
         invoice=u'Bill Billing',
         zip=u'12345',
         city=u'Musterstadt',
+        project_reference=u'https://support.example.com/projects/1000',
         text=RichTextValue(
             u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
     )
