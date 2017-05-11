@@ -55,6 +55,13 @@
           </div>
         </div>
 
+        <div class="section-reference">
+          <h3 i18n:translate="account_view_project_reference_heading">Project Reference</h3>
+          <div tal:define="project_reference python:context.project_reference" tal:condition="project_reference">
+            <a href="" tal:attributes="href project_reference" tal:content="project_reference">https://support.example.com/projects/1000</a>
+          </div>
+        </div>
+
         <h2 i18n:translate="account_view_billing_heading">Billing</h2>
 
         <div class="section-invoice">
