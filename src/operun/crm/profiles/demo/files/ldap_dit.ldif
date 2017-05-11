@@ -1,0 +1,49 @@
+dn: ou=accounts,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: accounts
+
+dn: ou=archives,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: archives
+
+dn: ou=groups,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: groups
+
+dn: ou=services,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: services
+
+dn: ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: users
+
+dn: ou=contacts,ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: contacts
+
+dn: ou=customers,ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: customers
+
+dn: ou=employees,ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: employees
+
+dn: ou=leads,ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: leads
+
+dn: ou=vendors,ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: vendors
