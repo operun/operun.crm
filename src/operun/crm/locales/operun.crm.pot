@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-10 16:50+0000\n"
+"POT-Creation-Date: 2017-05-12 14:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,231 +18,329 @@ msgstr ""
 "Domain: operun.crm\n"
 
 #: operun/crm/profiles/default/types/Contact.xml
-#: operun/crm/profiles/default/types/operun.crm.contact.xml
 msgid "A Contact in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Accounts.xml
-#: operun/crm/profiles/default/types/operun.crm.accounts.xml
 msgid "A Folder for accounts in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Todos.xml
-#: operun/crm/profiles/default/types/operun.crm.todos.xml
 msgid "A Folder for todos in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Contacts.xml
-#: operun/crm/profiles/default/types/operun.crm.contacts.xml
 msgid "A Folder to contain contacts in the operun CRM"
 msgstr ""
 
-#: operun/crm/contact.py:36
+#: operun/crm/content/account.py:70
+msgid "A link to a Trac or Redmine project."
+msgstr ""
+
+#: operun/crm/content/contact.py:50
 #: operun/crm/profiles/default/types/Account.xml
-#: operun/crm/profiles/default/types/operun.crm.account.xml
 msgid "Account"
 msgstr ""
 
-#: operun/crm/account.py:28
+#: operun/crm/content/account.py:31
 msgid "Account Type"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Accounts.xml
-#: operun/crm/profiles/default/types/operun.crm.accounts.xml
 msgid "Accounts"
 msgstr ""
 
-#: operun/crm/account.py:18
+#: operun/crm/ldap/templates/ldap_add.pt:26
+msgid "Add"
+msgstr ""
+
+#: operun/crm/content/account.py:77
 msgid "Address"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Account.xml
-#: operun/crm/profiles/default/types/operun.crm.account.xml
 msgid "An Account in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Invoice.xml
-#: operun/crm/profiles/default/types/operun.crm.invoice.xml
 msgid "An Invoice in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Offer.xml
-#: operun/crm/profiles/default/types/operun.crm.offer.xml
 msgid "An Offer in the operun CRM"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Todo.xml
-#: operun/crm/profiles/default/types/operun.crm.todo.xml
 msgid "An Todo in the operun CRM"
 msgstr ""
 
-#: operun/crm/account.py:50
+#: operun/crm/ldap/ldap_sync.py:67
+msgid "An error occurred in add_ldap_object()"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:104
+msgid "An error occurred in delete_ldap_object()"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:123
+msgid "An error occurred in ldap_update_attribute()"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:85
+msgid "An error occurred in update_ldap_object()"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:219
+msgid "An error occurred in update_node_tree()"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:231
+msgid "An error occurred, item couldn't be archived."
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:217
+msgid "An error occurred, likely due to a conflicting DN."
+msgstr ""
+
+#: operun/crm/content/account.py:98
+msgid "Billing"
+msgstr ""
+
+#: operun/crm/content/account.py:107
+msgid "Billing Contact"
+msgstr ""
+
+#: operun/crm/content/account.py:102
 msgid "Billing E-Mail"
 msgstr ""
 
-#: operun/crm/account.py:65
+#: operun/crm/content/contact.py:73
+msgid "Business Card"
+msgstr ""
+
+#: operun/crm/content/account.py:44
 msgid "CEO"
 msgstr ""
 
-#: operun/crm/account.py:80
+#: operun/crm/profiles/default/controlpanel.xml
+msgid "CRM Settings"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:151
+msgid "Check LDAP config."
+msgstr ""
+
+#: operun/crm/content/account.py:91
 msgid "City"
 msgstr ""
 
-#: operun/crm/account.py:34
+#: operun/crm/content/account.py:38
 msgid "Company Logo"
 msgstr ""
 
-#: operun/crm/profiles/default/types/Contact.xml
-#: operun/crm/profiles/default/types/operun.crm.contact.xml
-msgid "Contact"
-msgstr ""
-
-#: operun/crm/contact.py:28
-msgid "Contact Type"
-msgstr ""
-
-#: operun/crm/profiles/default/types/Contacts.xml
-#: operun/crm/profiles/default/types/operun.crm.contacts.xml
-msgid "Contacts"
+#: operun/crm/ldap/ldap_sync.py:148
+msgid "Connected to {0}"
 msgstr ""
 
 #: operun/crm/config.py:8
-msgid "Customer"
+#: operun/crm/profiles/default/types/Contact.xml
+msgid "Contact"
 msgstr ""
 
-#: operun/crm/contact.py:54
-msgid "E-Mail"
+#: operun/crm/content/contact.py:41
+msgid "Contact Type"
 msgstr ""
 
-#: operun/crm/account.py:45
-msgid "Fax"
+#: operun/crm/ldap/ldap_sync.py:142
+msgid "Contacting LDAP server..."
 msgstr ""
 
-#: operun/crm/contact.py:18
-msgid "Firstname"
+#: operun/crm/profiles/default/types/Contacts.xml
+msgid "Contacts"
 msgstr ""
 
-#: operun/crm/configure.zcml:29
-msgid "Installs the operun.crm add-on."
-msgstr ""
-
-#: operun/crm/invoice.py:14
-#: operun/crm/profiles/default/types/Invoice.xml
-#: operun/crm/profiles/default/types/operun.crm.invoice.xml
-msgid "Invoice"
-msgstr ""
-
-#: operun/crm/account.py:70
-msgid "Invoice Contact"
-msgstr ""
-
-#: operun/crm/contact.py:23
-msgid "Lastname"
-msgstr ""
-
-#: operun/crm/contact.py:49
-msgid "Mobile"
-msgstr ""
-
-#: operun/crm/account.py:23
-#: operun/crm/contact.py:59
-msgid "Notes"
-msgstr ""
-
-#: operun/crm/offer.py:14
-#: operun/crm/profiles/default/types/Offer.xml
-#: operun/crm/profiles/default/types/operun.crm.offer.xml
-msgid "Offer"
-msgstr ""
-
-#: operun/crm/config.py:10
-msgid "Partner"
-msgstr ""
-
-#: operun/crm/account.py:40
-#: operun/crm/contact.py:44
-msgid "Phone"
-msgstr ""
-
-#: operun/crm/account.py:35
-msgid "Please upload an image"
-msgstr ""
-
-#: operun/crm/invoice.py:15
-msgid "Please upload an invoice"
-msgstr ""
-
-#: operun/crm/offer.py:15
-msgid "Please upload an offer"
+#: operun/crm/ldap/ldap_sync.py:146
+msgid "Could not connect to {0}"
 msgstr ""
 
 #: operun/crm/config.py:11
-msgid "Prospect"
+msgid "Customer"
+msgstr ""
+
+#: operun/crm/ldap/templates/ldap_delete.pt:26
+msgid "Delete"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:260
+msgid "Deleted LDAP entry for {0}"
+msgstr ""
+
+#: operun/crm/ldap/ldap_sync.py:162
+msgid "Disconnected from LDAP server..."
+msgstr ""
+
+#: operun/crm/content/account.py:26
+#: operun/crm/content/contact.py:26
+msgid "Display Name"
+msgstr ""
+
+#: operun/crm/content/account.py:49
+#: operun/crm/content/contact.py:68
+msgid "E-Mail"
+msgstr ""
+
+#: operun/crm/config.py:9
+msgid "Employee"
+msgstr ""
+
+#: operun/crm/content/account.py:59
+msgid "Fax"
+msgstr ""
+
+#: operun/crm/content/contact.py:31
+msgid "Firstname"
+msgstr ""
+
+#: operun/crm/configure.zcml:55
+msgid "Installs the operun.crm add-on with demo content."
+msgstr ""
+
+#: operun/crm/configure.zcml:37
+msgid "Installs the operun.crm add-on."
+msgstr ""
+
+#: operun/crm/content/invoice.py:14
+#: operun/crm/profiles/default/types/Invoice.xml
+msgid "Invoice"
+msgstr ""
+
+#: operun/crm/content/contact.py:36
+msgid "Lastname"
+msgstr ""
+
+#: operun/crm/config.py:10
+msgid "Lead"
+msgstr ""
+
+#: operun/crm/content/contact.py:63
+msgid "Mobile"
+msgstr ""
+
+#: operun/crm/content/account.py:115
+#: operun/crm/content/contact.py:79
+msgid "Notes"
+msgstr ""
+
+#: operun/crm/content/offer.py:14
+#: operun/crm/profiles/default/types/Offer.xml
+msgid "Offer"
+msgstr ""
+
+#: operun/crm/content/account.py:54
+#: operun/crm/content/contact.py:58
+msgid "Phone"
+msgstr ""
+
+#: operun/crm/content/account.py:39
+#: operun/crm/content/contact.py:74
+msgid "Please upload an image"
+msgstr ""
+
+#: operun/crm/content/invoice.py:15
+msgid "Please upload an invoice"
+msgstr ""
+
+#: operun/crm/content/offer.py:15
+msgid "Please upload an offer"
+msgstr ""
+
+#: operun/crm/content/account.py:69
+msgid "Project Reference"
+msgstr ""
+
+#: operun/crm/browser/modal_edit.py:25
+msgid "Save"
+msgstr ""
+
+#: operun/crm/ldap/templates/ldap_sync.pt:22
+msgid "Sync"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Todo.xml
-#: operun/crm/profiles/default/types/operun.crm.todo.xml
 msgid "Todo"
 msgstr ""
 
 #: operun/crm/profiles/default/types/Todos.xml
-#: operun/crm/profiles/default/types/operun.crm.todos.xml
 msgid "Todos"
 msgstr ""
 
-#: operun/crm/configure.zcml:38
+#: operun/crm/configure.zcml:46
 msgid "Uninstalls the operun.crm add-on."
 msgstr ""
 
-#: operun/crm/config.py:9
+#: operun/crm/ldap/templates/ldap_update.pt:26
+msgid "Update"
+msgstr ""
+
+#: operun/crm/config.py:12
 msgid "Vendor"
 msgstr ""
 
-#: operun/crm/account.py:55
+#: operun/crm/content/account.py:64
 msgid "Website"
 msgstr ""
 
-#: operun/crm/account.py:75
+#: operun/crm/content/account.py:86
 msgid "ZIP"
 msgstr ""
 
+#. Default: "Display Name not unique!"
+#: operun/crm/content/account.py:139
+msgid "account_title_form_validator_message"
+msgstr ""
+
 #. Default: "Type"
-#: operun/crm/browser/templates/account.pt:22
+#: operun/crm/browser/templates/account.pt:17
 msgid "account_view_account_type_heading"
 msgstr ""
 
 #. Default: "Attachments"
-#: operun/crm/browser/templates/account.pt:76
+#: operun/crm/browser/templates/account.pt:105
 msgid "account_view_attachments_heading"
 msgstr ""
 
-#. Default: "Contact"
-#: operun/crm/browser/templates/account.pt:61
+#. Default: "Billing Contact"
+#: operun/crm/browser/templates/account.pt:83
 msgid "account_view_billing_contact_heading"
 msgstr ""
 
-#. Default: "E-Mail"
-#: operun/crm/browser/templates/account.pt:66
+#. Default: "Billing E-Mail"
+#: operun/crm/browser/templates/account.pt:76
 msgid "account_view_billing_email_heading"
 msgstr ""
 
 #. Default: "Billing"
-#: operun/crm/browser/templates/account.pt:58
+#: operun/crm/browser/templates/account.pt:73
 msgid "account_view_billing_heading"
 msgstr ""
 
 #. Default: "CEO"
-#: operun/crm/browser/templates/account.pt:17
+#: operun/crm/browser/templates/account.pt:27
 msgid "account_view_ceo_heading"
 msgstr ""
 
 #. Default: "Connect"
-#: operun/crm/browser/templates/account.pt:39
+#: operun/crm/browser/templates/account.pt:48
 msgid "account_view_connect_heading"
 msgstr ""
 
+#. Default: "E-Mail"
+#: operun/crm/browser/templates/account.pt:32
+msgid "account_view_email_heading"
+msgstr ""
+
 #. Default: "Fax"
-#: operun/crm/browser/templates/account.pt:47
+#: operun/crm/browser/templates/account.pt:44
 msgid "account_view_fax_heading"
 msgstr ""
 
@@ -251,38 +349,83 @@ msgstr ""
 msgid "account_view_general_information_details"
 msgstr ""
 
+#. Default: "Info"
+#: operun/crm/browser/templates/account.pt:91
+msgid "account_view_info_heading"
+msgstr ""
+
+#. Default: "Invoices"
+#: operun/crm/browser/templates/account.pt:106
+msgid "account_view_invoices_heading"
+msgstr ""
+
 #. Default: "Logo"
-#: operun/crm/browser/templates/account.pt:27
+#: operun/crm/browser/templates/account.pt:22
 msgid "account_view_logo_heading"
 msgstr ""
 
 #. Default: "Notes"
-#: operun/crm/browser/templates/account.pt:72
+#: operun/crm/browser/templates/account.pt:94
 msgid "account_view_notes_heading"
 msgstr ""
 
+#. Default: "Offers"
+#: operun/crm/browser/templates/account.pt:126
+msgid "account_view_offers_heading"
+msgstr ""
+
 #. Default: "Phone"
-#: operun/crm/browser/templates/account.pt:42
+#: operun/crm/browser/templates/account.pt:39
 msgid "account_view_phone_heading"
 msgstr ""
 
 #. Default: "Postal Address"
-#: operun/crm/browser/templates/account.pt:31
+#: operun/crm/browser/templates/account.pt:64
 msgid "account_view_postal_address_details"
 msgstr ""
 
+#. Default: "Project Reference"
+#: operun/crm/browser/templates/account.pt:58
+msgid "account_view_project_reference_heading"
+msgstr ""
+
 #. Default: "Website"
-#: operun/crm/browser/templates/account.pt:52
+#: operun/crm/browser/templates/account.pt:51
 msgid "account_view_webiste_heading"
 msgstr ""
 
+#. Default: "Address:"
+#: operun/crm/browser/templates/accounts.pt:41
+msgid "accounts_view_address_heading"
+msgstr ""
+
+#. Default: "CEO:"
+#: operun/crm/browser/templates/accounts.pt:34
+msgid "accounts_view_ceo_heading"
+msgstr ""
+
+#. Default: "Phone:"
+#: operun/crm/browser/templates/accounts.pt:27
+msgid "accounts_view_phone_heading"
+msgstr ""
+
+#. Default: "Display Name not unique!"
+#: operun/crm/content/contact.py:99
+msgid "contact_title_form_validator_message"
+msgstr ""
+
 #. Default: "Account"
-#: operun/crm/browser/templates/contact.pt:26
+#: operun/crm/browser/templates/contact.pt:31
 msgid "contact_view_account_heading"
 msgstr ""
 
+#. Default: "Business Card"
+#: operun/crm/browser/templates/contact.pt:59
+msgid "contact_view_businesscard_heading"
+msgstr ""
+
 #. Default: "Connect"
-#: operun/crm/browser/templates/contact.pt:37
+#: operun/crm/browser/templates/contact.pt:39
 msgid "contact_view_connect_heading"
 msgstr ""
 
@@ -292,7 +435,7 @@ msgid "contact_view_contact_details"
 msgstr ""
 
 #. Default: "E-Mail"
-#: operun/crm/browser/templates/contact.pt:50
+#: operun/crm/browser/templates/contact.pt:52
 msgid "contact_view_email_heading"
 msgstr ""
 
@@ -307,24 +450,258 @@ msgid "contact_view_lastname_heading"
 msgstr ""
 
 #. Default: "Mobile"
-#: operun/crm/browser/templates/contact.pt:45
+#: operun/crm/browser/templates/contact.pt:47
 msgid "contact_view_mobile_heading"
 msgstr ""
 
 #. Default: "Notes"
-#: operun/crm/browser/templates/contact.pt:56
+#: operun/crm/browser/templates/contact.pt:64
 msgid "contact_view_notes_heading"
 msgstr ""
 
 #. Default: "Phone"
-#: operun/crm/browser/templates/contact.pt:40
+#: operun/crm/browser/templates/contact.pt:42
 msgid "contact_view_phone_heading"
 msgstr ""
 
-#: operun/crm/configure.zcml:29
+#. Default: "Contact Type"
+#: operun/crm/browser/templates/contact.pt:29
+msgid "contact_view_type_heading"
+msgstr ""
+
+#. Default: "User"
+#: operun/crm/browser/templates/contact.pt:26
+msgid "contact_view_user_heading"
+msgstr ""
+
+#. Default: "E-Mail:"
+#: operun/crm/browser/templates/contacts.pt:41
+msgid "contacts_view_email_heading"
+msgstr ""
+
+#. Default: "Mobile:"
+#: operun/crm/browser/templates/contacts.pt:34
+msgid "contacts_view_mobile_heading"
+msgstr ""
+
+#. Default: "Phone:"
+#: operun/crm/browser/templates/contacts.pt:27
+msgid "contacts_view_phone_heading"
+msgstr ""
+
+#. Default: "will be added to LDAP."
+#: operun/crm/ldap/templates/ldap_add.pt:18
+msgid "ldap_add_message"
+msgstr ""
+
+#. Default: "LDAP Add"
+#: operun/crm/ldap/templates/ldap_add.pt:16
+msgid "ldap_add_title"
+msgstr ""
+
+#. Default: "will be deleted from LDAP."
+#: operun/crm/ldap/templates/ldap_delete.pt:18
+msgid "ldap_delete_message"
+msgstr ""
+
+#. Default: "LDAP Delete"
+#: operun/crm/ldap/templates/ldap_delete.pt:16
+msgid "ldap_delete_title"
+msgstr ""
+
+#. Default: "will be synced to LDAP."
+#: operun/crm/ldap/templates/ldap_sync.pt:18
+msgid "ldap_sync_message"
+msgstr ""
+
+#. Default: "LDAP Sync"
+#: operun/crm/ldap/templates/ldap_sync.pt:16
+msgid "ldap_sync_title"
+msgstr ""
+
+#. Default: "attributes will be updated in LDAP."
+#: operun/crm/ldap/templates/ldap_update.pt:18
+msgid "ldap_update_message"
+msgstr ""
+
+#. Default: "LDAP Update"
+#: operun/crm/ldap/templates/ldap_update.pt:16
+msgid "ldap_update_title"
+msgstr ""
+
+#. Default: "Cancel"
+#: operun/crm/browser/templates/modal_edit.pt:38
+msgid "modal_edit_cancel"
+msgstr ""
+
+#. Default: "Save"
+#: operun/crm/browser/templates/modal_edit.pt:35
+msgid "modal_edit_save"
+msgstr ""
+
+#: operun/crm/configure.zcml:37
 msgid "operun CRM"
 msgstr ""
 
-#: operun/crm/configure.zcml:38
+#: operun/crm/configure.zcml:55
+msgid "operun CRM (demo)"
+msgstr ""
+
+#: operun/crm/configure.zcml:46
 msgid "operun CRM (uninstall)"
+msgstr ""
+
+#. Default: "Include the accounts DN. e.g. ou=accounts,dc=example,dc=com"
+#: operun/crm/settings/settings.py:82
+msgid "settings_accounts_dn_description"
+msgstr ""
+
+#. Default: "Accounts DN"
+#: operun/crm/settings/settings.py:80
+msgid "settings_accounts_dn_title"
+msgstr ""
+
+#. Default: "Include the archives DN. e.g. ou=archives,dc=example,dc=com"
+#: operun/crm/settings/settings.py:91
+msgid "settings_archives_dn_description"
+msgstr ""
+
+#. Default: "Archives DN"
+#: operun/crm/settings/settings.py:89
+msgid "settings_archives_dn_title"
+msgstr ""
+
+#. Default: "DN"
+#: operun/crm/settings/settings.py:55
+msgid "settings_fieldset_dn"
+msgstr ""
+
+#. Default: "Mapping"
+#: operun/crm/settings/settings.py:97
+msgid "settings_fieldset_mapping"
+msgstr ""
+
+#. Default: "Other"
+#: operun/crm/settings/settings.py:140
+msgid "settings_fieldset_other"
+msgstr ""
+
+#. Default: "Server"
+#: operun/crm/settings/settings.py:20
+msgid "settings_fieldset_server"
+msgstr ""
+
+#. Default: "Include the groups DN. e.g. ou=groups,dc=example,dc=com"
+#: operun/crm/settings/settings.py:73
+msgid "settings_groups_dn_description"
+msgstr ""
+
+#. Default: "Groups DN"
+#: operun/crm/settings/settings.py:71
+msgid "settings_groups_dn_title"
+msgstr ""
+
+#. Default: "If enabled, duplicate LDAP entries will be archived instead of deleted."
+#: operun/crm/settings/settings.py:156
+msgid "settings_ldap_archiving_description"
+msgstr ""
+
+#. Default: "LDAP Archiving"
+#: operun/crm/settings/settings.py:154
+msgid "settings_ldap_archiving_title"
+msgstr ""
+
+#. Default: "Map Plone fields to their corresponding LDAP attributes. Plone|LDAP"
+#: operun/crm/settings/settings.py:118
+msgid "settings_ldap_field_mapping_account_description"
+msgstr ""
+
+#. Default: "Account Attribute Mapping"
+#: operun/crm/settings/settings.py:116
+msgid "settings_ldap_field_mapping_account_title"
+msgstr ""
+
+#. Default: "Map Plone fields to their corresponding LDAP attributes. Plone|LDAP"
+#: operun/crm/settings/settings.py:105
+msgid "settings_ldap_field_mapping_contact_description"
+msgstr ""
+
+#. Default: "Contact Attribute Mapping"
+#: operun/crm/settings/settings.py:103
+msgid "settings_ldap_field_mapping_contact_title"
+msgstr ""
+
+#. Default: "Map Plone Content-Type to an LDAP objectClass. Plone|LDAP"
+#: operun/crm/settings/settings.py:131
+msgid "settings_ldap_objectclass_mapping_description"
+msgstr ""
+
+#. Default: "Content-Type to objectClass Mapping"
+#: operun/crm/settings/settings.py:129
+msgid "settings_ldap_objectclass_mapping_title"
+msgstr ""
+
+#. Default: "LDAP Server URI"
+#: operun/crm/settings/settings.py:36
+msgid "settings_ldap_server_uri_title"
+msgstr ""
+
+#. Default: "LDAP Service Password"
+#: operun/crm/settings/settings.py:50
+msgid "settings_ldap_service_pass_title"
+msgstr ""
+
+#. Default: "LDAP Service User"
+#: operun/crm/settings/settings.py:43
+msgid "settings_ldap_service_user_title"
+msgstr ""
+
+#. Default: "Enable manual LDAP controls in the actions menu."
+#: operun/crm/settings/settings.py:147
+msgid "settings_manual_ldap_actions_description"
+msgstr ""
+
+#. Default: "Manual LDAP Actions"
+#: operun/crm/settings/settings.py:145
+msgid "settings_manual_ldap_actions_title"
+msgstr ""
+
+#. Default: "If enabled, the CRM will attempt an LDAP connection on sync events."
+#: operun/crm/settings/settings.py:29
+msgid "settings_sync_to_ldap_description"
+msgstr ""
+
+#. Default: "LDAP Syncing"
+#: operun/crm/settings/settings.py:27
+msgid "settings_sync_to_ldap_title"
+msgstr ""
+
+#. Default: "Include the users DN. e.g. ou=users,dc=example,dc=com"
+#: operun/crm/settings/settings.py:64
+msgid "settings_users_dn_description"
+msgstr ""
+
+#. Default: "Users DN"
+#: operun/crm/settings/settings.py:62
+msgid "settings_users_dn_title"
+msgstr ""
+
+#. Default: "LDAP (Add)"
+#: operun/crm/profiles/default/actions.xml
+msgid "sync_add_action_title"
+msgstr ""
+
+#. Default: "LDAP (Sync)"
+#: operun/crm/profiles/default/actions.xml
+msgid "sync_all_action_title"
+msgstr ""
+
+#. Default: "LDAP (Delete)"
+#: operun/crm/profiles/default/actions.xml
+msgid "sync_delete_action_title"
+msgstr ""
+
+#. Default: "LDAP (Update)"
+#: operun/crm/profiles/default/actions.xml
+msgid "sync_update_action_title"
 msgstr ""
