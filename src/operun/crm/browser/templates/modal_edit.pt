@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="operun.crm">
+
+  <body>
+    <metal:block fill-slot="content-core">
+
+      <form action="${context/absolute_url}/@@modal-edit"
+            id="modal-edit"
+            name="modal-edit-form"
+            enctype="multipart/form-data"
+            method="post"
+            tal:define="fields python:request.get('fields', None);
+                        field_info python:view.fields_info(fields);
+                        autofocus python:request.get('autofocus', False);
+                        can_save python:request.get('can_save', True)">
+
+        <tal:fields tal:condition="field_info"
+                    tal:repeat="field field_info">
+          <div class="field-edit-form"
+               tal:define="fieldname python:field['fieldname'];
+                           fieldmode python:field['fieldmode'];
+                           label python:field['label']"
+               tal:condition="fieldname">
+            <div tal:replace="structure python:view.get_widget(fieldname=fieldname, fieldmode=fieldmode, label=label, autofocus=autofocus)"></div>
+          </div>
+        </tal:fields>
+
+        <div class="formControls">
+          <button type="submit" class="context" value="Save" name="form.buttons.save" i18n:translate="modal_edit_save">
+            Save
+          </button>
+          <button type="submit" value="Cancel" name="form.buttons.cancel" i18n:translate="modal_edit_cancel">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+
+    </metal:block>
+  </body>
+
+</html>

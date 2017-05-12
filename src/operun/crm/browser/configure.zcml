@@ -59,4 +59,15 @@
       class=".contacts.ContactsView"
       />
 
+  <!-- Misc -->
+
+  <browser:page
+      name="modal-edit"
+      for="*"
+      template="templates/modal_edit.pt"
+      class=".modal_edit.ModalEditForm"
+      layer="operun.crm.interfaces.IOperunCrmLayer"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>
