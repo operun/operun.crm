@@ -55,6 +55,11 @@
           </div>
         </div>
 
+        <div class="section-businesscard" tal:define="image python:view.get_image()">
+          <h3 i18n:translate="contact_view_businesscard_heading">Business Card</h3>
+          <div tal:content="structure image" tal:condition="image"></div>
+        </div>
+
         <div class="section-notes">
           <h2 class="notes-heading" i18n:translate="contact_view_notes_heading">Notes</h2>
           <a class="notes-edit pat-plone-modal"
