@@ -13,11 +13,6 @@
 
         <h2 i18n:translate="account_view_general_information_details">General Information</h2>
 
-        <div class="section-ceo">
-          <h3 i18n:translate="account_view_ceo_heading">CEO</h3>
-          <div tal:content="python:context.ceo" tal:condition="python:context.ceo"></div>
-        </div>
-
         <div class="section-type">
           <h3 i18n:translate="account_view_account_type_heading">Type</h3>
           <div tal:content="python:context.type" tal:condition="python:context.type"></div>
@@ -28,16 +23,10 @@
           <div tal:content="structure image" tal:condition="image"></div>
         </div>
 
-        <h2 i18n:translate="account_view_postal_address_details">Postal Address</h2>
-
-        <div class="section-address">
-          <span tal:replace="python:context.title" tal:condition="python:context.title"/><br/>
-          <span tal:replace="python:context.address" tal:condition="python:context.address"/><br/>
-          <span tal:replace="python:context.zip" tal:condition="python:context.zip"/>
-          <span tal:replace="python:context.city" tal:condition="python:context.city"/>
+        <div class="section-ceo">
+          <h3 i18n:translate="account_view_ceo_heading">CEO</h3>
+          <div tal:content="python:context.ceo" tal:condition="python:context.ceo"></div>
         </div>
-
-        <h2 i18n:translate="account_view_connect_heading">Connect</h2>
 
         <div class="section-phone">
           <h3 i18n:translate="account_view_phone_heading">Phone</h3>
@@ -48,6 +37,8 @@
           <h3 i18n:translate="account_view_fax_heading">Fax</h3>
           <div tal:content="python:context.fax" tal:condition="python:context.fax"></div>
         </div>
+
+        <h2 i18n:translate="account_view_connect_heading">Connect</h2>
 
         <div class="section-website">
           <h3 i18n:translate="account_view_webiste_heading">Website</h3>
@@ -63,16 +54,25 @@
           </div>
         </div>
 
+        <h2 i18n:translate="account_view_postal_address_details">Postal Address</h2>
+
+        <div class="section-address">
+          <span tal:replace="python:context.title" tal:condition="python:context.title"/><br/>
+          <span tal:replace="python:context.address" tal:condition="python:context.address"/><br/>
+          <span tal:replace="python:context.zip" tal:condition="python:context.zip"/>
+          <span tal:replace="python:context.city" tal:condition="python:context.city"/>
+        </div>
+
         <h2 i18n:translate="account_view_billing_heading">Billing</h2>
 
-        <div class="section-email">
+        <div class="section-billing-email">
           <h3 i18n:translate="account_view_billing_email_heading">Billing E-Mail</h3>
           <div tal:define="billing_email python:context.billing_email" tal:condition="billing_email">
             <a href="" tal:attributes="href python:'mailto:'+billing_email" tal:content="billing_email">firstname.lastname@domain.com</a>
           </div>
         </div>
 
-        <div class="section-relation">
+        <div class="section-billing-contact">
           <h3 i18n:translate="account_view_billing_contact_heading">Billing Contact</h3>
           <div tal:define="billing_contact python:context.billing_contact" tal:condition="billing_contact">
             <div tal:define="obj python:billing_contact.to_object" tal:condition="python:billing_contact.to_object">
@@ -80,6 +80,8 @@
             </div>
           </div>
         </div>
+
+        <h2 i18n:translate="account_view_info_heading">Info</h2>
 
         <div class="section-notes">
           <h2 class="notes-heading" i18n:translate="account_view_notes_heading">Notes</h2>
@@ -110,6 +112,7 @@
               </li>
             </ul>
           </div>
+
         </div>
 
         <div tal:define="offers python:view.get_offers()">

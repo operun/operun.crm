@@ -27,14 +27,6 @@ class IAccount(model.Schema):
         required=True,
     )
 
-    form.fieldset('address',
-                  label=_(u'Address'),
-                  fields=['address', 'zip', 'city', ])
-
-    form.fieldset('notes',
-                  label=_(u'Notes'),
-                  fields=['text', ])
-
     type = schema.Choice(
         title=_(u'Account Type'),
         vocabulary=ACCOUNT_TYPES,
@@ -48,6 +40,11 @@ class IAccount(model.Schema):
         required=False,
     )
 
+    ceo = schema.TextLine(
+        title=_(u'CEO'),
+        required=False,
+    )
+
     phone = schema.TextLine(
         title=_(u'Phone'),
         required=False,
@@ -58,34 +55,25 @@ class IAccount(model.Schema):
         required=False,
     )
 
-    billing_email = schema.TextLine(
-        title=_(u'Billing E-Mail'),
-        required=False,
-    )
-
-    billing_contact = RelationChoice(
-        title=_(u'Billing Contact'),
-        source=CatalogSource(portal_type='Contact'),
-        required=False,
-    )
-
-    invoice = schema.TextLine(
-        title=_(u'Invoice Contact'),
-        required=False,
-    )
-
     website = schema.TextLine(
         title=_(u'Website'),
         required=False,
     )
 
-    address = schema.TextLine(
-        title=_(u'Address'),
+    project_reference = schema.TextLine(
+        title=_(u'Project Reference'),
+        description=_(u'A link to a Trac or Redmine project.'),
         required=False,
     )
 
-    ceo = schema.TextLine(
-        title=_(u'CEO'),
+    # Address
+
+    form.fieldset('address',
+                  label=_(u'Address'),
+                  fields=['address', 'zip', 'city', ])
+
+    address = schema.TextLine(
+        title=_(u'Address'),
         required=False,
     )
 
@@ -99,13 +87,28 @@ class IAccount(model.Schema):
         required=False,
     )
 
-    project_reference = schema.TextLine(
-        title=_(u'Project Reference'),
-        description=_(u'A link to a Trac or Redmine project.'),
+    # Billing
+
+    form.fieldset('billing',
+                  label=_(u'Billing'),
+                  fields=['billing_email', 'billing_contact', ])
+
+    billing_email = schema.TextLine(
+        title=_(u'Billing E-Mail'),
         required=False,
     )
 
-    # Related Contacts
+    billing_contact = RelationChoice(
+        title=_(u'Billing Contact'),
+        source=CatalogSource(portal_type='Contact'),
+        required=False,
+    )
+
+    # Notes
+
+    form.fieldset('notes',
+                  label=_(u'Notes'),
+                  fields=['text', ])
 
     text = RichText(
         title=_(u'Notes'),

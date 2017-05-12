@@ -88,16 +88,15 @@ def _create_demo_setup(portal, context):
         id='musterfirma-gmbh',
         title=u'Musterfirma GmbH',
         logo=NamedBlobImage(open(logo_path, 'r').read(), filename=u'logo.jpg'),
+        ceo=u'Max Mustermann',
         phone=u'+49 89 123456-0',
         fax=u'+49 89 123456-99',
-        billing_email=u'rechnung@musterfirma.de',
         website=u'https://www.musterfirma.de',
+        project_reference=u'https://support.example.com/projects/1000',
         address=u'Musterstraße',
-        ceo=u'Max Mustermann',
-        invoice=u'Bill Billing',
         zip=u'12345',
         city=u'Musterstadt',
-        project_reference=u'https://support.example.com/projects/1000',
+        billing_email=u'rechnung@musterfirma.de',
         text=RichTextValue(
             u'Sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.', 'text/plain', 'text/html'),  # noqa
     )
