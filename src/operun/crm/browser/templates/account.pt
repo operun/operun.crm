@@ -69,7 +69,15 @@
           </div>
         </div>
 
-        <h2 i18n:translate="account_view_notes_heading">Notes</h2>
+        <div class="section-notes">
+          <h2 class="notes-heading" i18n:translate="account_view_notes_heading">Notes</h2>
+          <a class="notes-edit pat-plone-modal"
+             href="${python:context.absolute_url()}/modal-edit?fields=text"
+             data-pat-plone-modal='{"actionOptions":{"reloadWindowOnClose":false,"redirectOnResponse":true},"buttons":".formControls>button"}'>
+            <i class="fa fa-edit"></i>
+          </a>
+        </div>
+
         <div tal:condition="context/text" tal:replace="structure context/text/output"></div>
 
         <div tal:define="invoices python:view.get_invoices()">
