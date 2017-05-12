@@ -89,6 +89,7 @@ def _create_demo_setup(portal, context):
         title=u'Musterfirma GmbH',
         logo=NamedBlobImage(open(logo_path, 'r').read(), filename=u'logo.jpg'),
         ceo=u'Max Mustermann',
+        email=u'musterfirma@domain.com',
         phone=u'+49 89 123456-0',
         fax=u'+49 89 123456-99',
         website=u'https://www.musterfirma.de',
