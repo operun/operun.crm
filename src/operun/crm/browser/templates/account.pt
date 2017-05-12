@@ -28,6 +28,13 @@
           <div tal:content="python:context.ceo" tal:condition="python:context.ceo"></div>
         </div>
 
+        <div class="section-email">
+          <h3 i18n:translate="account_view_email_heading">E-Mail</h3>
+          <div tal:define="email python:context.email" tal:condition="email">
+            <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email">firstname.lastname@domain.com</a>
+          </div>
+        </div>
+
         <div class="section-phone">
           <h3 i18n:translate="account_view_phone_heading">Phone</h3>
           <div tal:content="python:context.phone" tal:condition="python:context.phone"></div>

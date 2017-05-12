@@ -45,6 +45,11 @@ class IAccount(model.Schema):
         required=False,
     )
 
+    email = schema.TextLine(
+        title=_(u'E-Mail'),
+        required=False,
+    )
+
     phone = schema.TextLine(
         title=_(u'Phone'),
         required=False,
