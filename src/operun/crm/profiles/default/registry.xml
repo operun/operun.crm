@@ -22,4 +22,31 @@
 
   <records interface="operun.crm.settings.settings.ISettings" prefix="operun.crm"/>
 
+  <!-- TinyMCE -->
+
+  <record name="plone.editor_height" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="editor_height">
+    <value>60%</value>
+  </record>
+
+  <records interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" prefix="plone">
+    <value key="header_styles">
+      <element>Headline|h3</element>
+    </value>
+    <value key="block_styles">
+      <element>Paragraph|p</element>
+    </value>
+    <value key="inline_styles">
+      <element>Bold|bold|bold</element>
+      <element>Underline|underline|underline</element>
+    </value>
+    <value key="alignment_styles">
+      <element>Left|alignleft|alignleft</element>
+    </value>
+    <value key="other_settings">{"menubar":false,"elementpath":false}</value>
+    <value key="plugins">
+      <element>lists</element>
+      <element>table</element>
+    </value>
+  </records>
+
 </registry>
