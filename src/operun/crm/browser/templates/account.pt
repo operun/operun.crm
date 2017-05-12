@@ -15,7 +15,7 @@
 
         <div class="section-type">
           <h3 i18n:translate="account_view_account_type_heading">Type</h3>
-          <div tal:content="python:context.type" tal:condition="python:context.type"></div>
+          <div tal:content="python:context.type.title()" tal:condition="python:context.type"></div>
         </div>
 
         <div class="section-logo" tal:define="image python:view.get_image()">
@@ -91,7 +91,7 @@
         <h2 i18n:translate="account_view_info_heading">Info</h2>
 
         <div class="section-notes">
-          <h2 class="notes-heading" i18n:translate="account_view_notes_heading">Notes</h2>
+          <h3 class="notes-heading" i18n:translate="account_view_notes_heading">Notes</h3>
           <a class="notes-edit pat-plone-modal"
              href="${python:context.absolute_url()}/modal-edit?fields=text"
              data-pat-plone-modal='{"actionOptions":{"reloadWindowOnClose":false,"redirectOnResponse":true},"buttons":".formControls>button"}'>
