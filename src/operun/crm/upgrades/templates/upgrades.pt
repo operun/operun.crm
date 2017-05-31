@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="operun.crm">
+
+  <body>
+
+    <metal:content-core fill-slot="main">
+
+      <h1>Plone 4 to 5 Migration-Steps</h1>
+
+      <form action="${context/absolute_url}/@@migration"
+            id="migration"
+            name="migration-form"
+            enctype="multipart/form-data"
+            method="post">
+        <div class="formControls">
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.update-types" i18n:translate="">
+              Update Content-Types
+            </button>
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.update-dsiplayed" i18n:translate="">
+              Update Displayed-Types
+            </button>
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.rebuild" i18n:translate="">
+              Rebuild & Clean Catalog
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </metal:content-core>
+
+  </body>
+
+</html>

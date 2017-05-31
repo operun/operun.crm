@@ -4,18 +4,20 @@
     i18n_domain="operun.crm">
 
     <gs:upgradeStep
-        title="Upgrade operun.crm Content-Types"
-        description="operun.crm upgrade step"
+        title="Migrate operun.crm content"
+        description="operun.crm migration steps"
         source="*"
         destination="200"
-        handler=".upgrades.upgrade_ct"
+        handler=".upgrades.migrate"
         profile="operun.crm:default" />
 
-    <!-- <gs:upgradeStep
-      title="Remove Browserlayer"
-      description="Remove the browserlayer."
-      handler=".upgrades.remove_browserlayer"
-      profile="operun.crm:default"
-      /> -->
+    <-- Templates -->
+
+    <browser:page
+        name="migration"
+        for="*"
+        permission="zope2.View"
+        class=".upgrades.MigrationsView"
+        />
 
 </configure>
