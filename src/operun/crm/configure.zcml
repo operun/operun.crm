@@ -16,7 +16,6 @@
   <include package=".events" />
   <include package=".ldap" />
   <include package=".settings" />
-  <include package=".upgrades" />
 
   <!-- Plone Dependencies -->
   <include package="plone.app.relationfield" />
