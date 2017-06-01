@@ -19,4 +19,8 @@ script:
 after_script:
 - pkill -9 firefox
 notifications:
-  irc: irc.freenode.org#operun
+  irc:
+    channels:
+      - irc.freenode.org#operun
+      on_success: change
+      on_failure: always
