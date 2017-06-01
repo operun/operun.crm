@@ -54,10 +54,12 @@ class MigrationsView(BrowserView):
         logger.info('UPDATING ATTRIBUTES...')
         for item in items:
             obj = item.getObject()
+
             # Update account type
             if hasattr(obj, 'type'):
                 if obj.type == 'prospect':
                     obj.type = 'lead'
+
             # Update RelationValue
             if hasattr(obj, 'invoice'):
                 invoice_name = obj.invoice
