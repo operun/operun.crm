@@ -22,5 +22,5 @@ notifications:
   irc:
     channels:
       - irc.freenode.org#operun
-      on_success: change
-      on_failure: always
+    on_success: change
+    on_failure: always
