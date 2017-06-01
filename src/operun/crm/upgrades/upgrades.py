@@ -18,6 +18,8 @@ from z3c.relationfield import RelationValue
 from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.intid.interfaces import IIntIds
+from transaction import commit
+
 
 import logging
 
@@ -82,6 +84,8 @@ class MigrationsView(BrowserView):
                     obj_id = obj.getId()
                     parent = obj.__parent__
                     obj.__class__ = content_type_class
+                    parent._delOb(obj_id)
+                    parent._setOb(obj_id, obj)
                     obj.reindexObject()
         self.rebuild_and_clean()
 
