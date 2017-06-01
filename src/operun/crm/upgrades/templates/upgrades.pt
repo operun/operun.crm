@@ -7,38 +7,63 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="operun.crm">
 
-  <body>
+<body>
 
-    <metal:content-core fill-slot="main">
+  <metal:content-core fill-slot="main">
 
-      <h1>Plone 4 to 5 Migration-Steps</h1>
+    <h1>Plone 4 to 5 Migration-Steps</h1>
 
-      <form action="${context/absolute_url}/@@migration"
-            id="migration"
-            name="migration-form"
-            enctype="multipart/form-data"
-            method="post">
-        <div class="formControls">
-          <div class="col-sm-4">
-            <button type="submit" value="Add" name="form.buttons.update-types" i18n:translate="">
-              Update Content-Types
-            </button>
+    <br>
+
+    <form action="${context/absolute_url}/@@migration"
+          id="migration"
+          name="migration-form"
+          enctype="multipart/form-data"
+          method="post">
+      <div class="formControls">
+
+        <div class="row">
+          <div class="col-sm-8">
+            Renames old Content-Types to new naming structure.<br> Assigns Prospect users to Lead.<br> Sets Billing-Contact to RelationValue if invoice user in CRM.
           </div>
           <div class="col-sm-4">
-            <button type="submit" value="Add" name="form.buttons.update-dsiplayed" i18n:translate="">
-              Update Displayed-Types
-            </button>
-          </div>
-          <div class="col-sm-4">
-            <button type="submit" value="Add" name="form.buttons.rebuild" i18n:translate="">
-              Rebuild & Clean Catalog
+            <button type="submit" value="Add" name="form.buttons.update-content-types" i18n:translate="">
+                Update Content-Types
             </button>
           </div>
         </div>
-      </form>
 
-    </metal:content-core>
+        <hr>
 
-  </body>
+        <div class="row">
+          <div class="col-sm-8">
+            Renames old Displayed-Types to new naming structure.
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.update-displayed-types" i18n:translate="">
+                Update Displayed-Types
+            </button>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-8">
+            Rebuilds catalog indexes.<br> Reinstalls package profile.
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.rebuild-and-clean" i18n:translate="">
+                Rebuild & Clean Catalog
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+  </metal:content-core>
+
+</body>
 
 </html>

@@ -1,17 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="operun.crm">
-
-    <gs:upgradeStep
-        title="Migrate operun.crm content"
-        description="operun.crm migration steps"
-        source="*"
-        destination="200"
-        handler=".upgrades.migrate"
-        profile="operun.crm:default" />
-
-    <-- Templates -->
 
     <browser:page
         name="migration"
