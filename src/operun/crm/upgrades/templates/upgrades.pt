@@ -24,7 +24,20 @@
 
         <div class="row">
           <div class="col-sm-8">
-            Renames old Content-Types to new naming structure.<br> Assigns Prospect users to Lead.<br> Sets Billing-Contact to RelationValue if invoice user in CRM.
+            Assigns Prospect users to Lead.<br> Sets Billing-Contact to RelationValue if invoice user in CRM.
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" value="Add" name="form.buttons.update-attribute-assignment" i18n:translate="">
+                Update Attribute-Types
+            </button>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-8">
+            Renames old Content-Types to new naming structure.
           </div>
           <div class="col-sm-4">
             <button type="submit" value="Add" name="form.buttons.update-content-types" i18n:translate="">

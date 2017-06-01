@@ -34,6 +34,8 @@ class MigrationsView(BrowserView):
     template = ViewPageTemplateFile('templates/upgrades.pt')
 
     def __call__(self):
+        if self.request.form.get('form.buttons.update-attribute-assignment'):
+            self.update_attribute_assignment()
         if self.request.form.get('form.buttons.update-content-types'):
             self.update_content_types()
         if self.request.form.get('form.buttons.update-displayed-types'):
@@ -43,12 +45,34 @@ class MigrationsView(BrowserView):
         else:
             return self.template()
 
+    def update_attribute_assignment(self):
+        """
+        Fixed Prospect to Lead and Billing-Contact RelationValue
+        """
+        portal_catalog = api.portal.get_tool('portal_catalog')
+        intids = getUtility(IIntIds)
+        logger.info('UPDATING ATTRIBUTES...')
+        for item in portal_catalog():
+            obj = item.getObject()
+
+            # Update account type
+            if hasattr(obj, 'type'):
+                if obj.type == 'prospect':
+                    obj.type = 'lead'
+
+            # Update RelationValue
+            if hasattr(obj, 'invoice'):
+                invoice_name = obj.invoice
+                results = api.content.find(portal_type='Contact', Title=invoice_name)  # noqa
+                if results:
+                    result = results[0]
+                    obj.billing_contact = RelationValue(intids.getId(result))  # noqa
+
     def update_content_types(self):
         """
         Updates Content-Types
         """
         portal_catalog = api.portal.get_tool('portal_catalog')
-        intids = getUtility(IIntIds)
         logger.info('UPDATING CONTENT-TYPES...')
         for key in content_type_mapping:
             for item in portal_catalog():
@@ -58,17 +82,6 @@ class MigrationsView(BrowserView):
                 if obj.portal_type == key:
                     logger.info('{0} in catalog is being updated...'.format(key))  # noqa
                     obj.portal_type = content_type_mapping[key]
-                if hasattr(obj, 'type'):
-                    if obj.type == 'prospect':
-                        obj.type = 'lead'
-
-                # Update RelationValue
-                if hasattr(obj, 'invoice'):
-                    invoice_name = obj.invoice
-                    results = api.content.find(portal_type='Contact', Title=invoice_name)  # noqa
-                    if results:
-                        result = results[0]
-                        obj.billing_contact = RelationValue(intids.getId(result))  # noqa
 
             contents = api.content.find(portal_type=key)
 
