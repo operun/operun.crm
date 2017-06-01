@@ -49,24 +49,23 @@ class MigrationsView(BrowserView):
         """
         Fixed Prospect to Lead and Billing-Contact RelationValue
         """
-        portal_catalog = api.portal.get_tool('portal_catalog')
+        items = api.content.find(portal_type='Account')
         intids = getUtility(IIntIds)
         logger.info('UPDATING ATTRIBUTES...')
-        for item in portal_catalog():
+        for item in items:
             obj = item.getObject()
-
             # Update account type
             if hasattr(obj, 'type'):
                 if obj.type == 'prospect':
                     obj.type = 'lead'
-
             # Update RelationValue
             if hasattr(obj, 'invoice'):
                 invoice_name = obj.invoice
-                results = api.content.find(portal_type='Contact', Title=invoice_name)  # noqa
-                if results:
-                    result = results[0]
-                    obj.billing_contact = RelationValue(intids.getId(result))  # noqa
+                if invoice_name:
+                    results = api.content.find(portal_type='Contact', Title=invoice_name)  # noqa
+                    if results:
+                        result = results[0].getObject()
+                        obj.billing_contact = RelationValue(intids.getId(result))  # noqa
 
     def update_content_types(self):
         """
