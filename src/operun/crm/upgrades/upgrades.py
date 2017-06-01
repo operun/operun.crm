@@ -2,8 +2,17 @@
 """
 Migration steps for operun CRM.
 """
+from operun.crm.content.account import Account
+from operun.crm.content.accounts import Accounts
+from operun.crm.content.contact import Contact
+from operun.crm.content.contacts import Contacts
+from operun.crm.content.invoice import Invoice
+from operun.crm.content.offer import Offer
+from operun.crm.content.todo import Todo
+from operun.crm.content.todos import Todos
 from plone import api
 from plone.protect.interfaces import IDisableCSRFProtection
+from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.relationfield import RelationValue
@@ -28,6 +37,17 @@ content_type_mapping = {
     'operun.crm.todos': 'Todos',
 }
 
+content_type_classes = {
+    'Account': Account,
+    'Accounts': Accounts,
+    'Contact': Contact,
+    'Contacts': Contacts,
+    'Invoice': Invoice,
+    'Offer': Offer,
+    'Todo': Todo,
+    'Todos': Todos,
+}
+
 
 class MigrationsView(BrowserView):
 
@@ -35,15 +55,38 @@ class MigrationsView(BrowserView):
 
     def __call__(self):
         if self.request.form.get('form.buttons.update-attribute-assignment'):
+            alsoProvides(self.request, IDisableCSRFProtection)
             self.update_attribute_assignment()
         if self.request.form.get('form.buttons.update-content-types'):
+            alsoProvides(self.request, IDisableCSRFProtection)
             self.update_content_types()
         if self.request.form.get('form.buttons.update-displayed-types'):
+            alsoProvides(self.request, IDisableCSRFProtection)
             self.update_displayed_types()
         if self.request.form.get('form.buttons.rebuild-and-clean'):
+            alsoProvides(self.request, IDisableCSRFProtection)
             self.rebuild_and_clean()
         else:
             return self.template()
+
+    def update_classes(self):
+        """
+        Updated the file definitions for objects
+        """
+        for content_type in content_type_classes:
+            results = api.content.find(portal_type=content_type)
+            content_type_class = content_type_classes[content_type]
+            if results:
+                logger.info('ASSIGNING {0} TO {1}'.format(content_type, content_type_class))  # noqa
+                for item in results:
+                    obj = item.getObject()
+                    obj_id = obj.getId()
+                    parent = obj.__parent__
+                    obj.__class__ = content_type_class
+                    parent._setOb(obj_id, obj)
+                    BTreeFolder2Base._initBTrees(obj)
+                    obj.reindexObject()
+        self.rebuild_and_clean()
 
     def update_attribute_assignment(self):
         """
@@ -68,6 +111,7 @@ class MigrationsView(BrowserView):
                     if results:
                         result = results[0].getObject()
                         obj.billing_contact = RelationValue(intids.getId(result))  # noqa
+        self.rebuild_and_clean()
 
     def update_content_types(self):
         """
@@ -81,18 +125,20 @@ class MigrationsView(BrowserView):
 
                 # Update Content-Types
                 if obj.portal_type == key:
-                    logger.info('{0} in catalog is being updated...'.format(key))  # noqa
+                    logger.info('{0} BEING UPDATED...'.format(key))  # noqa
                     obj.portal_type = content_type_mapping[key]
 
             contents = api.content.find(portal_type=key)
 
             if contents:
                 for item in contents:
-                    logger.info('{0} in portal is being updated...'.format(key))  # noqa
+                    logger.info('{0} IN PORTAL BEING UPDATED...'.format(key))  # noqa
                     obj = item.getObject()
                     obj.portal_type = content_type_mapping[key]
             else:
-                logger.info('{0} already updated to {1}.'.format(key, content_type_mapping[key]))  # noqa
+                logger.info('{0} ALREADY {1}.'.format(key, content_type_mapping[key]))  # noqa
+        self.rebuild_and_clean()
+        self.update_classes()
 
     def update_displayed_types(self):
         """
@@ -106,12 +152,12 @@ class MigrationsView(BrowserView):
             displayed_types_updated = tuple(content_type_mapping[key] if x == key else x for x in displayed_types_updated)  # noqa
             api.portal.set_registry_record('plone.displayed_types', displayed_types_updated)  # noqa
             logger.info('\n{0}\n{1}'.format(displayed_types, displayed_types_updated))  # noqa
+        self.rebuild_and_clean()
 
     def rebuild_and_clean(self, context=None):
         """
         Rebuilds & cleans catalog
         """
-        alsoProvides(self.request, IDisableCSRFProtection)
         portal_catalog = api.portal.get_tool('portal_catalog')
         portal_quickinstaller = api.portal.get_tool('portal_quickinstaller')
         logger.info('REBUILDING CATALOG...')
