@@ -32,7 +32,9 @@ class AccountView(BrowserView):
         """
         Return invoices.
         """
-        return api.content.find(portal_type='Invoice',
+        context = self.context
+        return api.content.find(context=context,
+                                portal_type='Invoice',
                                 sort_order='reverse',
                                 sort_on='Date')[:3]
 
@@ -40,6 +42,8 @@ class AccountView(BrowserView):
         """
         Return offers.
         """
-        return api.content.find(portal_type='Offer',
+        context = self.context
+        return api.content.find(context=context,
+                                portal_type='Offer',
                                 sort_order='reverse',
                                 sort_on='Date')[:3]
