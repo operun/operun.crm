@@ -12,7 +12,6 @@ from operun.crm.content.todo import Todo
 from operun.crm.content.todos import Todos
 from plone import api
 from plone.protect.interfaces import IDisableCSRFProtection
-from Products.BTreeFolder2.BTreeFolder2 import BTreeFolder2Base
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.relationfield import RelationValue
@@ -83,8 +82,6 @@ class MigrationsView(BrowserView):
                     obj_id = obj.getId()
                     parent = obj.__parent__
                     obj.__class__ = content_type_class
-                    parent._setOb(obj_id, obj)
-                    BTreeFolder2Base._initBTrees(obj)
                     obj.reindexObject()
         self.rebuild_and_clean()
 
