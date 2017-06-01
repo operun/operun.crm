@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='operun.crm',
-    version='2.1.0',
+    version='2.1.1',
     description="operun CRM",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers

@@ -5,6 +5,7 @@ LDAP Sync view & utilities.
 
 from operun.crm import MessageFactory as _
 from plone import api
+from Products.CMFPlone.utils import safe_hasattr
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
@@ -283,9 +284,9 @@ class LdapSyncView(BrowserView):
         """
         Converts object if object has getObject() attribute.
         """
-        if hasattr(obj, 'getObject'):
+        if safe_hasattr(obj, 'getObject'):
             obj = obj.getObject()
-        elif hasattr(obj, 'object'):
+        elif safe_hasattr(obj, 'object'):
             obj = obj.object
         return obj
 
