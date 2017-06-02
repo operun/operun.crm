@@ -31,7 +31,7 @@
           <h3 i18n:translate="contact_view_account_heading">Account</h3>
           <div tal:define="account python:context.account" tal:condition="account">
             <div tal:define="obj python:account.to_object" tal:condition="python:account.to_object">
-              <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title">Account Title</a>
+              <a href="" tal:attributes="href python:obj.absolute_url()" tal:content="python:obj.title"></a>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="section-email">
           <h3 i18n:translate="contact_view_email_heading">E-Mail</h3>
           <div tal:define="email python:context.email" tal:condition="email">
-            <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email">firstname.lastname@domain.com</a>
+            <a href="" tal:attributes="href python:'mailto:'+email" tal:content="email"></a>
           </div>
         </div>
 

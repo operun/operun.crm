@@ -163,7 +163,7 @@ class ISettings(Interface):
 class SettingsEditForm(RegistryEditForm):
     schema = ISettings
     schema_prefix = 'operun.crm'
-    label = u'CRM Settings'
+    label = _(u'crm_settings_title', default=u'CRM Settings')
 
 
 SettingsView = layout.wrap_form(SettingsEditForm, ControlPanelFormWrapper)

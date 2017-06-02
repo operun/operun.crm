@@ -24,21 +24,21 @@
 
                   <div class="row" tal:condition="obj/phone">
                     <span class="col-md-2">
-                      <strong i18n:translate="accounts_view_phone_heading">Phone:</strong>
+                      <strong><span i18n:translate="accounts_view_phone_heading">Phone</span>:</strong>
                     </span>
                     <span class="col-md-6" tal:content="obj/phone"></span>
                   </div><br>
 
                   <div class="row" tal:condition="obj/ceo">
                     <span class="col-md-2">
-                      <strong i18n:translate="accounts_view_ceo_heading">CEO:</strong>
+                      <strong><span i18n:translate="accounts_view_ceo_heading">CEO</span>:</strong>
                     </span>
                     <span class="col-md-6" tal:content="obj/ceo"></span>
                   </div><br>
 
                   <div class="row" tal:condition="obj/address">
                     <span class="col-md-2">
-                      <strong i18n:translate="accounts_view_address_heading">Address:</strong>
+                      <strong><span i18n:translate="accounts_view_address_heading">Address</span>:</strong>
                     </span>
                     <div class="col-md-6">
                       <span tal:replace="obj/title" tal:condition="obj/title"/><br/>

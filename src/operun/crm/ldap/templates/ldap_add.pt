@@ -15,7 +15,7 @@
 
         <h1 i18n:translate="ldap_add_title">LDAP Add</h1>
 
-        <h3>${context_title} <span i18n:translate="ldap_add_message">will be added to LDAP.</span></h3>
+        <h3>${context_title} <span i18n:translate="ldap_add_message">will be added to LDAP...</span></h3>
 
         <form action="${context/absolute_url}/@@ldap-add"
               id="ldap-add"

@@ -15,7 +15,7 @@
 
         <h1 i18n:translate="ldap_delete_title">LDAP Delete</h1>
 
-        <h3>${context_title} <span i18n:translate="ldap_delete_message">will be deleted from LDAP.</span></h3>
+        <h3>${context_title} <span i18n:translate="ldap_delete_message">will be deleted from LDAP...</span></h3>
 
         <form action="${context/absolute_url}/@@ldap-delete"
               id="ldap-delete"

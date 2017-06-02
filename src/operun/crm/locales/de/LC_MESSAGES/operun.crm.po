@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-05-12 14:29+0000\n"
+"POT-Creation-Date: 2017-06-02 15:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,31 +71,31 @@ msgstr "Ein Angebot in der operun CRM"
 msgid "An Todo in the operun CRM"
 msgstr "Ein zu tun in der operun CRM"
 
-#: operun/crm/ldap/ldap_sync.py:67
+#: operun/crm/ldap/ldap_sync.py:68
 msgid "An error occurred in add_ldap_object()"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:104
+#: operun/crm/ldap/ldap_sync.py:105
 msgid "An error occurred in delete_ldap_object()"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:123
+#: operun/crm/ldap/ldap_sync.py:124
 msgid "An error occurred in ldap_update_attribute()"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:85
+#: operun/crm/ldap/ldap_sync.py:86
 msgid "An error occurred in update_ldap_object()"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:219
+#: operun/crm/ldap/ldap_sync.py:220
 msgid "An error occurred in update_node_tree()"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:231
+#: operun/crm/ldap/ldap_sync.py:232
 msgid "An error occurred, item couldn't be archived."
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:217
+#: operun/crm/ldap/ldap_sync.py:218
 msgid "An error occurred, likely due to a conflicting DN."
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr "CEO"
 msgid "CRM Settings"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:151
+#: operun/crm/ldap/ldap_sync.py:152
 msgid "Check LDAP config."
 msgstr ""
 
@@ -135,7 +135,7 @@ msgstr "Stadt"
 msgid "Company Logo"
 msgstr "Firmenlogo"
 
-#: operun/crm/ldap/ldap_sync.py:148
+#: operun/crm/ldap/ldap_sync.py:149
 msgid "Connected to {0}"
 msgstr ""
 
@@ -148,7 +148,7 @@ msgstr "Kontakt"
 msgid "Contact Type"
 msgstr "Kontakttyp"
 
-#: operun/crm/ldap/ldap_sync.py:142
+#: operun/crm/ldap/ldap_sync.py:143
 msgid "Contacting LDAP server..."
 msgstr ""
 
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: operun/crm/ldap/ldap_sync.py:146
+#: operun/crm/ldap/ldap_sync.py:147
 msgid "Could not connect to {0}"
 msgstr ""
 
@@ -168,11 +168,11 @@ msgstr "Kunde"
 msgid "Delete"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:260
+#: operun/crm/ldap/ldap_sync.py:261
 msgid "Deleted LDAP entry for {0}"
 msgstr ""
 
-#: operun/crm/ldap/ldap_sync.py:162
+#: operun/crm/ldap/ldap_sync.py:163
 msgid "Disconnected from LDAP server..."
 msgstr ""
 
@@ -198,11 +198,11 @@ msgstr "Fax"
 msgid "Firstname"
 msgstr "Vorname"
 
-#: operun/crm/configure.zcml:55
+#: operun/crm/configure.zcml:54
 msgid "Installs the operun.crm add-on with demo content."
 msgstr ""
 
-#: operun/crm/configure.zcml:37
+#: operun/crm/configure.zcml:36
 msgid "Installs the operun.crm add-on."
 msgstr "Installiert das operun.crm-Paket"
 
@@ -271,7 +271,7 @@ msgstr "Todo"
 msgid "Todos"
 msgstr "Todos"
 
-#: operun/crm/configure.zcml:46
+#: operun/crm/configure.zcml:45
 msgid "Uninstalls the operun.crm add-on."
 msgstr "Deinstalliert das operun.crm-Paket"
 
@@ -308,13 +308,11 @@ msgstr ""
 
 #. Default: "Billing Contact"
 #: operun/crm/browser/templates/account.pt:83
-#, fuzzy
 msgid "account_view_billing_contact_heading"
 msgstr "Kontakt für Rechnungen"
 
 #. Default: "Billing E-Mail"
 #: operun/crm/browser/templates/account.pt:76
-#, fuzzy
 msgid "account_view_billing_email_heading"
 msgstr "E-Mail-Adresse für Rechnungen"
 
@@ -393,17 +391,17 @@ msgstr ""
 msgid "account_view_webiste_heading"
 msgstr "Webseite"
 
-#. Default: "Address:"
+#. Default: "Address"
 #: operun/crm/browser/templates/accounts.pt:41
 msgid "accounts_view_address_heading"
 msgstr ""
 
-#. Default: "CEO:"
+#. Default: "CEO"
 #: operun/crm/browser/templates/accounts.pt:34
 msgid "accounts_view_ceo_heading"
 msgstr ""
 
-#. Default: "Phone:"
+#. Default: "Phone"
 #: operun/crm/browser/templates/accounts.pt:27
 msgid "accounts_view_phone_heading"
 msgstr ""
@@ -473,22 +471,27 @@ msgstr ""
 msgid "contact_view_user_heading"
 msgstr ""
 
-#. Default: "E-Mail:"
+#. Default: "E-Mail"
 #: operun/crm/browser/templates/contacts.pt:41
 msgid "contacts_view_email_heading"
 msgstr ""
 
-#. Default: "Mobile:"
+#. Default: "Mobile"
 #: operun/crm/browser/templates/contacts.pt:34
 msgid "contacts_view_mobile_heading"
 msgstr ""
 
-#. Default: "Phone:"
+#. Default: "Phone"
 #: operun/crm/browser/templates/contacts.pt:27
 msgid "contacts_view_phone_heading"
 msgstr ""
 
-#. Default: "will be added to LDAP."
+#. Default: "CRM Settings"
+#: operun/crm/settings/settings.py:166
+msgid "crm_settings_title"
+msgstr ""
+
+#. Default: "will be added to LDAP..."
 #: operun/crm/ldap/templates/ldap_add.pt:18
 msgid "ldap_add_message"
 msgstr ""
@@ -498,7 +501,7 @@ msgstr ""
 msgid "ldap_add_title"
 msgstr ""
 
-#. Default: "will be deleted from LDAP."
+#. Default: "will be deleted from LDAP..."
 #: operun/crm/ldap/templates/ldap_delete.pt:18
 msgid "ldap_delete_message"
 msgstr ""
@@ -508,7 +511,7 @@ msgstr ""
 msgid "ldap_delete_title"
 msgstr ""
 
-#. Default: "will be synced to LDAP."
+#. Default: "will be synced to LDAP..."
 #: operun/crm/ldap/templates/ldap_sync.pt:18
 msgid "ldap_sync_message"
 msgstr ""
@@ -518,7 +521,7 @@ msgstr ""
 msgid "ldap_sync_title"
 msgstr ""
 
-#. Default: "attributes will be updated in LDAP."
+#. Default: "attributes will be updated in LDAP..."
 #: operun/crm/ldap/templates/ldap_update.pt:18
 msgid "ldap_update_message"
 msgstr ""
@@ -538,15 +541,15 @@ msgstr ""
 msgid "modal_edit_save"
 msgstr ""
 
-#: operun/crm/configure.zcml:37
+#: operun/crm/configure.zcml:36
 msgid "operun CRM"
 msgstr "operun CRM"
 
-#: operun/crm/configure.zcml:55
+#: operun/crm/configure.zcml:54
 msgid "operun CRM (demo)"
 msgstr ""
 
-#: operun/crm/configure.zcml:46
+#: operun/crm/configure.zcml:45
 msgid "operun CRM (uninstall)"
 msgstr "operun CRM (deinstallieren)"
 
@@ -685,22 +688,22 @@ msgstr ""
 msgid "settings_users_dn_title"
 msgstr ""
 
-#. Default: "LDAP (Add)"
+#. Default: "LDAP Add"
 #: operun/crm/profiles/default/actions.xml
 msgid "sync_add_action_title"
 msgstr ""
 
-#. Default: "LDAP (Sync)"
+#. Default: "LDAP Sync"
 #: operun/crm/profiles/default/actions.xml
 msgid "sync_all_action_title"
 msgstr ""
 
-#. Default: "LDAP (Delete)"
+#. Default: "LDAP Delete"
 #: operun/crm/profiles/default/actions.xml
 msgid "sync_delete_action_title"
 msgstr ""
 
-#. Default: "LDAP (Update)"
+#. Default: "LDAP Update"
 #: operun/crm/profiles/default/actions.xml
 msgid "sync_update_action_title"
 msgstr ""
