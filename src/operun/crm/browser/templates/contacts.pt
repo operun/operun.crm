@@ -6,52 +6,76 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="operun.crm">
-  <body>
 
-    <metal:content-core fill-slot="content-core">
-      <metal:content-core define-macro="content-core">
+<body>
 
-        <div id="contacts-container">
-          <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()">
-            <div class="contact-wrapper" tal:repeat="obj contacts">
+  <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
 
-              <a href="" tal:attributes="href obj/absolute_url">
-                <h3 tal:content="obj/title"></h3>
-              </a>
+      <div id="contacts-container">
+        <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()">
 
-              <div class="row">
-                <div class="col-md-8">
+          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Contact',   'review_state':'published'});
+                           Batch python:modules['Products.CMFPlone'].Batch;
+                           b_size python:10;
+                           b_start python:0;
+                           b_start request/b_start | b_start;
+                           batch python:Batch(liste, b_size, int(b_start), orphan=1);" tal:condition="liste">
+            <tal:boucle tal:repeat="item batch">
 
-                  <div class="row" tal:condition="obj/phone">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="contacts_view_phone_heading">Phone</span>:</strong>
+              <!-- Batched results -->
+
+              <div class="contact-wrapper" tal:define="obj python:item.getObject()">
+
+                <a href="" tal:attributes="href obj/absolute_url">
+                  <h3 tal:content="obj/title"></h3>
+                </a>
+
+                <div class="row">
+                  <div class="col-md-8">
+
+                    <div class="row" tal:condition="obj/phone">
+                      <span class="col-md-2">
+                      <strong i18n:translate="contacts_view_phone_heading">Phone:</strong>
                     </span>
-                    <span class="col-md-6" tal:content="obj/phone"></span>
-                  </div><br>
+                      <span class="col-md-6" tal:content="obj/phone"></span>
+                    </div><br>
 
-                  <div class="row" tal:condition="obj/mobile">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="contacts_view_mobile_heading">Mobile</span>:</strong>
+                    <div class="row" tal:condition="obj/mobile">
+                      <span class="col-md-2">
+                      <strong i18n:translate="contacts_view_mobile_heading">Mobile:</strong>
                     </span>
-                    <span class="col-md-6" tal:content="obj/mobile"></span>
-                  </div><br>
+                      <span class="col-md-6" tal:content="obj/mobile"></span>
+                    </div><br>
 
-                  <div class="row" tal:condition="obj/email">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="contacts_view_email_heading">E-Mail</span>:</strong>
+                    <div class="row" tal:condition="obj/email">
+                      <span class="col-md-2">
+                      <strong i18n:translate="contacts_view_email_heading">E-Mail:</strong>
                     </span>
-                    <span class="col-md-6" tal:content="obj/email"></span>
+                      <span class="col-md-6" tal:content="obj/email"></span>
+                    </div>
+
                   </div>
-
                 </div>
+
               </div>
 
+              <!-- End -->
+
+            </tal:boucle>
+
+            <div class="navigation-wrapper">
+              <div metal:use-macro="here/batch_macros/macros/navigation"></div>
             </div>
+
           </div>
+
         </div>
+      </div>
 
-      </metal:content-core>
     </metal:content-core>
+  </metal:content-core>
 
-  </body>
+</body>
+
 </html>
