@@ -6,57 +6,81 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="operun.crm">
-  <body>
 
-    <metal:content-core fill-slot="content-core">
-      <metal:content-core define-macro="content-core">
+<body>
 
-        <div id="accounts-container">
-          <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()">
-            <div class="account-wrapper" tal:repeat="obj accounts">
+  <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
 
-              <a href="" tal:attributes="href obj/absolute_url">
-                <h3 tal:content="obj/title"></h3>
-              </a>
+      <div id="accounts-container">
+        <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()">
 
-              <div class="row">
-                <div class="col-md-8">
+          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Account',   'review_state':'published'});
+                           Batch python:modules['Products.CMFPlone'].Batch;
+                           b_size python:10;
+                           b_start python:0;
+                           b_start request/b_start | b_start;
+                           batch python:Batch(liste, b_size, int(b_start), orphan=1);" tal:condition="liste">
+            <tal:boucle tal:repeat="item batch">
 
-                  <div class="row" tal:condition="obj/phone">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="accounts_view_phone_heading">Phone</span>:</strong>
-                    </span>
-                    <span class="col-md-6" tal:content="obj/phone"></span>
-                  </div><br>
+              <!-- Batched results -->
 
-                  <div class="row" tal:condition="obj/ceo">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="accounts_view_ceo_heading">CEO</span>:</strong>
-                    </span>
-                    <span class="col-md-6" tal:content="obj/ceo"></span>
-                  </div><br>
+              <div class="account-wrapper" tal:define="obj python:item.getObject()">
 
-                  <div class="row" tal:condition="obj/address">
-                    <span class="col-md-2">
-                      <strong><span i18n:translate="accounts_view_address_heading">Address</span>:</strong>
-                    </span>
-                    <div class="col-md-6">
-                      <span tal:replace="obj/title" tal:condition="obj/title"/><br/>
-                      <span tal:replace="obj/address" tal:condition="obj/address"/><br/>
-                      <span tal:replace="obj/zip" tal:condition="obj/zip"/>
-                      <span tal:replace="obj/city" tal:condition="obj/city"/>
+                <a href="" tal:attributes="href obj/absolute_url">
+                  <h3 tal:content="obj/title"></h3>
+                </a>
+
+                <div class="row">
+                  <div class="col-md-8">
+
+                    <div class="row" tal:condition="obj/phone">
+                      <span class="col-md-2">
+                          <strong i18n:translate="accounts_view_phone_heading">Phone:</strong>
+                        </span>
+                      <span class="col-md-6" tal:content="obj/phone"></span>
+                    </div><br>
+
+                    <div class="row" tal:condition="obj/ceo">
+                      <span class="col-md-2">
+                          <strong i18n:translate="accounts_view_ceo_heading">CEO:</strong>
+                        </span>
+                      <span class="col-md-6" tal:content="obj/ceo"></span>
+                    </div><br>
+
+                    <div class="row" tal:condition="obj/address">
+                      <span class="col-md-2">
+                          <strong i18n:translate="accounts_view_address_heading">Address:</strong>
+                        </span>
+                      <div class="col-md-6">
+                        <span tal:replace="obj/title" tal:condition="obj/title" /><br/>
+                        <span tal:replace="obj/address" tal:condition="obj/address" /><br/>
+                        <span tal:replace="obj/zip" tal:condition="obj/zip" />
+                        <span tal:replace="obj/city" tal:condition="obj/city" />
+                      </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
+
               </div>
 
+              <!-- End -->
+
+            </tal:boucle>
+
+            <div class="navigation-wrapper">
+              <div metal:use-macro="here/batch_macros/macros/navigation"></div>
             </div>
+
           </div>
+
         </div>
+      </div>
 
-      </metal:content-core>
     </metal:content-core>
+  </metal:content-core>
 
-  </body>
+</body>
+
 </html>
