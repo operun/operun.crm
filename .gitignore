@@ -1,10 +1,15 @@
+# Defaults
+
 .coverage
 *.egg-info
 *.log
 *.mo
 *.py?
 *.swp
-# dirs
+
+
+# Dirs
+
 bin/
 buildout-cache/
 develop-eggs/
@@ -14,22 +19,35 @@ include/
 lib/
 local/
 parts/
-src/*
 test.plone_addon/
 var/
-# files
-.installed.cfg
-.mr.developer.cfg
+
+
+# Files
+
 lib64
 log.html
 output.xml
 pip-selfcheck.json
+.installed.cfg
+.mr.developer.cfg
 report.html
-# excludes
+
+
+# Excludes
+
 !.coveragerc
 !.editorconfig
 !.gitattributes
 !.gitignore
 !.gitkeep
 !.travis.yml
-!src/operun
+!src/webmontag
+
+
+# Node & Grunt
+
+node_modules/
+package.json
+Gruntfile.js
+temp_resources

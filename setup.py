@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='operun.crm',
-    version='2.1.0',
+    version='2.1.1',
     description="The operun CRM webapp project.",
     long_description=long_description,
     classifiers=[
