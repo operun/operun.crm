@@ -7,15 +7,17 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="operun.crm">
 
+  <!-- Defaults -->
   <i18n:registerTranslations directory="locales" />
-
   <includeDependencies package="." />
 
+  <!-- Include Additional Directories -->
   <include package=".browser" />
   <include package=".events" />
   <include package=".ldap" />
   <include package=".settings" />
 
+  <!-- Plone Dependencies -->
   <include package="plone.app.relationfield" />
 
   <plone:static
