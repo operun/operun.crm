@@ -6,7 +6,7 @@ from plone.app.testing import login
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.textfield.value import RichTextValue
 
-import unittest2 as unittest
+import unittest
 
 
 class TestCrm(unittest.TestCase):
