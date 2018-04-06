@@ -14,25 +14,6 @@ class TestCrm(unittest.TestCase):
 
     layer = OPERUN_CRM_INTEGRATION_TESTING
 
-    def _create_contact(self, container):
-        return api.content.create(
-            container=container,
-            type='Contact',
-            title='Mary Lee',
-            id='mary-lee',
-            text=RichTextValue(u'ι ℓσνє ρℓσиє! Plone 5 2017',
-                               'text/plain',
-                               'text/html'),
-            firstname='Mary',
-            lastname='Lee',
-            phone='+49 8070 4546 700',
-            mobile='+49 172 8030 100',
-            email='mary.lee@example.de',
-            notes=RichTextValue(u'ι ℓσνє ρℓσиє! Plone 5 2017',
-                                'text/plain',
-                                'text/html'),
-        )
-
     def setUp(self):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
@@ -52,15 +33,15 @@ class TestCrm(unittest.TestCase):
         self.assertTrue(output)
         self.assertIn('Max Mustermann', output)
 
-        # Create Contact
-        self._create_contact(contacts_obj)
-        view = contacts_obj.restrictedTraverse('view')
-        output = view()
-        self.assertTrue(output)
-        self.assertIn('Max Mustermann' and 'Mary Lee', output)
-
         # Check Contacts Modify
-        self.assertEqual(contacts_obj.description, u'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.')  # noqa
+        self.assertEqual(
+            contacts_obj.description,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, '
+            'sed diam nonumy eirmod tempor invidunt ut labore et dolore '
+            'magna aliquyam erat, sed diam voluptua. At vero eos et accusam '
+            'et justo duo dolores et ea rebum. Stet clita kasd gubergren, no '
+            'sea takimata sanctus est Lorem ipsum dolor sit amet.',
+        )
         contacts_obj.description = RichTextValue(
             u'ι ℓσνє ρℓσиє! Plone 5 2017',
             'text/plain',
