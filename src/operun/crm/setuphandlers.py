@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dateutil.relativedelta import relativedelta
 from plone import api
 from plone import namedfile
 from plone.app.textfield.value import RichTextValue
@@ -8,6 +9,8 @@ from z3c.relationfield import RelationValue
 from zope.component import getUtility
 from zope.interface import implementer
 from zope.intid.interfaces import IIntIds
+
+import datetime
 
 
 @implementer(INonInstallable)
@@ -81,6 +84,16 @@ def _create_demo_setup(portal, context):
     )
     api.content.transition(obj=accounts, transition='publish')
 
+    # Setup Todos
+    todos = api.content.create(
+        type='Todos',
+        container=portal,
+        id='todos',
+        title=u'Todos',
+        description=u'Ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
+    )
+    api.content.transition(obj=todos, transition='publish')
+
     # Create Account
     account = api.content.create(
         type='Account',
@@ -149,6 +162,25 @@ def _create_demo_setup(portal, context):
             filename=u'offer.pdf'),
     )
     api.content.transition(obj=offer, transition='publish')
+
+    # Get Datetime
+    now = datetime.datetime.now()
+    new_date = now + relativedelta(months=1)
+
+    # Create Todo
+    todo = api.content.create(
+        type='Todo',
+        container=todos,
+        id='goto-company-meeting',
+        title=u'Goto Company Meeting',
+        description=u'Ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',  # noqa
+        owner=RelationValue(intids.getId(contact)),
+        start_date=now,
+        end_date=new_date,
+        status=u'new',
+        priority=u'normal',
+    )
+    api.content.transition(obj=todo, transition='publish')
 
 
 def demo(context):

@@ -60,7 +60,7 @@
       />
 
   <!-- Misc -->
-
+  
   <browser:page
       name="modal-edit"
       for="*"
@@ -68,6 +68,20 @@
       class=".modal_edit.ModalEditForm"
       layer="operun.crm.interfaces.IOperunCrmLayer"
       permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      name="view"
+      for="operun.crm.content.todo.ITodo"
+      permission="zope2.View"
+      class=".todo.TodoView"
+      />
+
+  <browser:page
+      name="view"
+      for="operun.crm.content.todos.ITodos"
+      permission="zope2.View"
+      class=".todos.TodosView"
       />
 
 </configure>

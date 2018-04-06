@@ -33,7 +33,7 @@
   <subscriber
       for="operun.crm.content.account.IAccount
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
-    handler=".event_handlers.add_obj"
+      handler=".event_handlers.add_obj"
       />
 
   <subscriber
@@ -46,6 +46,14 @@
       for="operun.crm.content.account.IAccount
            zope.lifecycleevent.interfaces.IObjectRemovedEvent"
       handler=".event_handlers.delete_obj"
+      />
+
+  <!-- Event handlers | Todo -->
+
+  <subscriber
+      for="operun.crm.content.todo.ITodo
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      handler=".event_handlers.generate_id"
       />
 
 </configure>
