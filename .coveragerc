@@ -1,0 +1,6 @@
+[report]
+include =
+    src/operun/*
+omit =
+    */test*
+    */upgrades/*

@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+# Shell script to clean up buildout
+rm -rf ${buildout:directory}/.installed.cfg ${buildout:directory}/var/blobstorage ${buildout:directory}/var/filestorage/Data.fs*
