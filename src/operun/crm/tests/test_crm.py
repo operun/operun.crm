@@ -68,19 +68,6 @@ class TestCrm(unittest.TestCase):
         self.assertTrue(output)
         self.assertIn('max.mustermann@musterfirma.de', output)
 
-        # Check Contact
-        new_contact = self._create_contact(contacts_obj)
-        view = new_contact.restrictedTraverse('view')
-        output = view()
-        self.assertTrue(output)
-        self.assertEqual(new_contact.notes.raw, u'\u03b9 \u2113\u03c3\u03bd\u0454 \u03c1\u2113\u03c3\u0438\u0454! Plone 5 2017')  # noqa
-
         # Check Length of Contacts
         contact_items = api.content.find(portal_type='Contact')
-        self.assertEqual(len(contact_items), 2)
-
-        # Check Contact Modify
-        self.assertEqual(new_contact.phone, '+49 8070 4546 700')
-        new_contact.phone = '+49 8070 4546 705'
-        new_contact.reindexObject()
-        self.assertEqual(new_contact.phone, '+49 8070 4546 705')
+        self.assertEqual(len(contact_items), 1)
