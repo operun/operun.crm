@@ -56,7 +56,6 @@ class TestCrm(unittest.TestCase):
         contact_items = api.content.find(portal_type='Contact')
         contacts = contacts_folder[0]
         contact = contact_items[0]
-        contacts_obj = contacts.getObject()
         contact_obj = contact.getObject()
 
         # Check Demo Title
