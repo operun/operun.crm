@@ -52,7 +52,6 @@ class TestCrm(unittest.TestCase):
         self.assertEqual(contacts_obj.description.raw, u'\u03b9 \u2113\u03c3\u03bd\u0454 \u03c1\u2113\u03c3\u0438\u0454! Plone 5 2017')  # noqa
 
     def test_contact(self):
-        contacts_folder = api.content.find(portal_type='Contacts')
         contact_items = api.content.find(portal_type='Contact')
         contact = contact_items[0]
         contact_obj = contact.getObject()
