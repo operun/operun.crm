@@ -19,8 +19,8 @@
               <i class="fa fa-user"></i>
             </div>
             <div class="dashboard-title">
-              <span>Contacts</span><br>
-              <small>Contacts and partners.</small>
+              <span i18n:translate="dashboard_contacts_title">Contacts</span><br>
+              <small i18n:translate="dashboard_contacts_description">Contacts and partners.</small>
             </div>
           </div>
         </a>
@@ -32,8 +32,8 @@
               <i class="fa fa-building"></i>
             </div>
             <div class="dashboard-title">
-              <span>Customers</span><br>
-              <small>Customers and business associates.</small>
+              <span i18n:translate="dashboard_customers_title">Customers</span><br>
+              <small i18n:translate="dashboard_customers_description">Customers and business associates.</small>
             </div>
           </div>
         </a>
@@ -45,8 +45,8 @@
               <i class="fa fa-globe"></i>
             </div>
             <div class="dashboard-title">
-              <span>Wiki</span><br>
-              <small>The operun Wiki pages.</small>
+              <span i18n:translate="dashboard_wiki_title">Wiki</span><br>
+              <small i18n:translate="dashboard_wiki_description">The operun Wiki pages.</small>
             </div>
           </div>
         </a>
@@ -58,8 +58,8 @@
               <i class="fa fa-wrench"></i>
             </div>
             <div class="dashboard-title">
-              <span>Utils</span><br>
-              <small>Internal tools.</small>
+              <span i18n:translate="dashboard_utils_title">Utils</span><br>
+              <small i18n:translate="dashboard_utils_description">Internal tools.</small>
             </div>
           </div>
         </a>
@@ -71,8 +71,8 @@
               <i class="fa fa-cog"></i>
             </div>
             <div class="dashboard-title">
-              <span>Settings</span><br>
-              <small>The CRM settings.</small>
+              <span i18n:translate="dashboard_settings_title">Settings</span><br>
+              <small i18n:translate="dashboard_settings_description">The CRM settings.</small>
             </div>
           </div>
         </a>
