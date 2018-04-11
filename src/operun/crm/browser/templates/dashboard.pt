@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="operun.crm">
+
+<body>
+  <metal:block fill-slot="main">
+
+    <div class="row" tal:define="portal view/return_portal_url">
+
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="${portal}/contacts">
+          <div class="dashboard-tile">
+            <div class="dashboard-icon">
+              <i class="fa fa-user"></i>
+            </div>
+            <div class="dashboard-title">
+              <span>Contacts</span><br>
+              <small>Contacts and partners.</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="${portal}/accounts">
+          <div class="dashboard-tile">
+            <div class="dashboard-icon">
+              <i class="fa fa-building"></i>
+            </div>
+            <div class="dashboard-title">
+              <span>Customers</span><br>
+              <small>Customers and business associates.</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="${portal}/wiki">
+          <div class="dashboard-tile">
+            <div class="dashboard-icon">
+              <i class="fa fa-globe"></i>
+            </div>
+            <div class="dashboard-title">
+              <span>Wiki</span><br>
+              <small>The operun Wiki pages.</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="${portal}/tools">
+          <div class="dashboard-tile">
+            <div class="dashboard-icon">
+              <i class="fa fa-wrench"></i>
+            </div>
+            <div class="dashboard-title">
+              <span>Utils</span><br>
+              <small>Internal tools.</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="${portal}/@@crm-settings">
+          <div class="dashboard-tile">
+            <div class="dashboard-icon">
+              <i class="fa fa-cog"></i>
+            </div>
+            <div class="dashboard-title">
+              <span>Settings</span><br>
+              <small>The CRM settings.</small>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <a href="#">
+          <div class="dashboard-tile disabled">
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </metal:block>
+</body>
+
+</html>

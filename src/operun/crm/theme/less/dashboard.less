@@ -1,0 +1,46 @@
+.dashboard-tile {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: 0.25rem;
+  background-color: white;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  color: #212121;
+  transition: box-shadow 250ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.05);
+  }
+
+  &.disabled {
+    background-color: #EEEEEE;
+    cursor: default;
+  }
+
+  .dashboard-icon {
+    position: absolute;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 60px;
+  }
+
+  .dashboard-title {
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    font-size: 2.8rem;
+    line-height: 30px;
+
+    small {
+      color: #616161;
+      font-size: 1.8rem;
+    }
+  }
+}

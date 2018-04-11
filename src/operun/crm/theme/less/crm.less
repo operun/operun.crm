@@ -6,60 +6,12 @@
 @screen-md-max: 1199px;
 @screen-lg-min: 1200px;
 
-
-/* Import Barceloneta LESS */
 @import '@{barceloneta-all}';
-/* Font Awesome */
 @import './font-awesome.css';
+@import './dashboard.less';
+@import './contact.less';
+@import './icons.less';
 
-/* Content-Type Icons */
-
-[class^='icon-controlpanel-crm-']:before {
-  content: '\f126';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-account:after {
-  content: '\f2bb';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-accounts:after {
-  content: '\f2b9';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-contact:after {
-  content: '\f007';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-contacts:after {
-  content: '\f0c0';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-todo:after {
-  content: '\f192';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-todos:after {
-  content: '\f00b';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-invoice:after {
-  content: '\f15b';
-  font-family: FontAwesome;
-}
-
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-offer:after {
-  content: '\f016';
-  font-family: FontAwesome;
-}
-
-/* Main */
 a,
 a:hover,
 a:active,
@@ -91,18 +43,6 @@ a:visited {
   overflow: hidden;
   border-radius: 4px;
 }
-
-/* Contact View */
-.section-notes > * {
-  display: inline-block;
-}
-
-.section-notes .notes-edit i {
-  margin: 5px;
-  font-size: 20px;
-}
-
-/* Batch Navigation */
 
 .navigation-wrapper {
   margin-left: 30px 0;
