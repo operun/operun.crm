@@ -70,4 +70,13 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <browser:page
+      name="crm-dashboard"
+      for="*"
+      template="templates/dashboard.pt"
+      class=".dashboard.DashboardView"
+      layer="operun.crm.interfaces.IOperunCrmLayer"
+      permission="zope2.View"
+      />
+
 </configure>
