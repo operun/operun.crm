@@ -13,4 +13,4 @@ class DashboardView(BrowserView):
         return self.template()
 
     def return_portal_url(self):
-        return api.portal.getSite().absolute_url()
+        return api.portal.get().absolute_url()
