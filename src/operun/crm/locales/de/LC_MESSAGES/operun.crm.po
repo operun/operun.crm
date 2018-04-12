@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-06-02 15:14+0000\n"
+"POT-Creation-Date: 2018-04-12 12:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -391,18 +391,18 @@ msgstr ""
 msgid "account_view_webiste_heading"
 msgstr "Webseite"
 
-#. Default: "Address"
-#: operun/crm/browser/templates/accounts.pt:41
+#. Default: "Address:"
+#: operun/crm/browser/templates/accounts.pt:53
 msgid "accounts_view_address_heading"
 msgstr ""
 
-#. Default: "CEO"
-#: operun/crm/browser/templates/accounts.pt:34
+#. Default: "CEO:"
+#: operun/crm/browser/templates/accounts.pt:46
 msgid "accounts_view_ceo_heading"
 msgstr ""
 
-#. Default: "Phone"
-#: operun/crm/browser/templates/accounts.pt:27
+#. Default: "Phone:"
+#: operun/crm/browser/templates/accounts.pt:39
 msgid "accounts_view_phone_heading"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgid "contact_view_mobile_heading"
 msgstr "Mobil"
 
 #. Default: "Notes"
-#: operun/crm/browser/templates/contact.pt:64
+#: operun/crm/browser/templates/contact.pt:71
 msgid "contact_view_notes_heading"
 msgstr "Notizen"
 
@@ -471,24 +471,84 @@ msgstr ""
 msgid "contact_view_user_heading"
 msgstr ""
 
-#. Default: "E-Mail"
-#: operun/crm/browser/templates/contacts.pt:41
+#. Default: "Download"
+#: operun/crm/browser/templates/contact.pt:66
+msgid "contact_view_vcard_download"
+msgstr ""
+
+#. Default: "vCard"
+#: operun/crm/browser/templates/contact.pt:64
+msgid "contact_view_vcard_heading"
+msgstr ""
+
+#. Default: "E-Mail:"
+#: operun/crm/browser/templates/contacts.pt:53
 msgid "contacts_view_email_heading"
 msgstr ""
 
-#. Default: "Mobile"
-#: operun/crm/browser/templates/contacts.pt:34
+#. Default: "Mobile:"
+#: operun/crm/browser/templates/contacts.pt:46
 msgid "contacts_view_mobile_heading"
 msgstr ""
 
-#. Default: "Phone"
-#: operun/crm/browser/templates/contacts.pt:27
+#. Default: "Phone:"
+#: operun/crm/browser/templates/contacts.pt:39
 msgid "contacts_view_phone_heading"
 msgstr ""
 
 #. Default: "CRM Settings"
 #: operun/crm/settings/settings.py:166
 msgid "crm_settings_title"
+msgstr ""
+
+#. Default: "Contacts and partners."
+#: operun/crm/browser/templates/dashboard.pt:23
+msgid "dashboard_contacts_description"
+msgstr ""
+
+#. Default: "Contacts"
+#: operun/crm/browser/templates/dashboard.pt:22
+msgid "dashboard_contacts_title"
+msgstr ""
+
+#. Default: "Customers and business associates."
+#: operun/crm/browser/templates/dashboard.pt:36
+msgid "dashboard_customers_description"
+msgstr ""
+
+#. Default: "Customers"
+#: operun/crm/browser/templates/dashboard.pt:35
+msgid "dashboard_customers_title"
+msgstr ""
+
+#. Default: "The CRM settings."
+#: operun/crm/browser/templates/dashboard.pt:75
+msgid "dashboard_settings_description"
+msgstr ""
+
+#. Default: "Settings"
+#: operun/crm/browser/templates/dashboard.pt:74
+msgid "dashboard_settings_title"
+msgstr ""
+
+#. Default: "Internal tools."
+#: operun/crm/browser/templates/dashboard.pt:62
+msgid "dashboard_utils_description"
+msgstr ""
+
+#. Default: "Utils"
+#: operun/crm/browser/templates/dashboard.pt:61
+msgid "dashboard_utils_title"
+msgstr ""
+
+#. Default: "The operun Wiki pages."
+#: operun/crm/browser/templates/dashboard.pt:49
+msgid "dashboard_wiki_description"
+msgstr ""
+
+#. Default: "Wiki"
+#: operun/crm/browser/templates/dashboard.pt:48
+msgid "dashboard_wiki_title"
 msgstr ""
 
 #. Default: "will be added to LDAP..."
