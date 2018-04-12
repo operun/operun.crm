@@ -32,7 +32,7 @@ pip-selfcheck.json
 .installed.cfg
 .mr.developer.cfg
 report.html
-
+.DS_Store
 
 # Excludes
 
