@@ -2,14 +2,29 @@ Changelog
 =========
 
 
-2.0.0
+2.2.0
 ------------------
 
-- Initial release.
+- Plone 5.1 upgrade.
+  [Netroxen]
+
+- Added VCard export option for contacts.
+  [Netroxen]
+
+- Added page pagination to contacts and accounts views.
+  [Netroxen]
+
+- Cleanup buildout configurations.
   [Netroxen]
 
 2.1.0
 ------------------
 
 - Added LDAP management.
+  [Netroxen]
+
+2.0.0
+------------------
+
+- Initial release.
   [Netroxen]
