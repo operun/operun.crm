@@ -1,8 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-12 12:33+0000\n"
+"POT-Creation-Date: 2018-04-16 08:33+0000\n"
 "PO-Revision-Date: 2018-04-13 09:22+0200\n"
+"Last-Translator: Veronika Westermeier <veronika.westermeier@operun.de>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,8 +13,6 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"Last-Translator: Veronika Westermeier <veronika.westermeier@operun.de>\n"
-"Language-Team: \n"
 "Language: de\n"
 "X-Generator: Poedit 2.0.6\n"
 
@@ -141,7 +141,8 @@ msgstr "Firmenlogo"
 msgid "Connected to {0}"
 msgstr "Verbunden mit {0}"
 
-#: operun/crm/config.py:8 operun/crm/profiles/default/types/Contact.xml
+#: operun/crm/config.py:8
+#: operun/crm/profiles/default/types/Contact.xml
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -177,11 +178,13 @@ msgstr "LDAP Eintrag für {0} wurde gelöscht"
 msgid "Disconnected from LDAP server..."
 msgstr "Vom LDAP Server getrennt…"
 
-#: operun/crm/content/account.py:26 operun/crm/content/contact.py:26
+#: operun/crm/content/account.py:26
+#: operun/crm/content/contact.py:26
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: operun/crm/content/account.py:49 operun/crm/content/contact.py:68
+#: operun/crm/content/account.py:49
+#: operun/crm/content/contact.py:68
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -222,19 +225,23 @@ msgstr "Lead"
 msgid "Mobile"
 msgstr "Mobiltelefon"
 
-#: operun/crm/content/account.py:115 operun/crm/content/contact.py:79
+#: operun/crm/content/account.py:115
+#: operun/crm/content/contact.py:79
 msgid "Notes"
 msgstr "Notizen"
 
-#: operun/crm/content/offer.py:14 operun/crm/profiles/default/types/Offer.xml
+#: operun/crm/content/offer.py:14
+#: operun/crm/profiles/default/types/Offer.xml
 msgid "Offer"
 msgstr "Angebot"
 
-#: operun/crm/content/account.py:54 operun/crm/content/contact.py:58
+#: operun/crm/content/account.py:54
+#: operun/crm/content/contact.py:58
 msgid "Phone"
 msgstr "Telefon"
 
-#: operun/crm/content/account.py:39 operun/crm/content/contact.py:74
+#: operun/crm/content/account.py:39
+#: operun/crm/content/contact.py:74
 msgid "Please upload an image"
 msgstr "Bitte laden Sie ein Bild hoch"
 
