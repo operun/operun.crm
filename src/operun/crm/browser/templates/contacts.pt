@@ -15,7 +15,7 @@
       <div id="contacts-container">
         <div class="contacts-wrapper" tal:define="contacts python:view.get_contacts()">
 
-          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Contact',   'review_state':'published'});
+          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Contact'});
                            Batch python:modules['Products.CMFPlone'].Batch;
                            b_size python:10;
                            b_start python:0;

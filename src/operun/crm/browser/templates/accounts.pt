@@ -15,7 +15,7 @@
       <div id="accounts-container">
         <div class="accounts-wrapper" tal:define="accounts python:view.get_accounts()">
 
-          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Account',   'review_state':'published'});
+          <div tal:define="liste python:here.portal_catalog.searchResults({'portal_type' : 'Account'});
                            Batch python:modules['Products.CMFPlone'].Batch;
                            b_size python:10;
                            b_start python:0;
