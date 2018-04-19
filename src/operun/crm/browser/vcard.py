@@ -11,24 +11,30 @@ def generate_vcard(obj):
     card = vobject.vCard()
     # Name
     card.add('n')
-    card.n.value = vobject.vcard.Name(family=obj.lastname, given=obj.firstname)
+    card.n.value = vobject.vcard.Name(
+        family=(obj.lastname or ''),
+        given=(obj.firstname or ''),
+    )
     # Fullname
     card.add('fn')
-    card.fn.value = obj.title
+    card.fn.value = (obj.title or '')
     # E-Mail
     card.add('email')
-    card.email.value = obj.email
+    card.email.value = (obj.email or '')
     # Company
     card.add('org')
-    card.org.value = [obj.account.to_object.Title()]
+    account = (obj.account or '')
+    if account:
+        account = account.to_object.Title()
+    card.org.value = [account]
     # Account-Type
     card.add('title')
-    card.title.value = obj.type.title()
+    card.title.value = (obj.type.title() or '')
     # UID
     card.add('uid')
-    card.uid.value = obj.UID()
+    card.uid.value = (obj.UID() or '')
     # Phone
     card.add('tel')
-    card.tel.value = obj.phone
+    card.tel.value = (obj.phone or '')
     # Serialize
     return card.serialize()
