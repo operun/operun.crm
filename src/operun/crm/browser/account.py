@@ -36,7 +36,7 @@ class AccountView(BrowserView):
             context=self.context,
             portal_type='Invoice',
             sort_order='reverse',
-            sort_on='Date',
+            sort_on='title',
         )[:3]
 
     def get_offers(self):
@@ -47,5 +47,5 @@ class AccountView(BrowserView):
             context=self.context,
             portal_type='Offer',
             sort_order='reverse',
-            sort_on='Date',
+            sort_on='title',
         )[:3]
