@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective import dexteritytextindexer
 from operun.crm import MessageFactory as _
 from operun.crm.config import ACCOUNT_TYPES
 from plone import api
@@ -114,6 +115,8 @@ class IAccount(model.Schema):
     form.fieldset('notes',
                   label=_(u'Notes'),
                   fields=['text', ])
+
+    dexteritytextindexer.searchable('text')
 
     text = RichText(
         title=_(u'Notes'),

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective import dexteritytextindexer
 from operun.crm import MessageFactory as _
 from operun.crm.config import ACCOUNT_TYPES
 from plone import api
@@ -74,6 +75,8 @@ class IContact(model.Schema):
         description=_(u'Please upload an image'),
         required=False,
     )
+
+    dexteritytextindexer.searchable('notes')
 
     notes = RichText(
         title=_(u'Notes'),
