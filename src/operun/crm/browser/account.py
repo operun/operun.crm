@@ -32,14 +32,20 @@ class AccountView(BrowserView):
         """
         Return invoices.
         """
-        return api.content.find(portal_type='Invoice',
-                                sort_order='reverse',
-                                sort_on='Date')[:3]
+        return api.content.find(
+            context=self.context,
+            portal_type='Invoice',
+            sort_order='reverse',
+            sort_on='Date',
+        )[:3]
 
     def get_offers(self):
         """
         Return offers.
         """
-        return api.content.find(portal_type='Offer',
-                                sort_order='reverse',
-                                sort_on='Date')[:3]
+        return api.content.find(
+            context=self.context,
+            portal_type='Offer',
+            sort_order='reverse',
+            sort_on='Date',
+        )[:3]
