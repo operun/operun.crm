@@ -1,8 +1,37 @@
 Changelog
 =========
 
+2.3.0 (unreleased)
+------------------
 
-2.2.1 (unreleased)
+- Version bumped to 2.3.0
+
+Added:
+
+- Added new favicon for CRM. #74
+  [netroxen]
+
+- Note fields are now searchable using dexterityindexer.
+  [netroxen]
+
+Changed:
+
+- Account items are now sorted on title instead of date.
+  [netroxen]
+
+- Batching does not limit results for Account items which are not published.
+  [netroxen]
+
+Bugfixes:
+
+- Fixed language code in translation files.
+  [netroxen]
+
+- Plone toolbar icons for Content-Types now fixed.
+  [netroxen]
+
+
+2.2.1 (2018-04-16)
 ------------------
 
 - Version bumped to 2.2.1
