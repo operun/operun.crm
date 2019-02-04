@@ -9,7 +9,7 @@ python:
 matrix:
   fast_finish: true
 install:
-  - python buildout.py
+  - bin/pip install -r requirements.txt
   - bin/buildout -c development.cfg
 before_script:
 - export DISPLAY=:99.0
