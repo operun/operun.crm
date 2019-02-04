@@ -1,5 +1,4 @@
 # Defaults
-
 .coverage
 *.egg-info
 *.log
@@ -7,9 +6,7 @@
 *.py?
 *.swp
 
-
 # Dirs
-
 bin/
 buildout-cache/
 develop-eggs/
@@ -22,9 +19,7 @@ parts/
 test.plone_addon/
 var/
 
-
 # Files
-
 lib64
 log.html
 output.xml
@@ -35,7 +30,6 @@ report.html
 .DS_Store
 
 # Excludes
-
 !.coveragerc
 !.editorconfig
 !.gitattributes
@@ -44,9 +38,7 @@ report.html
 !.travis.yml
 !src/webmontag
 
-
 # Node & Grunt
-
 node_modules/
 package.json
 Gruntfile.js
