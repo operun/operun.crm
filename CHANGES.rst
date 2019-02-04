@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.3.0 (unreleased)
+2.3.0 (2019-02-04)
 ------------------
 
 - Version bumped to 2.3.0
