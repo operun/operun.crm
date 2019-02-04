@@ -1,7 +1,16 @@
-Introduction
-============
+==========
+operun CRM
+==========
 
-operun.crm is a simple Plone based Customer-Relationship-Management (CRM) system. It comes with basic Content-Types for Accounts and Contacts.
+.. image:: https://travis-ci.org/operun/operun.crm.svg?branch=master
+    :target: https://travis-ci.org/operun/operun.crm
+
+
+Introduction
+------------
+
+operun CRM is a simple Plone based Customer-Relationship-Management (CRM) system.
+It comes with basic Content-Types for Accounts, Contacts and Todos.
 
 It contains the following:
 
@@ -13,12 +22,12 @@ This system is inspired by Zurmo. Use this package if other web-based CRMs like 
 
 
 Compatibility
-=============
+-------------
 
 Version 1.0.0 is tested with Plone 4.3.x.
 Version 1.0.0 is tested with Plone 5.0.x with a few exceptions:
 
-* You must define the ``plone.formwidget.contenttree`` inside your buildout.
+* You must define the ``plone.formwidget.contenttree`` package inside your buildout.
 
 .. code-block:: ini
 
@@ -26,7 +35,7 @@ Version 1.0.0 is tested with Plone 5.0.x with a few exceptions:
         ...
         plone.formwidget.contenttree
 
-* For Plone 5 it may also be necessary to pin the package.
+* For Plone 5 it may be necessary to pin ``plone.formwidget.contenttree`` in your versions.
 
 .. code-block:: ini
 
@@ -34,9 +43,9 @@ Version 1.0.0 is tested with Plone 5.0.x with a few exceptions:
 
 
 Installation
-============
+------------
 
-Add this line in the eggs section of your ``buildout.cfg``
+Add this line to the eggs section of your ``buildout.cfg``.
 
 .. code:: ini
 
@@ -45,8 +54,8 @@ Add this line in the eggs section of your ``buildout.cfg``
         operun.crm
 
 
-Installation as a dependency
--------------------------------------------------
+Dependency Installation
+-----------------------
 
 If you want to add ``operun.crm`` as a dependency to another product, use the ``default`` profile in your ``metadata.xml``.
 
@@ -55,38 +64,14 @@ If you want to add ``operun.crm`` as a dependency to another product, use the ``
     <metadata>
       <version>1</version>
         <dependencies>
-            <dependency>profile-operun.crm:default</dependency>
+          ...
+          <dependency>profile-operun.crm:default</dependency>
+          ...
         </dependencies>
     </metadata>
 
 
 Toubleshooting
-==============
+--------------
 
 Please report issues in the bugtracker at https://github.com/operun/operun.crm/issues.
-
-
-Branches
-========
-
-The master-branch supports Plone 4 & 5 only.
-
-
-License
-=======
-
-GNU General Public License, version 2
-
-
-Contributors
-============
-
-* Stefan Antonelli <stefan.antonelli@operun.de>
-* Jesse Stippel <jesse.stippel@operun.de>
-
-
-Tests
-=====
-
-.. image:: https://travis-ci.org/operun/operun.crm.svg?branch=master
-    :target: https://travis-ci.org/operun/operun.crm
