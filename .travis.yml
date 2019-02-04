@@ -5,14 +5,12 @@ cache:
   - eggs
   - downloads
 python:
-  - "2.7"
+  - 2.7
 matrix:
   fast_finish: true
 install:
-  - virtualenv -p `which python` .
-  - bin/pip install -r requirements.txt
-  - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True annotate
-  - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True
+  - python buildout.py
+  - bin/buildout -c development.cfg
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
@@ -22,11 +20,8 @@ script:
   - bin/test
 after_success:
   - bin/createcoverage
-  - bin/pip install coverage
-  - bin/python -m coverage.pickle2json
   - pip install coveralls
   - coveralls
 notifications:
   email:
     - jesse.stippel@operun.de
-    - stefan.arnold@operun.de
